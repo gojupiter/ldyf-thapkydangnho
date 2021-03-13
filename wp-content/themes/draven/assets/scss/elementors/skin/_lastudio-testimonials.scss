@@ -1,0 +1,211 @@
+.lastudio-testimonials--comment-corner{
+  .lastudio-testimonials__comment {
+    position: relative;
+    &:after {
+      content: '';
+      height: 0;
+      width: 0;
+      display: block;
+      position: absolute;
+      border: 0 solid;
+    }
+  }
+}
+
+.lastudio-testimonials {
+
+  .lastudio-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    margin-top: -18px;
+    color: #fff;
+    background-color: #f53e6a;
+
+    &:before {
+      font-size: 23px;
+    }
+
+    &.prev-arrow {
+      left: 20px;
+    }
+
+    &.next-arrow {
+      right: 20px;
+    }
+  }
+
+  .lastudio-slick-dots {
+    margin: 20px 0 0 0;
+
+  }
+
+  &.preset-type-1 {
+    .lastudio-testimonials__item-inner {
+      border: 1px solid #CDCDCD;
+    }
+    .lastudio-testimonials__content {
+      padding: 50px;
+    }
+    .lastudio-testimonials__icon {
+      margin-bottom: 20px;
+    }
+    .lastudio-testimonials__comment {
+      font-size: 18px;
+      line-height: 2;
+      margin-bottom: 30px
+    }
+    .lastudio-testimonials_info {
+      padding-left: 90px;
+      position: relative;
+      min-height: 65px;
+    }
+    .lastudio-testimonials__figure {
+      position: absolute;
+      left: 0;
+      width: 65px;
+      height: 65px;
+    }
+    .lastudio-testimonials__name {
+      font-size: 18px;
+      padding-top: 6px;
+    }
+    .lastudio-testimonials__position {
+      font-size: 12px;
+    }
+  }
+
+  &.preset-type-2 {
+    .lastudio-testimonials__item-inner{
+      padding-left: 100px;
+      min-height: 80px;
+      position: relative;
+      color: #2F2F2F;
+      padding-top: 10px;
+    }
+    .lastudio-testimonials__figure {
+      position: absolute;
+      left: 0;
+      width: 65px;
+      height: 65px;
+    }
+    .lastudio-testimonials__icon{
+      display: none;
+    }
+    .lastudio-testimonials__comment{
+      font-size: 16px;
+      font-weight: bold;
+      color: inherit;
+      @extend %three-font-family;
+    }
+    .lastudio-testimonials__position,
+    .lastudio-testimonials__name{
+      font-size: 18px;
+      font-weight: normal;
+      display: inline-block;
+      color: inherit;
+      margin-right: .5em;
+    }
+    .lastudio-testimonials__position{
+      color: #9B9B9B;
+    }
+    .lastudio-testimonials__rating{
+      padding-top: 5px;
+    }
+  }
+  &.preset-type-3{
+    .lastudio-testimonials__content{
+      text-align: center;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      float: none;
+      height: auto;
+    }
+    .lastudio-testimonials__rating{
+      display: none;
+    }
+    .lastudio-testimonials__comment{
+      order: -1;
+      font-size: 46px;
+      line-height: 1.37;
+    }
+    .lastudio-testimonials__name{
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1;
+      margin-top: 20px;
+    }
+  }
+  &.preset-type-4{
+    .lastudio-testimonials__item-inner{
+      padding-top: 50px;
+    }
+    .lastudio-testimonials__content {
+      padding: 75px 50px 50px;
+      background-color: #fff;
+      position: relative;
+      font-size: 16px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+    .lastudio-testimonials__figure{
+      position: absolute;
+      top: -50px;
+      width: 100px;
+      img{
+        width: 100%;
+      }
+    }
+    .lastudio-testimonials__rating {
+      order: -1;
+      margin-bottom: 5px;
+    }
+    .lastudio-testimonials__comment{
+      line-height: 2;
+    }
+    .lastudio-testimonials__name{
+      font-weight: bold;
+      margin-right: 5px;
+    }
+  }
+}
+
+.slick__dots__style_2 .lastudio-testimonials .lastudio-slick-dots {
+  li {
+    background-color: #D8D8D8;
+    padding: 0;
+    overflow: hidden;
+    span {
+      width: 150px;
+      font-size: 1px;
+      height: 16px;
+      border-radius: 9px;
+      background: none;
+    }
+    &:first-child{
+      border-radius: 9px 0 0 9px;
+    }
+    &:last-child{
+      border-radius: 0 9px 9px 0;
+    }
+    &.slick-active{
+      span{
+        @extend %background-color-primary;
+      }
+    }
+  }
+}
+
+@media(max-width: 1600px){
+  .lastudio-testimonials.preset-type-1 .lastudio-testimonials__content{
+    padding: 30px;
+  }
+  .lastudio-testimonials.preset-type-1 .lastudio-testimonials__name,
+  .lastudio-testimonials.preset-type-1 .lastudio-testimonials__comment{
+    font-size: 16px;
+  }
+}

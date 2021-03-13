@@ -1,0 +1,130 @@
+.lastudio-progress-bar__wrapper {
+	position: relative;
+	height: 30px;
+	background-color: #eeeeee;
+	border-radius: 2px;
+}
+
+.lastudio-progress-bar__status-bar {
+	height: 100%;
+	@extend %background-color-primary;
+}
+
+.lastudio-progress-bar__title-icon {
+	margin-right: 5px;
+}
+
+.lastudio-progress-bar__percent {
+}
+
+.lastudio-progress-bar-type-1 {
+	.lastudio-progress-bar__title {
+		align-self: flex-start;
+	}
+
+	.lastudio-progress-bar__title-text {
+		color: #54595f;
+	}
+
+	.lastudio-progress-bar__title-icon {
+		color: #54595f;
+	}
+
+	.lastudio-progress-bar__percent {
+		margin: 0 10px;
+		color: white;
+		align-self: flex-end;
+	}
+}
+
+.lastudio-progress-bar-type-2 {
+	.lastudio-progress-bar__title {
+		align-self: center;
+		margin-top: 5px;
+	}
+
+	.lastudio-progress-bar__percent {
+		align-self: center;
+		margin-bottom: 5px;
+	}
+}
+
+.lastudio-progress-bar-type-3 {
+	.lastudio-progress-bar__inner{
+		-webkit-flex-flow: column-reverse;
+		-ms-flex-flow: column-reverse;
+		flex-flow: column-reverse;
+		font-size: 12px;
+	}
+	.lastudio-progress-bar__percent {
+		width: 40px;
+		margin-right: -20px;
+		font-weight: bold;
+	}
+	.lastudio-progress-bar__wrapper {
+		height: 6px;
+	}
+	.lastudio-progress-bar__title{
+		justify-content: inherit;
+		-webkit-justify-content: inherit;
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+}
+
+.lastudio-progress-bar-type-4 {
+	.lastudio-progress-bar__title {
+		margin-right: 20px;
+	}
+
+	.lastudio-progress-bar__percent {
+		margin-left: 20px;
+	}
+
+	.lastudio-progress-bar__wrapper {
+		height: 10px;
+	}
+}
+
+.lastudio-progress-bar-type-5 {
+	.lastudio-progress-bar__title {
+		margin-bottom: 5px;
+		align-self: flex-start;
+	}
+
+	.lastudio-progress-bar__percent {
+		margin-left: 10px;
+	}
+}
+
+.lastudio-progress-bar-type-6 {
+	.lastudio-progress-bar__title {
+		align-self: flex-start;
+	}
+
+	.lastudio-progress-bar__wrapper {
+		height: 60px;
+	}
+
+	.lastudio-progress-bar__status {
+		margin-left: 10px;
+	}
+
+	.lastudio-progress-bar__percent {
+		font-size: 25px;
+	}
+}
+
+
+.lastudio-progress-bar-type-7 {
+
+	.lastudio-progress-bar__wrapper {
+		width: 50px;
+		height: 300px;
+		justify-content: flex-end;
+	}
+
+	.lastudio-progress-bar__percent {
+		margin-bottom: 10px;
+	}
+}

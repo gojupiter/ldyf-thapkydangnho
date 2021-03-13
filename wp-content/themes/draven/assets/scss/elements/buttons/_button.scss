@@ -1,0 +1,16 @@
+.elementor-button,
+.button{
+  display: inline-block;
+  line-height: 1;
+  color: #fff;
+  background-color: $secondary-color;
+  text-align: center;
+  @include single-transition();
+  font-weight: bold;
+  padding: 15px 30px;
+  border-color: transparent;
+  &:hover{
+    background-color: $primary-color;
+    color: #fff;
+  }
+}

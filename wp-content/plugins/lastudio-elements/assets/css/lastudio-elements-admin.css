@@ -1,0 +1,35 @@
+.type-elementor_library .elementor-shortcode-input {
+  width: 220px;
+}
+
+.la-element.la-element-available-widgets.la-field-checkbox {
+  padding: 20px 0;
+}
+
+.la-element.la-element-available-widgets.la-field-checkbox > .la-title {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.la-element.la-element-available-widgets.la-field-checkbox > .la-fieldset {
+  width: 100%;
+  margin: 0;
+  float: left;
+}
+
+.la-element.la-element-available-widgets.la-field-checkbox > .la-fieldset ul {
+  max-height: none;
+}
+
+.la-element.la-element-available-widgets.la-field-checkbox > .la-fieldset ul {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.la-element.la-element-available-widgets.la-field-checkbox > .la-fieldset ul li {
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}

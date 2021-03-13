@@ -1,0 +1,129 @@
+.lastudio-dropbar {
+	display: flex;
+
+	&__inner {
+		position: relative;
+	}
+
+	&__button {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		max-width: 100%;
+
+		border: 1px none;
+
+		&-text {
+			flex-grow: 1;
+			text-align: center;
+		}
+
+		&-icon--before:not(:only-child) {
+			body:not(.rtl) & {
+				margin-right: 5px;
+			}
+		}
+
+		&-icon--after:not(:only-child) {
+			body:not(.rtl) & {
+				margin-left: 5px;
+			}
+		}
+	}
+
+	&__content-wrapper {
+		position: absolute;
+		z-index: 999;
+		width: 300px;
+
+		visibility: hidden;
+		pointer-events: none;
+		opacity: 0;
+		transition: 200ms;
+
+		.lastudio-dropbar--none-effect &,
+		.lastudio-dropbar-open & {
+			transition: none;
+		}
+
+		.lastudio-dropbar-open & {
+			visibility: visible;
+			pointer-events: auto;
+			opacity: 1;
+		}
+
+		&:before {
+			position: absolute;
+
+			.lastudio-dropbar-open & {
+				content: '';
+			}
+		}
+	}
+
+	&__content {
+		position: relative;
+		padding: 10px;
+		background-color: #F7F7FB;
+
+		// Animation Style
+		.lastudio-dropbar--fade-effect.lastudio-dropbar-open &             { animation: lastudioFade 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--zoom-in-effect.lastudio-dropbar-open &          { animation: lastudioZoomIn 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--zoom-out-effect.lastudio-dropbar-open &         { animation: lastudioZoomOut 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--slide-up-effect.lastudio-dropbar-open &         { animation: lastudioMoveUp 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--slide-down-effect.lastudio-dropbar-open &       { animation: lastudioMoveDown 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--slide-left-effect.lastudio-dropbar-open &       { animation: lastudioMoveLeft 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--slide-right-effect.lastudio-dropbar-open &      { animation: lastudioMoveRight 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--slide-up-big-effect.lastudio-dropbar-open &     { animation: lastudioMoveUpBig 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--slide-down-big-effect.lastudio-dropbar-open &   { animation: lastudioMoveDownBig 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--slide-left-big-effect.lastudio-dropbar-open &   { animation: lastudioMoveLeftBig 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--slide-right-big-effect.lastudio-dropbar-open &  { animation: lastudioMoveRightBig 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--fall-perspective-effect.lastudio-dropbar-open & { animation: lastudioFallPerspective 500ms cubic-bezier(.26,.69,.37,.96); }
+		.lastudio-dropbar--flip-in-x-effect.lastudio-dropbar-open &        { animation: lastudioFlipInX 500ms; backface-visibility: visible; }
+		.lastudio-dropbar--flip-in-y-effect.lastudio-dropbar-open &        { animation: lastudioFlipInY 500ms; backface-visibility: visible; }
+	}
+
+	// Fixed Layout
+	&-fixed {
+		position: fixed;
+		z-index: 9999;
+		padding: 10px;
+
+		// Fixed position style
+		&--top-left-position      { top: 0; left: 0; }
+		&--top-center-position    { top: 0; left: 50%; transform: translateX( -50% ); }
+		&--top-right-position     { top: 0; right: 0; }
+
+		&--center-left-position   { top: 50%; left: 0; transform: translateY( -50% ); }
+		&--center-center-position { top: 50%; left: 50%; transform: translateX( -50% ) translateY( -50% ); }
+		&--center-right-position  { top: 50%; right: 0; transform: translateY( -50% ); }
+
+		&--bottom-left-position   { bottom: 0; left: 0; }
+		&--bottom-center-position { bottom: 0; left: 50%; transform: translateX( -50% ); }
+		&--bottom-right-position  { bottom: 0; right: 0; }
+	}
+}
+
+.lastudio-dropbar-edit-link {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	display: inline-block;
+	padding: 5px;
+	background-color: #b7084e;
+	color: #fff;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+
+	i {
+		width: 1em;
+		height: 1em;
+	}
+
+	&:hover {
+		background-color: #840739;
+		color: #fff;
+	}
+}

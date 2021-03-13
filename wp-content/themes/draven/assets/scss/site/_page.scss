@@ -1,0 +1,64 @@
+.page-title-voff .section-page-header,
+.page-title-vhide .section-page-header {
+  display: none;
+}
+
+
+.error404{
+  .customerdefine-404-content{
+    min-width: 1170px;
+  }
+  .default-404-content{
+    text-align: center;
+    margin: 0 auto;
+    
+    h1{
+      font-size: 250px;
+      line-height: 1;
+      margin: 0;
+      @extend %text-color-primary;
+    }
+    h5{
+      font-weight: normal;
+      font-size: 36px;
+      margin: 0;
+    }
+    p{
+      font-size: 16px;
+      &.btn-wrapper {
+        margin-top: 40px;
+      }
+    }
+
+    .button{
+      text-transform: uppercase;
+      padding: 22px 40px;
+    }
+
+  }
+
+  .site-main{
+    padding: 0;
+    .page-content{
+      min-height: 100vh;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+  }
+  #colophon{
+    display: none;
+  }
+}
+
+.error404.admin-bar .site-main .page-content{
+  min-height: calc( 100vh - 32px );
+}
+
+body.error404:not(.has-customized-404){
+  background-image: url("assets/images/404-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

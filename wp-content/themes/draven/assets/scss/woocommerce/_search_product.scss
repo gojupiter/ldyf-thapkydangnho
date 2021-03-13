@@ -1,0 +1,10 @@
+@media(min-width: 1100px){
+    .results-container.woocommerce ul.products.products-grid .grid-item {
+        width: 33%;
+    }
+}
+@media(min-width: 1300px){
+    .results-container.woocommerce ul.products.products-grid .grid-item {
+        width: 25%;
+    }
+}

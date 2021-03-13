@@ -1,0 +1,305 @@
+/**
+ * The admin stylesheet for Draven.
+ *
+ * @package Draven
+ * @author  LA-Studio
+ * @link
+ */
+/*------------------------------------------------------------------
+[Table of contents]
+  1. CSS General
+  2. MegaMenu
+  3. Button
+-------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+	1. CSS General
+---------------------------------------------------------------*/
+#customize-controls .la-field-la_ace_editor .ace_editor {
+    min-height: 250px;
+}
+
+/*--------------------------------------------------------------
+    2. MegaMenu
+---------------------------------------------------------------*/
+
+.lastudio-megamenu-settings{
+    display: block;
+    clear: both;
+}
+.lastudio-megamenu-settings h3{
+    margin: 0 !important;
+    padding: 10px 0;
+    font-size: 1.077em;
+}
+
+.lastudio-megamenu-custom-fields .la-element h4{
+    margin: 0;
+    font-size: 1em;
+    font-weight: normal;
+    display: inline-block;
+    line-height: 30px;
+}
+.lastudio-megamenu-settings .la-element .la-title {
+    width: 120px;
+    margin-bottom: 0;
+    display: inline;
+}
+.lastudio-megamenu-settings .la-element .la-fieldset {
+    margin-left: 0;
+}
+.lastudio-megamenu-settings .la-field-textarea textarea{
+    min-height: 0;
+}
+.lastudio-megamenu-custom-fields > .la-element:before,
+.lastudio-megamenu-custom-fields > .la-element:after,
+.lastudio-megamenu-custom-fields > .la-element{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.lastudio-megamenu-custom-fields > .la-element{
+    padding: 10px 0;
+    display: none;
+}
+.lastudio-megamenu-custom-fields > .la-element p{
+    margin-top: 5px;
+}
+.lastudio-megamenu-settings .la-field-icon input {
+    display: block;
+    float: left;
+    padding: 5px 5px;
+    margin: 0 5px 0 0;
+    width: 120px;
+}
+.lastudio-megamenu-settings .la-element-tip-label input {
+    width: 200px;
+}
+.lastudio-megamenu-settings .la-element.la-element-columns .la-title,
+.lastudio-megamenu-settings .la-element.la-field-autocomplete .la-title {
+    width: 100%;
+    margin-bottom: 5px;
+}
+.lastudio-megamenu-settings .la-element.la-field-autocomplete .la-title .la-text-desc,
+.lastudio-megamenu-settings .la-element.la-element-columns .la-title .la-text-desc{
+    margin-top: 0;
+}
+.lastudio-megamenu-settings .la-element.la-field-autocomplete .la-title h4,
+.lastudio-megamenu-settings .la-element.la-element-columns .la-title h4 {
+    line-height: normal;
+}
+
+.lastudio-megamenu-custom-fields > .la-element.show{
+    display: block;
+}
+
+.lastudio-megamenu-custom-fields > .la-element.la-element-tip-label,
+.lastudio-megamenu-custom-fields > .la-element.la-element-tip-color,
+.lastudio-megamenu-custom-fields > .la-element.la-element-tip-background,
+.lastudio-megamenu-custom-fields > .la-element.la-element-dont-link,
+.lastudio-megamenu-custom-fields > .la-element.la-element-dont-show-a-link,
+.lastudio-megamenu-custom-fields > .la-element.la-element-custom-icon{
+    display: block;
+}
+.menu-item-depth-0 .lastudio-megamenu-custom-fields > .la-element.la-element-show-only-icon,
+.menu-item-depth-0 .lastudio-megamenu-custom-fields > .la-element.la-element-custom-styles-for-popup,
+.menu-item-depth-0 .lastudio-megamenu-custom-fields > .la-element.la-element-menu-type{
+    display: block;
+}
+.lastudio-megamenu-custom-fields .la-field-upload input {
+    width: 300px;
+}
+.lastudio-megamenu-custom-fields .la-autocomplete{
+    display: block;
+    clear: both;
+}
+.lastudio-megamenu-settings .la-fieldset .wp-picker-container {
+    width: inherit;
+    display: inline-block !important;
+    margin: 0;
+}
+.wpb_column_container .wpb_vc_row_inner.wpb_sortable{
+    margin-bottom: 0;
+}
+
+.la-metabox-framework .la-body .la-element.la-element-enable-small-layout{
+    display: none !important;
+}
+.post-type-post .la-metabox-framework .la-body .la-element.la-element-enable-small-layout:not(.hidden){
+    display: block !important;
+}
+
+.lastudio-megamenu-custom-fields > .la-element.la-element-submenu-position{
+    display: block;
+}
+.menu-item-depth-0 .lastudio-megamenu-custom-fields > .la-element.la-element-submenu-position{
+    display: none;
+}
+
+.la-element-header-mobile-layout .la-field-image-select {
+    max-width: 300px;
+}
+.group-disable-clone .la_group__action-clone.la-clone-group {
+    display: none !important;
+}
+.lastudio-megamenu-custom-fields .la-element-force-full-width .la-text-desc {
+    clear: both;
+    margin-left: 0;
+}
+
+/** Disable revolution Update Notice **/
+.plugins tr[data-slug="slider-revolution"] + .plugin-update-tr,
+.plugins tr[data-slug="slider-revolution"] + tr + .plugin-update-tr,
+.rs-dashboard div#updates_dw {
+    display: none;
+}
+
+li#customize-control-woocommerce_catalog_columns {
+    display: none !important;
+}
+
+.vc_container_for_children .wpb_content_element:hover > .wpb_element_wrapper {
+    background-color: rgba(128, 128, 128, 0.05);
+}
+
+.specificity_image_select.la-field-image_select label {
+    max-width: 240px;
+    vertical-align: top;
+}
+
+.la-footer .la-block-right {
+    display: none;
+}
+
+/*.hidden-on-customize{*/
+/*display: none;*/
+/*}*/
+
+
+.la-groups.la-accordion.ui-widget {
+    font: inherit;
+}
+.la-groups.la-accordion.ui-widget button{
+    font-family: inherit;
+}
+.la-alpha-slider.ui-widget-content {
+    background: none;
+    border: none;
+}
+.la-field-group .ui-accordion-header-icon {
+    background: none !important;
+}
+.la-field-group .la-group-title {
+    border-radius: 0;
+}
+
+.slickZoomIn{
+    -webkit-animation-name: slickZoomIn;
+    animation-name: slickZoomIn;
+}
+
+@-webkit-keyframes slickZoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.8, .8, .8);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+@keyframes slickZoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(.8, .8, .8);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.force-hidden{
+    display: none !important;
+}
+
+
+#la_pb_widget_area_create p {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+    font-family: sans-serif;
+    font-style: italic;
+}
+
+#la_pb_widget_area_create p input {
+    width: 95%;
+    margin: 15px 0;
+}
+
+#la_pb_widget_area_create button.button {
+    display: inline-block;
+    margin-top: 20px;
+    vertical-align: middle;
+}
+
+.la_pb_widget_area_remove {
+    display: block;
+    padding: 3px 8px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: #E94A4A;
+    text-shadow: none;
+    float: left;
+    margin: 5px 0 0 5px;
+}
+
+.la_pb_widget_area_remove:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*------------------------------------------------*/
+/*---------------[RESPONSIVE LAYOUTS]-------------*/
+/*------------------------------------------------*/
+
+#la_pb_widget_area_create {
+    background-color: #fff;
+    max-width: 96%;
+    margin-right: 0;
+    margin-top: 10px;
+    border-radius: 0px;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+    margin-left: 0px;
+    padding: 4%;
+}
+
+#la_pb_widget_area_create p label {
+    font-size: 1.3em;
+    display: inline-block;
+    width: 85%;
+    font-weight: 600;
+    color: #222;
+    font-family: "Open Sans", sans-serif;
+}
+
+.la_pb_widget_area_remove {
+    margin-top: 11px;
+}
+
+.la-field-content .button.button-primary {
+    line-height: 38px;
+    height: 40px;
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
+}
+.la-field-content .button.button-primary i {
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-right: 10px;
+}

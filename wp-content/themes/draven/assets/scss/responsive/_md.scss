@@ -1,0 +1,53 @@
+/* Medium devices (old desktop, less than 1199px) */
+
+@media (max-width: $screen-md-max ){
+
+  .backtotop-container{
+    .btn-backtotop{
+      bottom: 80px;
+    }
+    &.show{
+      .btn-backtotop{
+        right: 30px;
+      }
+    }
+  }
+
+  .page-title-v1 .use-custom-text .page-title {
+    &:after {
+      margin: 15px auto;
+    }
+  }
+
+  .products-list-mini{
+    .product_item{
+      .product_item--inner{
+        margin-bottom: 40px;
+      }
+      .product_item--thumbnail{
+        width: 80px;
+        margin-right: 20px;
+      }
+      .product_item--title{
+        margin-bottom: 5px;
+      }
+      .product_item--info-action{
+        .button{
+          padding: 5px 15px;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+
+}
+
+/* Medium devices (desktops, 992px only) */
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max){
+
+}

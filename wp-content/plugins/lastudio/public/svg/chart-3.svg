@@ -1,0 +1,6 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" xml:space="preserve" width="48" height="48">
+   <g class="nc-icon-wrapper" fill="none">
+      <path class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" d="M27,9 c9.941,0,18,8.059,18,18s-8.059,18-18,18S9,36.941,9,27" stroke-linejoin="miter"></path>
+      <path class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" d="M21,3 C11.059,3,3,11.059,3,21h18V3z" stroke-linejoin="miter"></path>
+   </g>
+</svg>

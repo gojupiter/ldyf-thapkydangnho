@@ -1,0 +1,74 @@
+.elementor-lastudio-team-member {
+  > .lastudio-carousel{
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.wc-view-toggle{
+  span i {
+    font-family: 'dliconoutline';
+  }
+  .fa-list:before {
+    content: "\e970";
+  }
+  .fa-th:before {
+    content: "\ed64";
+  }
+}
+
+.la-pagination{
+  i.fa{
+    font-family: 'dliconoutline';
+    vertical-align: middle;
+  }
+  .fa-angle-double-left:before,
+  .fa-arrow-left:before{
+    content: "\eacf";
+  }
+  .fa-angle-double-right:before,
+  .fa-arrow-right:before{
+    content: "\ead0";
+  }
+}
+
+.btn-close-hamburger-menu-full i:before,
+.lahfb-responsive-menu-icon-wrap.open-icon-wrap i:before,
+.btn-close-hamburger-menu i:before,
+.btn-close-newsletter-popup i:before,
+.btn-close-search i:before,
+.btn-close-cart i:before,
+.shop_table .product-remove .remove:before{
+  font-family: 'dliconoutline';
+  content: "\ed2b";
+}
+
+.lahfb-responsive-menu-icon-wrap i:before{
+  font-family: 'dliconoutline';
+  content: "\ed76";
+}
+
+
+#customer_login .col-1 h2:before{
+  content: "\ef2e";
+  display: inline-block;
+  font: normal normal normal 14px/1 dliconoutline;
+  font-size: inherit;
+  speak: none;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-right: 10px;
+}
+
+#customer_login .col-2 h2:before{
+  content: "\ef2d";
+  display: inline-block;
+  font: normal normal normal 14px/1 dliconoutline;
+  font-size: inherit;
+  speak: none;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-right: 10px;
+}

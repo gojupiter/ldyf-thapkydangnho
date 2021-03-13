@@ -1,0 +1,22 @@
+# LaStudio Elements For Elementor - by La-StudioWeb.com
+
+#### 1.0.2.6 - 2019-07-13
+* Compatibility with Elementor 2.6.1
+
+#### 1.0.2.5 - 2019-06-18
+* Fixed js editor problem when update the Elementor plugin
+* Fixed advanced carousel banners type
+* Remove the default override js file
+
+#### 1.0.2.4 - 2019-03-09
+* Fix: Tags & Category does not display on the product widget
+* Tweak: Change the default value of tab widget to `editor`
+
+Files to change
+    lastudio-elements.php
+    plugin.php
+    modules/query-control/module.php
+    modules/query-control/controls/query.php
+    modules/woocommerce/widgets/products.php
+    modules/tabs-widget/widgets/tabs-widget.php
+    assets/js/lastudio-elements-editor.js

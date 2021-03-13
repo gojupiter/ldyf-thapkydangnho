@@ -1,0 +1,15 @@
+
+/* Extra small devices (phones, less than 479px) */
+@media (max-width: 479px) {
+
+  .wc-toolbar .wc-view-count {
+    margin: 0 0 15px;
+  }
+  .wc-toolbar p.woocommerce-result-count {
+    display: none;
+  }
+
+}
+@media (max-width: 379px) {
+
+}

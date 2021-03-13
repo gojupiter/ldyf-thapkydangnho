@@ -1,0 +1,98 @@
+.elementor-accordion{
+  .elementor-accordion-item{
+    background-color: rgba(#303955, 0.5);
+    border-width: 0;
+    margin-bottom: 20px;
+  }
+  .elementor-tab-title{
+    color: rgba(#fff, 0.8);
+    font-weight: normal;
+    font-size: 18px;
+    padding: 26px 40px;
+    &:hover{
+      color: #fff;
+      a{
+        color: inherit;
+      }
+    }
+    &.elementor-active{
+      color: #fff;
+      font-weight: bold;
+      padding-top: 35px;
+    }
+  }
+  .elementor-tab-content{
+    border-width: 0;
+    color: rgba(#fff, 0.8);
+    font-size: 16px;
+    line-height: 2.25;
+    padding: 0 40px 40px;
+  }
+  .elementor-active{
+    background-color: #303955;
+  }
+}
+
+.slotholder {
+  filter: none !important;
+}
+
+.wpcf7-submit{
+  @include border-radius(30px);
+  background-color: #181818;
+  color: #fff;
+  border: none;
+  padding: 14px 40px;
+  &:hover{
+    @extend %background-color-primary;
+  }
+}
+
+
+a.size-full img[class*="wp-image"] {
+  width: 100%;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.section-shape-at-bottom-right .elementor-shape-bottom {
+  width: 64%;
+  right: -32%;
+  left: auto;
+  bottom: -3%;
+}
+
+.section-shape-at-bottom-left .elementor-shape-bottom {
+  width: 64%;
+  left: -32%;
+  bottom: -3%;
+}
+.elementor-section.elementor-section-boxed>.elementor-container {
+  max-width: 1190px;
+}
+.elementor-accordion .elementor-accordion-item+.elementor-accordion-item{
+  border: 1px solid #d4d4d4;
+}
+.elementor-accordion .elementor-tab-title.elementor-active {
+  border-bottom-style: none;
+}
+.elementor-accordion .elementor-tab-content.elementor-active {
+  border-top-style: none;
+}
+
+.slick-controls-auto {
+  display: none;
+}
+
+.elementor-icon-box-title {
+  margin: 0;
+}
+
+.elementor-widget-lastudio-products{
+  .wc-view-toggle,
+  .wc-view-count {
+    display: none !important;
+  }
+}

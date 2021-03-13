@@ -1,0 +1,127 @@
+.lastudio-carousel {
+	margin-left: -10px;
+	margin-right: -10px;
+
+	&-wrap {
+		&.lastudio-equal-cols {
+			.slick-track {
+				display: flex;
+				display: -webkit-flex;
+				align-items: stretch;
+				-webkit-align-items: stretch;
+			}
+			.lastudio-carousel__item-link{
+				display: flex;
+				display: -webkit-flex;
+			}
+			.lastudio-carousel__item {
+				float: none;
+				height: auto;
+				display: flex;
+				display: -webkit-flex;
+				flex-direction: column;
+				-webkit-flex-direction: column;
+				img {
+					object-fit: cover;
+					flex-grow: 1;
+				}
+				.lastudio-carousel__item-inner,
+				.lastudio-banner,
+				.lastudio-banner__link {
+					display: flex;
+					display: -webkit-flex;
+					flex-direction: column;
+					-webkit-flex-direction: column;
+					flex-direction: column;
+					align-items: center;
+					-webkit-align-items: center;
+				}
+				.lastudio-carousel__item-inner,
+				.lastudio-carousel__item-inner > *:last-child,
+				.lastudio-banner__link {
+					flex-grow: 1;
+				}
+			}
+		}
+	}
+
+	&__item {
+		padding: 10px;
+
+		.lastudio-banner {
+			float: none;
+		}
+	}
+	&__content {
+		position: relative;
+		z-index: 2;
+		max-width: 100%;
+	}
+
+	&__content,
+	&__item-title,
+	&__item-text {
+		transition: all 200ms linear;
+	}
+
+	.lastudio-arrow {
+		position: absolute;
+		top: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		z-index: 999;
+		transition: all 200ms linear;
+
+		&:before {
+			display: block;
+			width: 100%;
+			text-align: center;
+			line-height: 0;
+			transition: all 200ms linear;
+		}
+		&.prev-arrow {
+			left: 0;
+		}
+		&.next-arrow {
+			right: 0;
+		}
+	}
+
+	.lastudio-slick-dots {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 3;
+		margin-top: 15px;
+		li {
+			padding: 5px;
+			margin: 0;
+			list-style: none;
+			span {
+				transition: all 200ms linear;
+				display: block;
+				cursor: pointer;
+				width: 14px;
+				height: 14px;
+				border-radius: 7px;
+				padding: 0;
+				text-indent: 10em;
+				overflow: hidden;
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.elementor-lastudio-carousel .lastudio-carousel,
+.elementor-lastudio-posts .lastudio-carousel > .lastudio-posts {
+	&:not(.slick-initialized) {
+		display: flex;
+		visibility: hidden;
+	}
+}

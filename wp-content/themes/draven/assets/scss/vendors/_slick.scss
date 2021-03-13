@@ -1,0 +1,240 @@
+/* Slider */
+.slick-slider {
+	position: relative;
+	display: block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-khtml-user-select: none;
+	-ms-touch-action: pan-y;
+	touch-action: pan-y;
+	-webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+.slick-list:focus {
+	outline: none;
+}
+.slick-loading .slick-list {
+	background-color: #fff;
+}
+.slick-list.dragging {
+	cursor: pointer;
+	cursor: hand;
+}
+.slick-slider .slick-list,
+.slick-track, .slick-slide{
+	transform: translate3d(0, 0, 0);
+}
+.slick-track {
+	position: relative;
+	left: 0;
+	top: 0;
+	display: block;
+	zoom: 1;
+}
+.slick-track:before,
+.slick-track:after {
+	content: "";
+	display: table;
+}
+.slick-track:after {
+	clear: both;
+}
+.slick-loading .slick-track {
+	visibility: hidden;
+}
+.slick-slide {
+	float: left;
+	height: 100%;
+	min-height: 1px;
+	display: none;
+}
+.slick-slide img {
+	display: block;
+}
+.slick-slide.slick-loading img {
+	display: none;
+}
+.slick-slide.dragging img {
+	pointer-events: none;
+}
+/*Fixed issue of image overlap*/
+.slick-initialized .slick-slide {
+	display: block;
+	position: relative;
+	z-index: 1;
+	outline: none;
+}
+.slick-initialized .slick-slide.slick-active {
+	z-index: 9;
+}
+.slick-loading .slick-slide {
+	visibility: hidden;
+}
+.slick-vertical .slick-slide {
+	display: block;
+	height: auto;
+	border: none;
+}
+
+/* Arrows */
+.slick-next.slick-disabled,
+.slick-prev.slick-disabled {
+	cursor: not-allowed;
+}
+
+
+.la-slick-slider.slick-initialized.laslick_has_animation{
+	.slick-slide {
+		animation-duration: 1s;
+		-webkit-animation-duration: 1s;
+		animation-fill-mode: both;
+		-webkit-animation-fill-mode: both;
+		&.slick-active {
+			+ .slick-active {
+				-webkit-animation-delay: 50ms;
+				animation-delay: 50ms;
+				+ .slick-active {
+					-webkit-animation-delay: 150ms;
+					animation-delay: 150ms;
+					+ .slick-active {
+						-webkit-animation-delay: 250ms;
+						animation-delay: 250ms;
+						+ .slick-active {
+							-webkit-animation-delay: 350ms;
+							animation-delay: 350ms;
+							+ .slick-active {
+								-webkit-animation-delay: 450ms;
+								animation-delay: 450ms;
+								+ .slick-active {
+									-webkit-animation-delay: 550ms;
+									animation-delay: 550ms;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+$slickAnimations : (
+	fadeIn: fadeOut,
+	fadeInDown: fadeOutDown,
+	fadeInUp: fadeOutUp,
+	zoomIn: zoomOut,
+	slickZoomIn: slickZoomOut,
+	zoomInDown: zoomOutDown,
+	zoomInUp: zoomOutUp,
+	slideInDown: slideOutDown,
+	slideInUp: slideOutUp
+);
+
+.la-slick-slider.slick-initialized{
+	@each $effectIn, $effectOut in $slickAnimations {
+		&.laslick_#{$effectIn} {
+			.slick-slide{
+				animation-name: $effectOut;
+				-webkit-animation-name: $effectOut;
+				&.slick-active {
+					animation-name: $effectIn;
+					-webkit-animation-name: $effectIn;
+				}
+			}
+		}
+	}
+}
+
+
+@-webkit-keyframes slickZoomIn {
+	from {
+		opacity: 0;
+		-webkit-transform: scale3d(.8, .8, .8);
+	}
+
+	50% {
+		opacity: 1;
+	}
+}
+@keyframes slickZoomIn {
+	from {
+		opacity: 0;
+		transform: scale3d(.8, .8, .8);
+	}
+
+	50% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes slickZoomOut {
+	from {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+		-webkit-transform: scale3d(.8, .8, .8);
+	}
+	to {
+		opacity: 0;
+	}
+}
+@keyframes slickZoomOut {
+	from {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+		transform: scale3d(.8, .8, .8);
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+
+.slick__nav_style1{
+	.slick-slider{
+		.slick-arrow {
+			background: #fff;
+			width: 70px !important;
+			height: 70px !important;
+			transform: none;
+			top: auto;
+			bottom: 41px;
+			color: #111111 !important;
+			margin: 0;
+			opacity: 1;
+			&:hover{
+				@extend %background-color-primary;
+				color: #fff !important;
+			}
+		}
+		.slick-prev {
+			right: auto;
+		}
+		.slick-next {
+			right: auto;
+			left: 70px;
+		}
+	}
+}
+
+
+.la_testimonials .slick-list{
+	overflow: visible;
+}

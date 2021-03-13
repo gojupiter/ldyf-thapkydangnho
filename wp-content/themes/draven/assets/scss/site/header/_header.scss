@@ -1,0 +1,48 @@
+/*
+ *  Header
+ */
+
+.hamburger-op-icon.open-button{
+  i:before{
+    font-family: 'dliconoutline';
+    content: "\ed2b";
+  }
+}
+
+.enable-header-transparency {
+  #lastudio-header-builder {
+    position: absolute;
+    background-color: transparent;
+  }
+}
+
+/*
+ *  Header Vertical
+ */
+
+
+.lahfb-area.header-area-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+  @media (min-width: 1824px) {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+.btn-close-hamburger-menu {
+  position: absolute;
+  left: 30px;
+  font-size: 30px;
+  line-height: 30px;
+  height: 30px;
+  top: 50px;
+  @include single-transition();
+  &:hover{
+    @include rotate(90deg);
+  }
+  i {
+    display: inline-block;
+    vertical-align: top;
+  }
+}

@@ -1,0 +1,74 @@
+.lastudio-button__icon {
+	color: white;
+	width: 25px;
+	height: 25px;
+	font-size: 25px;
+	margin: 3px;
+}
+
+.lastudio-button__label {
+	color: white;
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 700;
+	text-align: left;
+}
+
+.lastudio-button__state {
+	padding: 20px 40px;
+	.button__size-large & {
+		padding: 30px 65px;
+	}
+}
+
+.lastudio-button__plane {
+	&-normal {
+		background-color: #f53e6a;
+	}
+
+	&-hover {
+		background-color: #54595f;
+	}
+}
+
+.elementor-button{
+	border-radius: 0;
+	@extend %background-color-primary;
+	&.elementor-size-lg {
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 20px;
+		padding: 20px 55px;
+		border-radius: 0;
+	}
+	&.elementor-size-xl {
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 20px;
+		padding: 30px 65px;
+		border-radius: 0;
+	}
+	&:hover{
+		@extend %background-color-secondary;
+	}
+}
+.elementor-widget-button{
+	&.size-full{
+		.elementor-button{
+			width: 100%;
+		}
+	}
+}
+.outline-btn{
+	.elementor-button{
+		color: #2F2F2F;
+		border: 1px solid #969696;
+		background: none;
+		border-radius: 0;
+		&:hover{
+			border-color: transparent;
+			color: #fff;
+			@extend %background-color-primary;
+		}
+	}
+}

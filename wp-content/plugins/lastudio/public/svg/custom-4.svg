@@ -1,0 +1,12 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.28 55.69">
+  <g>
+    <polygon class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-miterlimit="10" points="50.79 54.69 2.49 54.69 1.06 30.13 52.22 30.13 50.79 54.69"/>
+    <g>
+      <path class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-miterlimit="10" d="M560.29,627.67a9.87,9.87,0,1,1-9.87-9.87A9.87,9.87,0,0,1,560.29,627.67Z" transform="translate(-523.78 -616.8)"/>
+      <path class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-miterlimit="10" d="M539.4,640.69a20.84,20.84,0,0,1,25.18,2.4" transform="translate(-523.78 -616.8)"/>
+      <path class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-miterlimit="10" d="M536.26,643.09a21.56,21.56,0,0,1,3.14-2.4" transform="translate(-523.78 -616.8)"/>
+    </g>
+    <line class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-miterlimit="10" x1="1.44" y1="36.63" x2="51.84" y2="36.63"/>
+    <line class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-miterlimit="10" x1="32.97" y1="48.88" x2="44.88" y2="48.88"/>
+  </g>
+</svg>

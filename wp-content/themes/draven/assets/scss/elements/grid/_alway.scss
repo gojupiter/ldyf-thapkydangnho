@@ -1,0 +1,129 @@
+.loop__item__meta:empty {
+  display: none;
+}
+.loop__item__inner2,
+.loop__item__inner{
+  display: block;
+  height: 100%;
+}
+
+.loop__item__inner,
+.loop__item__thumbnail{
+  position: relative;
+  overflow: hidden;
+}
+.loop__item__thumbnail--linkoverlay{
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  @include single-transition(all,.4s,.1s);
+}
+
+.loop__item__thumbnail--bkg{
+  background: {
+    repeat: no-repeat;
+    position: 50% 50%;
+    size: cover;
+    clip: border-box;
+    color: rgba(#c9c9ca, 0.14);
+  }
+  > img{
+    width: 100%;
+    display: block;
+    visibility: hidden;
+    height: auto;
+  }
+}
+
+.loop__item__termlink{
+  margin-bottom: 10px;
+  a:not(:last-child):after {
+    content: ", ";
+  }
+}
+
+.loop__item__title{
+  .entry-title{
+    margin: 0 0 20px;
+  }
+}
+
+.loop__item__meta{
+  margin-bottom: 5px;
+  .byline{
+    .screen-reader-text{
+      position: static !important;
+    }
+    &:not(:first-child):before{
+      content: "-";
+      padding-right: 5px;
+    }
+  }
+  i{
+    display: none;
+  }
+}
+
+.loop__item__desc{
+  line-height: 2.1428571429;
+  margin-bottom: 20px;
+}
+
+.gitem-zone-height-mode-original{
+  padding-bottom: 0 !important;
+}
+.gitem-hide-img{
+  img{
+    display: none !important;
+  }
+}
+.gitem-zone-height-mode-auto{
+  &:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+  img {
+    display: none !important;
+  }
+  &.gitem-zone-height-mode-auto-4-3{
+    &:before{
+      padding-top: 75%;
+    }
+  }
+  &.gitem-zone-height-mode-auto-3-4{
+    &:before{
+      padding-top: 133.33333333%;
+    }
+  }
+  &.gitem-zone-height-mode-auto-16-9{
+    &:before{
+      padding-top: 56.25%;
+    }
+  }
+  &.gitem-zone-height-mode-auto-9-16{
+    &:before{
+      padding-top: 177.77777778%;
+    }
+  }
+}
+
+
+.loop__item__thumbnail--bkg.gitem-zone-height-mode-custom img {
+  display: none;
+}
+
+.loop__item__thumbnail{
+  > .gitem-zone-height-mode-original2 {
+    padding-bottom: 0 !important;
+  }
+  > .slick-slider{
+     ~ .loop__item__thumbnail--linkoverlay{
+       display: none;
+     }
+  }
+}

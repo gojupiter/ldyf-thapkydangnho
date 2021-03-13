@@ -1,0 +1,8 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" xml:space="preserve" width="48" height="48">
+   <g fill="none">
+      <path class="svg__stroke svg__color" d="M32,42H14a8,8,0,0,1-8-8V16" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1" stroke-linejoin="miter"></path>
+      <path class="svg__stroke svg__color" d="M16,6H34a8,8,0,0,1,8,8V32" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1" stroke-linejoin="miter"></path>
+      <rect class="svg__stroke svg__color" x="2" y="2" width="8" height="8" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1" data-color="color-2" stroke-linejoin="miter"></rect>
+      <rect class="svg__stroke svg__color" x="38" y="38" width="8" height="8" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1" data-color="color-2" stroke-linejoin="miter"></rect>
+   </g>
+</svg>

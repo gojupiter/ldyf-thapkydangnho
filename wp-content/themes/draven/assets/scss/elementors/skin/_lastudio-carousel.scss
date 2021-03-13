@@ -1,0 +1,114 @@
+.lastudio-slick-dots {
+  li {
+    span {
+      background-color: #E7E7E7;
+    }
+    &.slick-active,
+    &:hover {
+      span{
+        @extend %background-color-primary;
+      }
+    }
+  }
+}
+
+.lastudio-carousel {
+  .lastudio-carousel__item {
+    &-title {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .lastudio-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    margin-top: -18px;
+    color: #fff;
+    &:before {
+      font-size: 23px;
+    }
+    &.prev-arrow {
+      left: 20px;
+    }
+    &.next-arrow {
+      right: 20px;
+    }
+  }
+}
+
+.carousel__shadow {
+  .slick-slide {
+    &:hover {
+      .lastudio-carousel__item-inner {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
+      }
+    }
+  }
+}
+
+.logo-partners .lastudio-carousel__item {
+  filter: grayscale(100);
+  -webkit-filter: grayscale(100);
+  opacity: 0.7;
+  @include single-transition();
+  &:hover {
+    filter: grayscale(0);
+    -webkit-filter: grayscale(0);
+  }
+}
+
+.lastudio-advance-carousel-layout-simple{
+  .lastudio-carousel__item-inner{
+    position: relative;
+     > a{
+       &:after{
+         content: '';
+         position: absolute;
+         left: 0;
+         top: 0;
+         bottom: 0;
+         right: 0;
+         z-index: 3;
+       }
+     }
+  }
+}
+
+.service__style_1{
+  .lastudio-advance-carousel-layout-simple{
+    .lastudio-carousel__item-inner{
+      @include single-transition();
+      > a{
+        span{
+          position: relative;
+          display: block;
+          &:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #000;
+            opacity: 0;
+            @include single-transition();
+          }
+        }
+      }
+      &:hover{
+        @include translateY(-20px);
+        > a{
+          span{
+            &:before{
+              opacity: .2;
+            }
+          }
+        }
+        .lastudio-carousel__item-title{
+          @extend %text-color-primary;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+.lastudio-testimonials {
+	width: 100%;
+	position: relative;
+
+	&.lastudio-equal-cols {
+		.slick-track {
+			display: flex;
+			align-items: stretch;
+		}
+
+		.lastudio-testimonials__item {
+			display: flex;
+			flex-direction: column;
+			float: none;
+			height: auto;
+		}
+
+		.lastudio-testimonials__item-inner {
+			flex-grow: 1;
+		}
+	}
+
+	&__instance {
+		width: 100%;
+		position: relative;
+
+		&:not(.slick-initialized) {
+			display: flex;
+			visibility: hidden;
+		}
+
+		&.lastudio-testimonials--comment-corner {
+			.lastudio-testimonials__comment {
+				&:after {
+					content: '';
+				}
+			}
+		}
+	}
+
+	&__item {
+		outline: none;
+	}
+
+	&__content {
+
+	}
+
+	&__figure {
+		position: relative;
+		overflow: hidden;
+
+		img.lastudio-testimonials__tag-img {
+			max-width: 100%;
+			object-fit: cover;
+		}
+	}
+
+
+	&__title {
+		max-width: 100%;
+	}
+
+	&__comment {
+		max-width: 100%;
+	}
+
+	&__name {
+		max-width: 100%;
+	}
+
+	&__position {
+		max-width: 100%;
+	}
+
+	&__date {
+		max-width: 100%;
+	}
+
+	.lastudio-arrow {
+		position: absolute;
+		top: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		z-index: 999;
+		transition: all 200ms linear;
+
+		&:before {
+			display: block;
+			width: 100%;
+			text-align: center;
+			line-height: 0;
+			transition: all 200ms linear;
+		}
+
+		&.prev-arrow {
+			left: 0;
+		}
+
+		&.next-arrow {
+			right: 0;
+		}
+	}
+
+	.lastudio-slick-dots {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 99;
+
+		li {
+			padding: 5px;
+			margin: 0;
+			list-style: none;
+
+			span {
+				display: block;
+				cursor: pointer;
+				width: 10px;
+				height: 10px;
+				border-radius: 5px;
+				padding: 0;
+				text-indent: 10em;
+				overflow: hidden;
+				transition: all 200ms linear;
+
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+}

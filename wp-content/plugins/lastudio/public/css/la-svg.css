@@ -1,0 +1,10 @@
+.la-svg:before{
+    content: "";
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-size: 20px;
+    vertical-align: top;
+    background-position: center center;
+    background-repeat: no-repeat;
+}

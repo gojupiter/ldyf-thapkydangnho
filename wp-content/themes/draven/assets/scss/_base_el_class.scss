@@ -1,0 +1,276 @@
+@media (max-width: $screen-md-max) {
+  .md-text-left {
+    text-align: left;
+  }
+  .md-text-right {
+    text-align: right;
+  }
+  .md-text-center {
+    text-align: center;
+  }
+  .md-text-justify {
+    text-align: justify;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .sm-text-left {
+    text-align: left !important;
+  }
+  .sm-text-right {
+    text-align: right !important;
+  }
+  .sm-text-center {
+    text-align: center !important;
+  }
+  .sm-text-justify {
+    text-align: justify !important;
+  }
+}
+@media (max-width: $screen-xs-max) {
+  .xs-text-left {
+    text-align: left !important;
+  }
+  .xs-text-right {
+    text-align: right !important;
+  }
+  .xs-text-center {
+    text-align: center !important;
+  }
+  .xs-text-justify {
+    text-align: justify !important;
+  }
+}
+.background-color-primary{
+  @extend %background-color-primary;
+}
+.background-color-secondary{
+  @extend %background-color-secondary;
+}
+.background-color-secondary{
+  @extend %background-color-three;
+}
+.background-color-body{
+  @extend %background-color-body;
+}
+.background-color-border{
+  @extend %background-color-border;
+}
+
+@include la-make-dynamic-color-mixin();
+
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-inline-block,
+.visible-lg-block,
+.visible-lg-inline,
+.visible-lg-inline-block {
+  display: none !important;
+}
+
+.visible-block{
+  display: block !important;
+}
+.visible-inline-block{
+  display: inline-block!important;
+}
+.visible-inline{
+  display: inline!important;
+}
+
+@media (max-width: $screen-xs-max) {
+  @include responsive-visibility('.visible-xs');
+}
+.visible-xs-block {
+  @media (max-width: $screen-xs-max) {
+    display: block !important;
+  }
+}
+.visible-xs-inline {
+  @media (max-width: $screen-xs-max) {
+    display: inline !important;
+  }
+}
+.visible-xs-inline-block {
+  @media (max-width: $screen-xs-max) {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  @include responsive-visibility('.visible-sm');
+}
+.visible-sm-block {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    display: block !important;
+  }
+}
+.visible-sm-inline {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    display: inline !important;
+  }
+}
+.visible-sm-inline-block {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  @include responsive-visibility('.visible-md');
+}
+.visible-md-block {
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    display: block !important;
+  }
+}
+.visible-md-inline {
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    display: inline !important;
+  }
+}
+.visible-md-inline-block {
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  @include responsive-visibility('.visible-lg');
+}
+.visible-lg-block {
+  @media (min-width: $screen-lg-min) {
+    display: block !important;
+  }
+}
+.visible-lg-inline {
+  @media (min-width: $screen-lg-min) {
+    display: inline !important;
+  }
+}
+.visible-lg-inline-block {
+  @media (min-width: $screen-lg-min) {
+    display: inline-block !important;
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  @include responsive-invisibility('.hidden-xs');
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  @include responsive-invisibility('.hidden-sm');
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  @include responsive-invisibility('.hidden-md');
+}
+
+@media (min-width: $screen-lg-min) {
+  @include responsive-invisibility('.hidden-lg');
+}
+
+@media print {
+  @include responsive-visibility('.visible-print');
+}
+.visible-print-block {
+  display: none !important;
+
+  @media print {
+    display: block !important;
+  }
+}
+.visible-print-inline {
+  display: none !important;
+
+  @media print {
+    display: inline !important;
+  }
+}
+.visible-print-inline-block {
+  display: none !important;
+
+  @media print {
+    display: inline-block !important;
+  }
+}
+
+@media print {
+  @include responsive-invisibility('.hidden-print');
+}
+
+
+.la-media-wrapper {
+  object,
+  embed,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+  &.la-media-aspect-origin{
+    object,
+    embed,
+    video,
+    iframe {
+      height: auto;
+    }
+  }
+  &.la-media-aspect-235,
+  &.la-media-aspect-43,
+  &.la-media-aspect-169{
+    position: relative;
+    height: 0;
+    padding-top: 56.25%;
+    overflow: hidden;
+    object,
+    embed,
+    video,
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &.la-media-aspect-235{
+    padding-top: 42.55319149%;
+  }
+  &.la-media-aspect-43{
+    padding-top: 75%;
+  }
+}
+
+.flex-video {
+  position: relative;
+  height: 0;
+  padding-bottom: 75%;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  object,
+  embed,
+  video,
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &.widescreen {
+    padding-bottom: 56.25%;
+  }
+}
+
+.single-post-content .flex-video {
+  margin-bottom: 30px;
+}
+
+

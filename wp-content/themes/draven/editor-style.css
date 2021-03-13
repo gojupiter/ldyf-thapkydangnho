@@ -1,0 +1,182 @@
+/**
+ * The editor stylesheet for Draven.
+ *
+ * @package Draven
+ * @author  LA-Studio
+ * @link
+ */
+/*------------------------------------------------------------------
+[Table of contents]
+  1. Css for editor
+-------------------------------------------------------------------*/
+body{
+    font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    color: #535353;
+}
+p{
+    font-size: inherit;
+    line-height: 1.75;
+}
+.wp-block-button__link {
+    font-size: 14px;
+}
+.wp-block-latest-posts.is-grid{
+    padding: 0;
+    margin: 0;
+}
+.wp-block-latest-posts.is-grid li {
+    margin-bottom: 8px;
+}
+.wp-block {
+    max-width: 870px;
+}
+.wp-block[data-align=wide] {
+    max-width: 1200px;
+}
+.wp-block[data-type="core/separator"] {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.wp-block[data-align=full]{
+    max-width: none;
+}
+.wp-block-media-text.has-media-on-the-right {
+    align-items: flex-start;
+}
+.wp-block-media-text.has-media-on-the-right .editor-inner-blocks {
+    padding-left: 0;
+}
+.wp-block-pullquote{
+    border: none;
+    color: inherit;
+}
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+    padding: 0 20px;
+}
+.wp-block-pullquote blockquote>.editor-rich-text p{
+    font-size: 18px;
+}
+.editor-block-list__layout>.editor-block-list__block>.editor-block-list__block-edit{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+ul.wp-block-archives,
+.wp-block-categories ul,
+.wp-block-latest-posts,
+.block-library-list .editor-rich-text__tinymce,
+.block-editor ol,
+.block-editor ul{
+    margin-left: 20px;
+    padding: 0;
+}
+
+.block-library-list .editor-rich-text__tinymce ol,
+.block-library-list .editor-rich-text__tinymce ul{
+    margin-left: 20px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    padding: 0;
+}
+.editor-block-list__block[data-align=center][data-type="core/categories"] {
+    text-align: inherit;
+}
+.wp-block-table .wp-block-table__cell-content{
+    padding: 0;
+}
+input, select, textarea, table, table th, table td{
+    border-color: #CDCDCD;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    color: #2F2F2F;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    color: #F53E6A;
+}
+
+h1{
+    font-size: 34px;
+}
+h2{
+    font-size: 30px;
+}
+h3{
+    font-size: 24px;
+}
+h4{
+    font-size: 20px;
+}
+h5{
+    font-size: 18px;
+}
+h6{
+    font-size: 16px;
+}
+table {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+table th {
+    font-weight: normal;
+}
+
+table,
+table th,
+table td {
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+    vertical-align: top;
+}
+
+table p {
+    margin-bottom: 0;
+}
+
+table thead tr th, table thead tr td {
+    font-weight: normal;
+}
+.wp-block-quote:not(.is-large):not(.is-style-large){
+    border-left: 3px solid #F53E6A;
+}
+.wp-block-quote:not(.is-large):not(.is-style-large) p{
+    font-size: 16px;
+}
+blockquote {
+    padding: 0 20px;
+    margin: 0 0 30px;
+    font-size: 16px;
+    line-height: 1.75;
+    border-left: 3px solid #F53E6A;
+}
+pre{
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 14px;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #23282d;
+    border: 1px solid #e2e4e7;
+    border-radius: 4px;
+}
+.wp-block-pullquote__citation,
+.wp-block-quote__citation{
+    font-size: 14px;
+    color: inherit;
+    text-transform: none;
+}

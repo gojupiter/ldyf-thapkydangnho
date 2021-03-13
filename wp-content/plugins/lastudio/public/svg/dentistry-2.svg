@@ -1,0 +1,8 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47 39.2">
+    <g>
+        <g>
+            <path class="svg__stroke svg__color" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" fill="none" d="M25.34,3.22h0c2.7.23,3.34-1.89,6.5-1.62S36,5.5,35.76,8.44s-4,6.82-3.71,8.61c1,6.52-1.65,18.57-6.09,18.21-4-.33,5.22-14.94-2.06-15.56h0c-7.26-.62-.67,15.33-4.64,15-4.46-.38-5-12.73-2.92-19,.58-1.72-2.44-6.19-2.19-9.12S16,.25,19.16.51,22.59,3,25.31,3.21Z"/>
+            <path class="svg__stroke svg__color" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" fill="none" d="M.5,20.89C17.09,20.89,8.31,25,14.86,36a5.49,5.49,0,0,0,5.05,2.67,4.41,4.41,0,0,0,2.3-.62,2.47,2.47,0,0,1,1.29-.37h0a2.45,2.45,0,0,1,1.29.37,4.41,4.41,0,0,0,2.3.62A5.48,5.48,0,0,0,32.14,36c6.55-11-2.23-15.14,14.36-15.14"/>
+        </g>
+    </g>
+</svg>

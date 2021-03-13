@@ -1,0 +1,119 @@
+.menu{
+  .mm-icon{
+    padding-#{$global-right} : 5px;
+    width: 18px;
+  }
+  .tip {
+    color: #fff;
+    font-size: 8px;
+    line-height: 1;
+    padding: 2px 4px;
+    position: absolute;
+    font-weight: normal;
+    bottom: 100%;
+    bottom: calc( 100% + 5px );
+    bottom: -webkit-calc( 100% + 5px );
+    bottom: -moz-calc( 100% + 5px );
+    #{$global-right}: 15px;
+
+    &.hot {
+      @extend %background-color-primary;
+      .tip-arrow:before {
+        @extend %text-color-primary;
+      }
+    }
+    .tip-arrow:before {
+      content: "";
+      border-top: 4px solid;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      position: absolute;
+      left: 50%;
+      margin-left: -5px;
+      top: 100%;
+    }
+  }
+}
+
+.accordion-menu{
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  .tip{
+    bottom: auto;
+    right: auto;
+    top: -5px;
+  }
+  ul{
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  li{
+    position: relative;
+    > ul{
+      display: none;
+      margin-left: 25px;
+    }
+    &.open{
+      > .narrow{
+        i:before{
+          @include rotate(00deg);
+        }
+      }
+    }
+    > .narrow{
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 20px;
+      height: 50px;
+      line-height: 50px;
+      cursor: pointer;
+      i{
+        width: 9px;
+        display: block;
+        margin-top: 25px;
+        border-bottom: 1px solid;
+        position: relative;
+        &,
+        &:before{
+          @extend %default-transition;
+        }
+        &:before{
+          width: 100%;
+          content: "";
+          border-bottom: 1px solid;
+          display: block;
+          position: absolute;
+          top: 0;
+          @include rotate(90deg);
+        }
+      }
+    }
+  }
+}
+
+
+
+.lahfb-nav-wrap.has-megamenu{
+  #nav > li{
+    &:hover{
+      >ul.sub-menu{
+        opacity: 1;
+        visibility: visible;
+        margin-top: 0;
+      }
+    }
+    > ul.sub-menu{
+      margin-top: 20px;
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: margin .1s linear .3s,visibility .1s linear .3s,opacity .1s linear .3s;
+      -moz-transition: margin .1s linear .3s,visibility .1s linear .3s,opacity .1s linear .3s;
+      transition: margin .1s linear .3s,visibility .1s linear .3s,opacity .1s linear .3s;
+    }
+  }
+}

@@ -1,0 +1,208 @@
+#elementor-preview-responsive-wrapper{
+    transition: none !important;
+}
+
+.elementor-device-laptop #elementor-preview-responsive-wrapper {
+    width: 1366px;
+    height: 800px;
+    padding: 40px 10px 70px
+}
+
+.elementor-device-tablet #elementor-preview-responsive-wrapper{
+    width: 1024px;
+    height: 768px;
+    padding: 20px 55px;
+}
+
+.elementor-device-width800 #elementor-preview-responsive-wrapper {
+    width: 768px;
+    height: 1025px;
+    padding: 40px 10px 70px;
+}
+
+/*.elementor-device-mobile #elementor-preview-responsive-wrapper {*/
+    /*width: 640px;*/
+    /*height: 380px;*/
+    /*padding: 10px 70px 10px 40px;*/
+/*}*/
+
+.elementor-device-width640 #elementor-preview-responsive-wrapper {
+    width: 360px;
+    height: 640px;
+    padding: 40px 10px 70px;
+}
+
+/*Show only controls related to specific device and hide rest*/
+
+body:not(.elementor-device-laptop) .elementor-control.elementor-control-responsive-laptop,
+body:not(.elementor-device-width800) .elementor-control.elementor-control-responsive-width800,
+body:not(.elementor-device-width640) .elementor-control.elementor-control-responsive-width640 {
+    display: none;
+}
+
+/* Using Device Width instead of icon for convinence to specify type of device used */
+.eicon-device-width800,
+.eicon-device-laptop,
+.eicon-laptop{
+    font-family: dashicons;
+}
+.eicon-device-laptop:before,
+.eicon-laptop:before{
+    content: '\f547';
+}
+
+.eicon-device-tablet {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+}
+
+.eicon-device-width800:before {
+    content: '\f471';
+}
+.eicon-device-width640:before{
+    content: '\e917';
+}
+
+/* Styling Responsive Switchers as grid instead of Horizonal columns */
+/*.elementor-control-responsive-switchers {*/
+/*    flex-wrap: wrap !important;*/
+/*    width: 100% !important;*/
+/*    margin: 5px 0 !important;*/
+/*}*/
+
+/* indicating active responsive switcher */
+/*.elementor-device-width640 .elementor-responsive-switcher-width640,*/
+/*.elementor-device-width800 .elementor-responsive-switcher-width800,*/
+/*.elementor-device-laptop .elementor-responsive-switcher-laptop {*/
+/*    background-color: #71d7f7;*/
+/*}*/
+
+.elementor-device-width800 .elementor-responsive-switcher.elementor-responsive-switcher-width800,
+.elementor-device-laptop .elementor-responsive-switcher.elementor-responsive-switcher-laptop {
+    height: 2em;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+.elementor-responsive-switcher-tablet .eicon-device-tablet {
+    left: -9px;
+    top: 9px;
+}
+
+
+div#elementor-panel.ui-resizable {
+    transition: none !important;
+    min-height: 90vh;
+}
+
+div#elementor-panel.ui-draggable-dragging ~ #elementor-preview{
+    pointer-events: none;
+}
+
+div#lastudio-elementor-collapse-vertical-panel {
+    position: relative;
+}
+div#lastudio-elementor-collapse-vertical-panel input#elementor-vertical-mode-switcher-preview-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    left: 0;
+    top: 0;
+}
+div#elementor-panel.ui-resizable.active #lastudio-elementor-collapse-vertical-panel i:before {
+    content: "\eab0";
+}
+div#elementor-panel.ui-resizable.active #elementor-panel-footer,
+div#elementor-panel.ui-resizable.active #elementor-panel-content-wrapper {
+    display: none;
+}
+div#elementor-panel.ui-resizable.active {
+    max-height: 40px;
+    min-height: 40px;
+}
+
+#lastudio-tabs-template-edit-modal .dialog-widget-content {
+    width: 100%;
+    height: 90vh;
+    min-height: 700px;
+    background-color: #f1f3f5;
+}
+
+@media (min-width: 1440px) {
+    #lastudio-tabs-template-edit-modal .dialog-widget-content {
+        max-width: 90vw;
+    }
+}
+
+#lastudio-tabs-template-edit-modal .dialog-close-button {
+    font-size: 25px;
+}
+
+#lastudio-tabs-template-edit-modal .dialog-header {
+    display: none;
+}
+
+#lastudio-tabs-template-edit-modal .dialog-message {
+    padding: 0;
+    height: 100%;
+}
+
+#lastudio-tabs-template-edit-modal .dialog-message iframe {
+    height: 100%;
+}
+
+#lastudio-tabs-template-edit-modal #lastudio-tabs-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f1f3f5;
+    z-index: 9999;
+    transform: translateZ(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lastudio-tabs-template-edit-modal #lastudio-tabs-loading .elementor-loader-wrapper {
+    top: auto;
+    left: auto;
+    transform: none;
+}
+
+#elementor-widget-template-empty-templates {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#elementor-widget-template-empty-templates .elementor-widget-template-empty-templates-title {
+    padding: 25px 0 25px;
+}
+
+#elementor-widget-template-empty-templates .elementor-widget-template-empty-templates-icon {
+    font-size: 96px;
+    color: #d5dadf;
+}
+
+#elementor-widget-template-empty-templates .elementor-widget-template-empty-templates-footer {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+.elementor-label-inline>.elementor-control-content>.elementor-control-field>.elementor-control-input-wrapper {
+    min-width: 55px;
+}
+#lastudio-tabs-template-edit-modal i.dialog-close-button-icon:before {
+    content: '\f00d';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.elementor-icons-manager__tab__item__content .dlicon {
+    font-size: 25px;
+}

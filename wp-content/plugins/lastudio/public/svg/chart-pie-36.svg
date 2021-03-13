@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+   <g fill="none" transform="translate(0.5, 0.5)">
+      <path class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" d="M21,8 C10.507,8,2,16.507,2,27s8.507,19,19,19s19-8.507,19-19H21V8z" stroke-linejoin="miter"></path>
+      <path class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" d="M27,2v19h19 C46,10.507,37.493,2,27,2z" stroke-linejoin="miter"></path>
+   </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g class="svg__stroke" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g class="svg__color" transform="translate(-786.000000, 0.000000)" stroke="currentColor">
+            <g>
+                <g transform="translate(744.000000, 0.000000)">
+                    <g transform="translate(42.000000, 0.000000)">
+                        <polygon points="44.5 0.5 20.5 0.5 20.5 21.5 29.5 14.5 44.5 14.5"></polygon>
+                        <path d="M18.5,42.172 C18.5,40.964 17.971,39.815 17.024,39.064 C15.578,37.916 13.07,36.5 9.5,36.5 C5.93,36.5 3.422,37.916 1.976,39.064 C1.029,39.815 0.5,40.964 0.5,42.172 L0.5,44.5 L18.5,44.5 L18.5,42.172 Z"></path>
+                        <circle cx="9.5" cy="26.5" r="5"></circle>
+                        <path d="M44.5,42.172 C44.5,40.964 43.971,39.815 43.024,39.064 C41.578,37.916 39.07,36.5 35.5,36.5 C31.93,36.5 29.422,37.916 27.976,39.064 C27.029,39.815 26.5,40.964 26.5,42.172 L26.5,44.5 L44.5,44.5 L44.5,42.172 Z"></path>
+                        <circle cx="35.5" cy="26.5" r="5"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

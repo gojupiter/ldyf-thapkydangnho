@@ -1,0 +1,13 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47 44.53">
+    <g>
+        <g>
+            <path class="svg__stroke svg__color" stroke="currentColor" fill="none" d="M23.5,4A13.8,13.8,0,1,0,10,27.41a13.81,13.81,0,0,1,9.2-10.29A13.78,13.78,0,0,1,23.5,4Z"/>
+            <path class="svg__stroke svg__color" stroke="currentColor" fill="none" d="M37,27.41A13.8,13.8,0,1,0,23.5,4a13.8,13.8,0,0,1,4.31,13.1A13.8,13.8,0,0,1,37,27.41Z"/>
+            <path class="svg__stroke svg__color" stroke="currentColor" fill="none" d="M10,27.41a13.8,13.8,0,1,0,27,0,13.78,13.78,0,0,1-13.5-2.83A13.8,13.8,0,0,1,10,27.41Z"/>
+            <path class="svg__stroke svg__color" stroke="currentColor" fill="none" d="M23.5,4a13.78,13.78,0,0,0-4.31,13.1,13.81,13.81,0,0,1,8.62,0A13.8,13.8,0,0,0,23.5,4Z"/>
+            <path class="svg__stroke svg__color" stroke="currentColor" fill="none" d="M10,27.41A13.8,13.8,0,0,0,23.5,24.58a13.72,13.72,0,0,1-4.31-7.46A13.81,13.81,0,0,0,10,27.41Z"/>
+            <path class="svg__stroke svg__color" stroke="currentColor" fill="none" d="M37,27.41a13.8,13.8,0,0,0-9.19-10.29,13.78,13.78,0,0,1-4.31,7.46A13.78,13.78,0,0,0,37,27.41Z"/>
+            <path class="svg__stroke svg__color" stroke="currentColor" fill="none" d="M23.5,24.58a13.78,13.78,0,0,0,4.31-7.46,13.81,13.81,0,0,0-8.62,0A13.72,13.72,0,0,0,23.5,24.58Z"/>
+        </g>
+    </g>
+</svg>

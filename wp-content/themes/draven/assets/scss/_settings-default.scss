@@ -1,0 +1,196 @@
+
+$global-radius: 5px;
+
+$primary-color:   #F53E6A;
+$secondary-color: #2F2F2F;
+$success-color:   #6dde6d;
+$warning-color:   #c43002;
+$alert-color:     #F3E538;
+$three-color :    #A3A3A3;
+$border-color:    #CDCDCD;
+$heading-color:   #2F2F2F;
+
+$four-color:      #0A9400;
+$five-color:      #4C3891;
+$six-color:       #1C34AE;
+
+
+
+$body-background-color: #fff;
+$body-font-color: #535353;
+
+$body-font-family: 'Poppins', sans-serif;
+$heading-font-family: 'Poppins', sans-serif;
+
+$highlight-font-family: 'Poppins', serif;
+
+$header-top-background-color: #fff;
+$header-top-text-color: $secondary-color;
+$header-top-link-color: $secondary-color;
+$header-top-link-hover-color: $primary-color;
+
+$header-background-color: #fff;
+$header-text-color: $secondary-color;
+$header-link-color: $secondary-color;
+$header-link-hover-color: $primary-color;
+$menu-lv-1-color: $secondary-color;
+$menu-lv-1-bg-color: rgba(0,0,0,0);
+$menu-lv-1-hover-color: $primary-color;
+$menu-lv-1-hover-bg-color: rgba(0,0,0,0);
+
+$header-transparency-background-color: rgba(0,0,0,0);
+$header-transparency-link-color: #fff;
+$header-transparency-link-hover-color: $primary-color;
+$header-transparency-menu-lv-1-color: #fff;
+$header-transparency-menu-lv-1-bg-color: rgba(0,0,0,0);
+$header-transparency-menu-lv-1-hover-color: $primary-color;
+$header-transparency-menu-lv-1-hover-bg-color: rgba(0,0,0,0);
+
+
+$menu-dropdown-bg-color: #fff;
+$menu-dropdown-link-color: #696c75;
+$menu-dropdown-link-bg-color: rgba(0,0,0,0);
+$menu-dropdown-link-active-color: #252634;
+$menu-dropdown-link-active-bg-color: rgba(0,0,0,0);
+$menu-dropdown-link-hover-color: #252634;
+$menu-dropdown-link-hover-bg-color: rgba(0,0,0,0);
+
+$menu-wide-bg-color: #fff;
+$menu-wide-heading-color: #252634;
+$menu-wide-link-color: #252634;
+$menu-wide-link-bg-color: rgba(0,0,0,0);
+$menu-wide-link-active-color: #252634;
+$menu-wide-link-active-bg-color: rgba(0,0,0,0);
+$menu-wide-link-hover-color: #252634;
+$menu-wide-link-hover-bg-color: rgba(0,0,0,0);
+
+$aside-background-color: #fff;
+$aside-text-color: #8a8a8a;
+$aside-heading-color: #232324;
+$aside-link-color: #232324;
+$aside-link-hover-color: $primary-color;
+
+$header-mb-background-color: #fff;
+$header-mb-text-color: #232324;
+$header-mb-link-color: #232324;
+$mobile-menu-bg-color: #fff;
+$mobile-menu-lv-1-color: #252634;
+$mobile-menu-lv-1-bg-color: rgba(0,0,0,0);
+$mobile-menu-lv-1-hover-color: #fff;
+$mobile-menu-lv-1-hover-bg-color: #2635c4;
+$mobile-menu-lv-2-color: #252634;
+$mobile-menu-lv-2-bg-color: rgba(0,0,0,0);
+$mobile-menu-lv-2-hover-color: #fff;
+$mobile-menu-lv-2-hover-bg-color: #2635c4;
+
+$page-header-link-color: #b5b7c4;
+$page-header-title-color: #252634;
+$page-header-link-hover-color: $primary-color;
+
+
+$footer-background-color: #fff;
+$footer-text-color: #8a8a8a;
+$footer-heading-color:#343538;
+$footer-link-color: #8a8a8a;
+$footer-link-hover-color: $primary-color;
+
+$footer-copyright-background-color: #fff;
+
+
+$global-text-direction: ltr !default;
+$global-left: if($global-text-direction == rtl, right, left);
+$global-right: if($global-text-direction == rtl, left, right);
+
+@function ltr_value($var1,$var2){
+  @if $global-text-direction == rtl{
+    @return $var2;
+  }
+  @else {
+    @return $var1;
+  }
+}
+
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+$screen-mb-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$screen-xlg-min: 1824px;
+
+$screen-mb-max:              ($screen-mb-min - 1) !default;
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+$screen-lg-max:              ($screen-xlg-min - 1) !default;
+
+%three-font-family,
+%highlight-font-family{
+  font-family: $highlight-font-family;
+}
+%heading-font-family{
+  font-family: $heading-font-family;
+}
+%body-font-family{
+  font-family: $body-font-family;
+}
+
+%background-color-primary{
+  background-color: $primary-color;
+}
+%background-color-secondary{
+  background-color: $secondary-color;
+}
+%background-color-three{
+  background-color: $three-color;
+}
+%background-color-body{
+  background-color: $body-font-color;
+}
+%background-color-border{
+  background-color: $border-color;
+}
+%background-color-heading{
+  background-color: $heading-color;
+}
+
+
+@mixin la-make-dynamic-color-mixin(){
+  $list_colors: ('primary': $primary-color, 'secondary': $secondary-color, 'heading': $heading-color, 'three': $three-color, 'body': $body-font-color );
+  @each $name, $value in $list_colors{
+    %text-color-#{$name}{
+      color: $value;
+    }
+    .text-color-#{$name}{
+      color: $value !important;
+    }
+    %border-color-#{$name}{
+      border-color: $value;
+    }
+    .border-color-#{$name}{
+      border-color: $value !important;
+    }
+    @each $dir in (top, bottom, left, right){
+      %border-#{$dir}-color-#{$name}{
+        border-#{$dir}-color: $value;
+      }
+      .border-#{$dir}-color-#{$name}{
+        border-#{$dir}-color: $value !important;
+      }
+    }
+  }
+  %border-color{
+    border-color: $border-color;
+  }
+  .border-color{
+    border-color: $border-color !important;
+  }
+  @each $dir in (top, bottom, left, right){
+    %border-#{$dir}-color{
+      border-#{$dir}-color: $border-color;
+    }
+    .border-#{$dir}-color{
+      border-#{$dir}-color: $border-color !important;
+    }
+  }
+}

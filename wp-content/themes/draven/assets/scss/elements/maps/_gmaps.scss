@@ -1,0 +1,33 @@
+.gm-parent-iw div div div {
+  opacity: 1 !important;
+}
+
+.gm-parent-iw .gmaps--info_content {
+  font-size: 18px;
+  padding: 20px;
+  ul{
+    li {
+      padding: 13px 0;
+      width: 300px;
+      .elementor-icon-list-text {
+        padding-left: 20px;
+      }
+    }
+  }
+}
+
+.gm-style-iw-prev > div:nth-child(1),
+.gm-parent-iw > div > div:last-child > div > div:first-child > div:nth-child(1){
+  border-top: 10px solid #fff !important;
+  z-index: 2;
+}
+.gm-style-iw-prev > div:nth-child(2),
+.gm-parent-iw > div > div:last-child > div > div:first-child > div:nth-child(2){
+  box-shadow: 4px 13px 65px 0 rgba(154,154,154,0.50) !important;
+  background: #fff !important;
+  border-radius: 0 !important;
+}
+.gm-style-iw-prev > div:nth-child(3),
+.gm-parent-iw > div > div:last-child > div > div:first-child > div:nth-child(3){
+  display: none;
+}

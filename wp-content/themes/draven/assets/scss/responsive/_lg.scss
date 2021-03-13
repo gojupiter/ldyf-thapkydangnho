@@ -1,0 +1,30 @@
+@media (max-width: 1500px) {
+
+}
+
+@media (max-width: 1400px){
+
+
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+  .cart-flyout .cart_list{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+  .product_list_widget li{
+    margin-bottom: 30px;
+    + li{
+      margin-top: 0;
+    }
+  }
+}
+
+/* Large devices (large desktops, 1200px only) */
+@media (min-width: $screen-lg-min) and (max-width: 1439px) {
+
+}

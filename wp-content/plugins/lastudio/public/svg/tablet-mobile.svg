@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+   <g fill="currentColor" transform="translate(0.5, 0.5)">
+      <path class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" d="M30,34H6 c-2.2,0-4-1.8-4-4V6c0-2.2,1.8-4,4-4h34c2.2,0,4,1.8,4,4v12" stroke-linejoin="miter"></path>
+      <polyline fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" points=" 30,28 14,28 14,8 38,8 38,18 " stroke-linejoin="miter"></polyline>
+      <path class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" d="M44,46H32c-1.1,0-2-0.9-2-2 V20c0-1.1,0.9-2,2-2h12c1.1,0,2,0.9,2,2v24C46,45.1,45.1,46,44,46z" stroke-linejoin="miter"></path>
+      <line class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" x1="8" y1="16" x2="8" y2="20" stroke-linejoin="miter"></line>
+      <line class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" x1="30" y1="24" x2="46" y2="24" stroke-linejoin="miter"></line>
+      <line class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" x1="30" y1="38" x2="46" y2="38" stroke-linejoin="miter"></line>
+      <path class="svg__stroke svg__color" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-miterlimit="10" d="M32,42" stroke-linejoin="miter"></path>
+   </g>
+</svg>

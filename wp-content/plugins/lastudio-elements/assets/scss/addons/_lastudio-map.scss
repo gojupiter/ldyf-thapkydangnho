@@ -1,0 +1,27 @@
+[data-element_type="lastudio-advanced-map.default"] {
+	.lastudio-map-message {
+		width: 100%;
+		height: 300px;
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.lastudio-map-message__text {
+			z-index: 2;
+		}
+
+		.lastudio-map-message__dammy-map {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-image: url( '../images/dummy-map.png' );
+			background-repeat: no-repeat;
+			background-color: white;
+			background-size: cover;
+			filter: blur(1.5px);
+			z-index: 1;
+		}
+	}
+}

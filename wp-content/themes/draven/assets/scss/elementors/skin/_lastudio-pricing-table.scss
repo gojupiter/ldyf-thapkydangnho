@@ -1,0 +1,101 @@
+.pricing-table__price-val sup {
+  font-size: 16px;
+  vertical-align: super;
+}
+.pricing-table {
+  text-align: center;
+  padding: 30px;
+
+  &__icon-box {
+    > * {
+      &:before {
+        font-size: 40px;
+      }
+    }
+  }
+  .pricing-table__title {
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
+  .pricing-table__subtitle {
+    margin: 10px 0 0 0;
+    padding: 0;
+  }
+  &__price {
+    padding: 15px 0;
+    &-prefix,
+    &-val {
+      font-size: 23px;
+    }
+    &-desc {
+      padding: 0;
+      margin: 5px 0 0;
+    }
+  }
+  &__action {
+    padding: 20px 0 0 0;
+  }
+}
+
+.pricing_table__style1 {
+  font-size: 18px;
+  .pricing-table{
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.14);
+    padding-bottom: 50px;
+    background-image: url(assets/images/pricing-table-bg.png);
+    background-repeat: no-repeat;
+    background-position: 0 bottom;
+  }
+  .item-bullet {
+    font-family: dliconoutline;
+    color: #2F21B3;
+    margin-right: 20px;
+    &:before{
+      content: "\ecf0";
+    }
+  }
+  .pricing-table__features{
+    width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left !important;
+  }
+  .pricing-feature{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .item-excluded{
+    opacity: 0.5;
+  }
+  .pricing-table__action{
+    .pricing-table-button{
+      font-weight: normal;
+      text-transform: uppercase;
+      border-radius: 30px;
+      border: 2px solid #D2D2D2;
+      background: transparent;
+      color: #2f2f2f;
+      padding: 20px 44px;
+      &:hover{
+        background-color: #2F21B3;
+        border-color: #2F21B3;
+        color: #fff;
+      }
+    }
+  }
+  .pricing-table__price{
+    .pricing-table__price-suffix,
+    .pricing-table__price-prefix{
+      font-size: 18px;
+    }
+    .pricing-table__price-val{
+      font-size: 64px;
+      color: #2F21B3;
+      sub, sup{
+        font-size: 20px;
+        vertical-align: super;
+      }
+    }
+  }
+}

@@ -1,0 +1,171 @@
+@font-face {
+  font-family: 'lastudioelements';
+  src:  url('../fonts/lastudioelements.eot?n7pshk');
+  src:  url('../fonts/lastudioelements.eot?n7pshk#iefix') format('embedded-opentype'),
+    url('../fonts/lastudioelements.ttf?n7pshk') format('truetype'),
+    url('../fonts/lastudioelements.woff?n7pshk') format('woff'),
+    url('../fonts/lastudioelements.svg?n7pshk#lastudioelements') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+[class^="lastudioelements-icon-"], [class*=" lastudioelements-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'lastudioelements' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.elementor-panel [class^="lastudioelements-icon-"]:before,
+.elementor-panel [class*=" lastudioelements-icon-"]:before {
+  display: block;
+  font-size: 48px;
+  line-height: 28px;
+}
+
+.lastudioelements-icon-1:before {
+  content: "\e900";
+}
+.lastudioelements-icon-2:before {
+  content: "\e901";
+}
+.lastudioelements-icon-3:before {
+  content: "\e902";
+}
+.lastudioelements-icon-4:before {
+  content: "\e903";
+}
+.lastudioelements-icon-5:before {
+  content: "\e904";
+}
+.lastudioelements-icon-6:before {
+  content: "\e905";
+}
+.lastudioelements-icon-7:before {
+  content: "\e906";
+}
+.lastudioelements-icon-8:before {
+  content: "\e907";
+}
+.lastudioelements-icon-9:before {
+  content: "\e908";
+}
+.lastudioelements-icon-10:before {
+  content: "\e909";
+}
+.lastudioelements-icon-11:before {
+  content: "\e90a";
+}
+.lastudioelements-icon-12:before {
+  content: "\e90b";
+}
+.lastudioelements-icon-13:before {
+  content: "\e90c";
+}
+.lastudioelements-icon-14:before {
+  content: "\e90d";
+}
+.lastudioelements-icon-15:before {
+  content: "\e90e";
+}
+.lastudioelements-icon-16:before {
+  content: "\e90f";
+}
+.lastudioelements-icon-17:before {
+  content: "\e910";
+}
+.lastudioelements-icon-18:before {
+  content: "\e911";
+}
+.lastudioelements-icon-19:before {
+  content: "\e912";
+}
+.lastudioelements-icon-20:before {
+  content: "\e913";
+}
+.lastudioelements-icon-21:before {
+  content: "\e914";
+}
+.lastudioelements-icon-22:before {
+  content: "\e915";
+}
+.lastudioelements-icon-23:before {
+  content: "\e916";
+}
+.lastudioelements-icon-24:before {
+  content: "\e917";
+}
+.lastudioelements-icon-25:before {
+  content: "\e918";
+}
+.lastudioelements-icon-26:before {
+  content: "\e919";
+}
+.lastudioelements-icon-27:before {
+  content: "\e91a";
+}
+.lastudioelements-icon-28:before {
+  content: "\e91b";
+}
+.lastudioelements-icon-29:before {
+  content: "\e91c";
+}
+.lastudioelements-icon-30:before {
+  content: "\e91d";
+}
+.lastudioelements-icon-31:before {
+  content: "\e91e";
+}
+.lastudioelements-icon-32:before {
+  content: "\e91f";
+}
+.lastudioelements-icon-33:before {
+  content: "\e920";
+}
+.lastudioelements-icon-34:before {
+  content: "\e921";
+}
+.lastudioelements-icon-35:before {
+  content: "\e922";
+}
+.lastudioelements-icon-36:before {
+  content: "\e923";
+}
+.lastudioelements-icon-37:before {
+  content: "\e924";
+}
+.lastudioelements-icon-38:before {
+  content: "\e925";
+}
+.lastudioelements-icon-39:before {
+  content: "\e926";
+}
+.lastudioelements-icon-40:before {
+  content: "\e927";
+}
+.lastudioelements-icon-41:before {
+  content: "\e928";
+}
+.lastudioelements-icon-42:before {
+  content: "\e929";
+}
+.lastudioelements-icon-43:before {
+  content: "\e92a";
+}
+.lastudioelements-icon-44:before {
+  content: "\e92b";
+}
+.lastudioelements-icon-45:before {
+  content: "\e92c";
+}
+.lastudioelements-icon-46:before {
+  content: "\e92d";
+}

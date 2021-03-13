@@ -1,0 +1,253 @@
+.woocommerce-checkout{
+  form.login,
+  form.checkout_coupon{
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
+}
+.checkout_coupon .button {
+  padding: 15px 30px;
+  border: none;
+  line-height: 20px;
+}
+.woocommerce{
+  form.checkout.woocommerce-checkout {
+    position: relative;
+    .woocommerce-error{
+      margin-bottom: 30px;
+    }
+    h3{
+      font-size: 20px;
+      margin-bottom: 45px;
+      &:after{
+        content: "";
+        width: 50px;
+        display: block;
+        margin-top: 10px;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        border-color: inherit;
+      }
+    }
+  }
+  #customer_details{
+    width: 50%;
+    float: left;
+    margin-bottom: 30px;
+    .col-1,
+    .col-2{
+      width: 100%;
+    }
+  }
+  #order_review_heading,
+  #order_review{
+    float: right;
+    width: percentage(5/12);
+  }
+  #order_review{
+    padding: 100px 50px 30px;
+    border-width: 2px;
+    border-style: solid;
+    position: relative;
+    margin-bottom: 50px;
+    border-color: rgba(#343538,0.1);
+  }
+
+  #order_review_heading{
+    position: absolute;
+    right: 0;
+    padding: 40px 0 0 50px;
+    margin: 0;
+  }
+  #ship-to-different-address{
+    margin: 10px 0;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    &:after{
+      display: none;
+    }
+    .input-checkbox{
+      float: left;
+      margin: 4px 10px 0 0;
+    }
+  }
+  #order_comments {
+    min-height: 120px;
+    line-height: inherit;
+    background-color: #f7f7f7;
+    border-color: #f7f7f7;
+    padding: 20px;
+  }
+}
+
+table.woocommerce-checkout-review-order-table{
+  @extend %text-color-secondary;
+  border: none;
+  th{
+    border-width: 0 0 1px 0;
+    padding: 8px 0;
+  }
+  td{
+    border-width: 0;
+    padding: 8px 0;
+  }
+  .amount{
+
+  }
+  .product-total{
+    text-align: right;
+  }
+  .variation,
+  .product-quantity{
+    font-weight: normal;
+    @extend %text-color-body;
+  }
+  .variation{
+    font-size: 12px;
+  }
+  .cart_item{
+    line-height: 20px;
+    th,
+    td{
+      vertical-align: top;
+    }
+    &:first-child{
+      td{
+        padding-top: 27px;
+      }
+    }
+    &:last-child{
+      td{
+        padding-bottom: 27px;
+        border-bottom-width: 1px;
+      }
+    }
+  }
+  tfoot{
+    td,
+    th{
+      padding: 15px 0;
+      border-bottom-width: 1px;
+    }
+    td{
+      text-align: right;
+    }
+  }
+  .shipping{
+    td{
+      text-align: left;
+    }
+    th{
+      vertical-align: top;
+    }
+    label{
+      text-transform: uppercase;
+      .amount{
+        font-size: inherit;
+      }
+    }
+  }
+  .order-total .amount {
+    font-size: 18px;
+    font-weight: normal;
+  }
+}
+
+.wc_payment_methods{
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+  .wc_payment_method{
+    margin-bottom: 10px;
+    label{
+      text-transform: uppercase;
+      margin-left: 5px;
+      @extend %text-color-secondary;
+    }
+  }
+  .payment_box{
+    padding: 10px 0;
+    line-height: 24px;
+    font-size: 12px;
+    p:last-child{
+      margin-bottom: 0;
+    }
+  }
+  .payment_method_paypal{
+    img{
+      display: inline-block;
+      max-width: 140px;
+    }
+  }
+  .about_paypal{
+    display: inline-block;
+    text-transform: none;
+    font-weight: normal;
+    font-size: 12px;
+    text-decoration: underline;
+  }
+}
+
+.woocommerce-order-received #section_page_header {
+  display: none;
+}
+
+.woocommerce-order{
+  h1{
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  h3,
+  h2{
+    font-size: 24px;
+    margin: 0;
+    padding: 0 0 20px;
+  }
+  .woocommerce-table{
+    margin-bottom: 40px;
+  }
+  ul{
+    padding: 0;
+    margin-bottom: 30px;
+    strong{
+      @extend %text-color-secondary;
+    }
+  }
+}
+
+.woocommerce-MyAccount-content{
+  h3,
+  h2{
+    font-size: 24px;
+  }
+  .woocommerce-table{
+    margin-bottom: 40px;
+  }
+}
+
+.woocommerce-terms-and-conditions-wrapper {
+  margin-bottom: 20px;
+}
+
+.place-order > .button {
+  margin-left: -52px;
+  margin-right: -52px;
+  width: calc(100% + 104px);
+  margin-bottom: -32px;
+  display: block;
+  border: none;
+  padding: 25px 20px;
+  font-weight: normal;
+  @media(max-width: 992px){
+    margin-left: -17px;
+    margin-right: -17px;
+    width: calc(100% + 34px);
+    margin-bottom: -2px;
+  }
+}
+
+.form-row.place-order {
+  margin-bottom: 0;
+}

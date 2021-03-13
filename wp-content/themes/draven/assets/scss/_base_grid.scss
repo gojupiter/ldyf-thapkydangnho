@@ -1,0 +1,245 @@
+.container {
+  max-width: 100%;
+  @include container-fixed();
+
+  @media (min-width: $screen-sm-min) {
+
+  }
+  @media (min-width: $screen-md-min) {
+
+  }
+  @media (min-width: $screen-lg-min) {
+    width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @media (max-width: 1199px) {
+    width: 100%;
+  }
+}
+.container-fluid {
+  @include container-fixed;
+}
+.row {
+  @include make-row;
+}
+
+@include make-grid-columns;
+
+@include make-grid(xs);
+
+@media (min-width: $screen-sm-min) {
+  @include make-grid(sm);
+}
+
+@media (min-width: $screen-md-min) {
+  @include make-grid(md);
+}
+
+@media (min-width: $screen-lg-min) {
+  @include make-grid(lg);
+}
+
+.grid-items{
+  &:not(.slick-slider){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+  }
+  .grid-item{
+    display: inline-block;
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+  }
+}
+
+.grid-items.grid-space-default{
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+@for $i from 1 through 10 {
+  .block-grid-#{$i}{
+    .grid-item{
+      width: percentage(1/$i);
+    }
+  }
+}
+
+$bkp_lists : (
+    ('sm'   , 576px),
+    ('md'   , 768px),
+    ('lg'   , 992px),
+    ('xl'   , 1200px),
+    ('xxl'  , 1825px)
+);
+
+@each $bkp in $bkp_lists {
+  @media (min-width: nth($bkp, 2)){
+    $screen_name : nth($bkp, 1);
+    @for $i from 1 through 10 {
+      .#{$screen_name}-block-grid-#{$i}{
+        .grid-item{
+          width: percentage(1/$i);
+        }
+      }
+    }
+  }
+}
+
+.grid-space-0{
+  margin-left: 0;
+  margin-right: 0;
+  .grid-item{
+    padding: 0;
+  }
+}
+
+
+@for $i from 5 through 80 {
+  @if($i%5 == 0){
+    .grid-space-#{$i}{
+      @media (min-width: 992px) {
+        margin-left: -#{$i/2}px;
+        margin-right: -#{$i/2}px;
+      }
+      .grid-item{
+        padding: #{$i/2}px;
+      }
+    }
+  }
+}
+
+@keyframes in-bottom50 {
+  from {
+    transform: translate(0, 30px)
+  }
+  to {
+    transform: translate(0, 0)
+  }
+}
+@-webkit-keyframes in-bottom50 {
+  from {
+    -webkit-transform: translate(0, 30px)
+  }
+  to {
+    -webkit-transform: translate(0, 0)
+  }
+}
+
+.col-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  &.disable-cols-gap {
+    div[class*="col-desk"] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  &.disable-rows-gap {
+    div[class*="col-desk"] {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+$bkp_lists : (
+    ('mobp'  , 576px),
+    ('mob'   , 768px),
+    ('tabp'  , 800px),
+    ('tab'   , 1025px),
+    ('lap'   , 1600px),
+    ('desk'  , 1825px)
+);
+
+%default-col{
+  position: relative;
+  min-height: 1px;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@each $bkp in $bkp_lists {
+  @for $i from 1 through 6 {
+    $screen_name : nth($bkp, 1);
+    .col-#{$screen_name}-#{$i}{
+      @extend %default-col;
+    }
+  }
+}
+
+@for $i from 1 through 6 {
+  .col-mobp-#{$i}{
+    -ms-flex: 0 0 percentage(1/$i);
+    flex: 0 0 percentage(1/$i);
+    max-width: percentage(1/$i);
+  }
+}
+
+@media (min-width: 576px) {
+  @for $i from 1 through 6 {
+    .col-mob-#{$i}{
+      -ms-flex: 0 0 percentage(1/$i);
+      flex: 0 0 percentage(1/$i);
+      max-width: percentage(1/$i);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  @for $i from 1 through 6 {
+    .col-tabp-#{$i}{
+      -ms-flex: 0 0 percentage(1/$i);
+      flex: 0 0 percentage(1/$i);
+      max-width: percentage(1/$i);
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  @for $i from 1 through 6 {
+    .col-tab-#{$i}{
+      -ms-flex: 0 0 percentage(1/$i);
+      flex: 0 0 percentage(1/$i);
+      max-width: percentage(1/$i);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  @for $i from 1 through 6 {
+    .col-lap-#{$i}{
+      -ms-flex: 0 0 percentage(1/$i);
+      flex: 0 0 percentage(1/$i);
+      max-width: percentage(1/$i);
+    }
+  }
+}
+@media (min-width: 1600px) {
+  @for $i from 1 through 6 {
+    .col-desk-#{$i}{
+      -ms-flex: 0 0 percentage(1/$i);
+      flex: 0 0 percentage(1/$i);
+      max-width: percentage(1/$i);
+    }
+  }
+}

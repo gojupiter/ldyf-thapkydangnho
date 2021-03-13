@@ -1,0 +1,120 @@
+@function print_var($var){
+  @return #{$var};
+}
+
+$primary-color: print_var('<?php echo esc_attr( Draven()->settings()->get("primary_color","#35d56a") ) ?>');
+$secondary-color: print_var('<?php echo esc_attr( Draven()->settings()->get("secondary_color","#343538") ) ?>');
+
+$success-color: green;
+$warning-color: #2635c4;
+$alert-color: #F3E538;
+
+$three-color: print_var('<?php echo esc_attr( Draven()->settings()->get("three_color","#b5b7c4") ) ?>');
+$border-color: print_var('<?php echo esc_attr( Draven()->settings()->get("border_color","rgba(150,150,150,0.30)") ) ?>');
+$heading-color: print_var('<?php echo esc_attr( Draven()->settings()->get("heading_color","#343538") ) ?>');
+
+$body-font-color: print_var('<?php echo esc_attr( Draven()->settings()->get("text_color","#9d9d9d") ) ?>');
+
+$body-font-family: print_var('<?php echo draven_render_variable( $body_font_family ) ?>');
+$heading-font-family: print_var('<?php echo draven_render_variable( $heading_font_family ) ?>');
+$highlight-font-family: print_var('<?php echo draven_render_variable( $highlight_font_family ) ?>');
+
+$header-top-background-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_top_background_color","rgba(0,0,0,0)") ) ?>');
+$header-top-text-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_top_text_color","rgba(255,255,255,0.2)") ) ?>');
+$header-top-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_top_link_color","#fff") ) ?>');
+$header-top-link-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_top_link_hover_color","#35d56a") ) ?>');
+
+$header-background-color: print_var('<?php echo draven_render_variable($header_background_color) ?>');
+$header-text-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_text_color","#343538") ) ?>');
+$header-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_link_color","#343538") ) ?>');
+$header-link-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_link_hover_color","#35d56a") ) ?>');
+
+$menu-lv-1-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_lv_1_color","#303744") ) ?>');
+$menu-lv-1-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_lv_1_bg_color","rgba(0,0,0,0)") ) ?>');
+$menu-lv-1-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_lv_1_hover_color","#303744") ) ?>');
+$menu-lv-1-hover-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_lv_1_hover_bg_color","rgba(0,0,0,0)") ) ?>');
+
+$header-transparency-background-color: print_var('<?php echo draven_render_variable($header_transparency_background_color) ?>');
+$header-transparency-text-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_header_text_color","#fff") ) ?>');
+$header-transparency-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_header_link_color","#fff") ) ?>');
+$header-transparency-link-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_header_link_hover_color","#35d56a") ) ?>');
+$header-transparency-menu-lv-1-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_mm_lv_1_color","#fff") ) ?>');
+$header-transparency-menu-lv-1-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_mm_lv_1_bg_color","rgba(0,0,0,0)") ) ?>');
+$header-transparency-menu-lv-1-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_mm_lv_1_hover_color","rgba(0,0,0,0)") ) ?>');
+$header-transparency-menu-lv-1-hover-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_mm_lv_1_hover_bg_color","rgba(0,0,0,0)") ) ?>');
+
+$header-transparency-top-background-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_header_top_background_color","rgba(0,0,0,0)") ) ?>');
+$header-transparency-top-text-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_header_top_text_color","rgba(255,255,255,0.2)") ) ?>');
+$header-transparency-top-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_header_top_link_color","#fff") ) ?>');
+$header-transparency-top-link-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("transparency_header_top_link_hover_color","#35d56a") ) ?>');
+
+
+$menu-dropdown-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_dropdown_bg","#fff") ) ?>');
+$menu-dropdown-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_dropdown_link_color","#696c75") ) ?>');
+$menu-dropdown-link-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_dropdown_link_bg","rgba(0,0,0,0)") ) ?>');
+$menu-dropdown-link-active-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_dropdown_link_hover_color","#252634") ) ?>');
+$menu-dropdown-link-active-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_dropdown_link_hover_bg","rgba(0,0,0,0)") ) ?>');
+$menu-dropdown-link-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_dropdown_link_hover_color","#252634") ) ?>');
+$menu-dropdown-link-hover-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_dropdown_link_hover_bg","rgba(0,0,0,0)") ) ?>');
+
+$menu-wide-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_wide_dropdown_bg","#fff") ) ?>');
+$menu-wide-heading-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_wide_dropdown_heading_color","#252634") ) ?>');
+$menu-wide-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_wide_dropdown_link_color","#252634") ) ?>');
+$menu-wide-link-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_wide_dropdown_link_bg","rgba(0,0,0,0)") ) ?>');
+$menu-wide-link-active-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_wide_dropdown_link_hover_color","#252634") ) ?>');
+$menu-wide-link-active-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_wide_dropdown_link_hover_bg","rgba(0,0,0,0)") ) ?>');
+$menu-wide-link-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_wide_dropdown_link_hover_color","#252634") ) ?>');
+$menu-wide-link-hover-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mm_wide_dropdown_link_hover_bg","rgba(0,0,0,0)") ) ?>');
+
+$aside-background-color: print_var('<?php echo esc_attr( Draven()->settings()->get("offcanvas_background","#fff") ) ?>');
+$aside-text-color: print_var('<?php echo esc_attr( Draven()->settings()->get("offcanvas_text_color","#9d9d9d") ) ?>');
+$aside-heading-color: print_var('<?php echo esc_attr( Draven()->settings()->get("offcanvas_heading_color","#343538") ) ?>');
+$aside-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("offcanvas_link_color","#343538") ) ?>');
+$aside-link-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("offcanvas_link_hover_color","#35d56a") ) ?>');
+
+
+$header-mb-background-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_mb_background","#fff") ) ?>');
+$header-mb-text-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_mb_text_color","#343538") ) ?>');
+$header-mb-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_mb_link_color","#343538") ) ?>');
+
+$header-mb-transparency-background-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_mb_transparency_background","#fff") ) ?>');
+$header-mb-transparency-text-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_mb_transparency_text_color","#343538") ) ?>');
+$header-mb-transparency-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("header_mb_transparency_link_color","#343538") ) ?>');
+
+$mobile-menu-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mb_background","#fff") ) ?>');
+$mobile-menu-lv-1-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mb_lv_1_color","#252634") ) ?>');
+$mobile-menu-lv-1-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mb_lv_1_bg_color","rgba(0,0,0,0)") ) ?>');
+$mobile-menu-lv-1-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mb_lv_1_hover_color","#fff") ) ?>');
+$mobile-menu-lv-1-hover-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mb_lv_1_hover_bg_color","#2635c4") ) ?>');
+$mobile-menu-lv-2-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mb_lv_2_color","#252634") ) ?>');
+$mobile-menu-lv-2-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mb_lv_2_bg_color","rgba(0,0,0,0)") ) ?>');
+$mobile-menu-lv-2-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mb_lv_2_hover_color","#fff") ) ?>');
+$mobile-menu-lv-2-hover-bg-color: print_var('<?php echo esc_attr( Draven()->settings()->get("mb_lv_2_hover_bg_color","#2635c4") ) ?>');
+
+
+$footer-text-color: print_var('<?php echo esc_attr( Draven()->settings()->get("footer_text_color","#9d9d9d") ) ?>');
+$footer-heading-color: print_var('<?php echo esc_attr( Draven()->settings()->get("footer_heading_color","#fff") ) ?>');
+$footer-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("footer_link_color","#9d9d9d") ) ?>');
+$footer-link-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("footer_link_hover_color","#35d56a") ) ?>');
+
+$footer-copyright-background-color: print_var('<?php echo esc_attr( Draven()->settings()->get("footer_copyright_background_color","#9d9d9d") ) ?>');
+$footer-copyright-text-color: print_var('<?php echo esc_attr( Draven()->settings()->get("footer_copyright_text_color","#9d9d9d") ) ?>');
+$footer-copyright-link-color: print_var('<?php echo esc_attr( Draven()->settings()->get("footer_copyright_link_color","#9d9d9d") ) ?>');
+$footer-copyright-link-hover-color: print_var('<?php echo esc_attr( Draven()->settings()->get("footer_copyright_link_hover_color","#9d9d9d") ) ?>');
+
+
+$global-text-direction: ltr !default;
+$global-left: if($global-text-direction == rtl, right, left);
+$global-right: if($global-text-direction == rtl, left, right);
+
+@function ltr_value($var1,$var2){
+  @if $global-text-direction == rtl{
+    @return $var2;
+  }
+  @else {
+    @return $var1;
+  }
+}
+
+
+@import "colors";
