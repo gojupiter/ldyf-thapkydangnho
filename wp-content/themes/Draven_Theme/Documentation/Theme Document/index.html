@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Draven - Multipurpose Creative Theme</title>
+    <link rel="stylesheet" href="css/prism.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel='shortcut icon' href='images/logo.png'/>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/jquery.scrollTo.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/perfectscroll.min.js"></script>
+    <script src="js/script.js"></script>
+    <style>
+        h7 {
+            background: none repeat scroll 0 0 #d8d8d8;
+            border-radius: 8px;
+            color: #019cf5;
+            font-size: 12px;
+            font-style: italic;
+            font-weight: 700;
+            margin: 18px 0;
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wrapper-left">
+            <div class="logo">
+            	<img src="images/logo.png" alt="Draven - Multipurpose Creative Theme">
+            </div>
+            <div class="nav-wrapper">
+                <nav>
+                    <ul>
+                        <li>
+                        	<a href="#introduction">Introduction</a>
+                        	<ul>
+                                <li><a href="#introduction_wp_general">WordPress General</a></li>
+                                <li><a href="#introduction_theme_general">Theme General</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#files-included">Files Included</a></li>
+                        <li>
+                            <a href="#installation">Installation</a>
+                            <ul>
+                                <li><a href="#system-requires">System Requires</a></li>
+                                <li><a href="#download-theme">Download Theme</a></li>
+                                <li><a href="#theme-installation">Theme Installation</a></li>
+                                <li><a href="#plugin-installation">Plugins Installation</a></li>
+                                <li><a href="#theme-update">Theme Update</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#theme-setting-up">Theme Setting Up</a>
+                            <ul>
+                                <li><a href="#auto-setting-up">Auto Setting (One Click Install Demo Data)</a></li>
+                                <li>
+                                    <a href="#manual-setting-up">Manual Setting Up</a>
+                                    <ul>
+                                        <li><a href="#create-new-page">Create Page</a></li>
+                                        <li><a href="#import-demo-content">Import Demo Content(via xml file)</a></li>
+                                        <li><a href="#sidebar-widget">Sidebar & Widgets</a></li>
+                                        <li><a href="#contact-form">Contact Form</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#configurations">Configurations</a>
+                            <ul>
+                                <li><a href="#general-options">General Options</a></li>
+                                <li>
+                                    <a href="#theme-options">Theme Customizer</a>
+                                    <ul>
+                                        <li><a href="#home-page">Home Page</a></li>
+                                        <li><a href="#config-options-general-settings">Global</a></li>
+                                        <li><a href="#logo">Logo</a></li>
+                                        <li><a href="#header">Header</a></li>
+                                        <li><a href="#footer">Footer</a></li>
+                                        <li><a href="#main-blog">Blog Page</a></li>
+                                        <li><a href="#single-post">Single Post</a></li>
+                                        <li><a href="#typography">Typography</a></li>
+                                        <li><a href="#social">Social Share</a></li>
+                                        <li><a href="#social_link">Social Link</a></li>
+                                        <li><a href="#custom-code">Custom Code</a></li>
+                                        <li><a href="#menus">Menus</a></li>
+                                        <li><a href="#widgets">Widgets</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#header_builder">Header Builder</a></li>
+                                <li><a href="#footer_builder">Footer Builder</a></li>
+                                <li><a href="#page-meta-options">Meta Options</a></li>
+                                <li>
+                                	<a href="#woocommerce-settings">WooCommerce Settings</a>
+                                	<ul>
+                                        <li><a href="#woo-general">General</a></li>
+                                        <li><a href="#color-swatches-settings">Attributes Swatches</a></li>
+                                		<li><a href="#woo-product-page">Product Page</a></li>
+                                		<li><a href="#woo-cart">Cart Page</a></li>
+                                		<li><a href="#woo-catalog">Catalog Mode</a></li>
+                                	</ul>
+                                </li>
+                                <li>
+                                    <a href="#theme-maintaince">Maintaince Mode</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                        	<a href="#page_builder">Page Builder</a>
+                            <ul>
+                                <li><a href="#page_builder_heading">Heading</a></li>
+                                <li><a href="#page_builder_typed_heading">Typed Heading</a></li>
+                                <li><a href="#page_builder_social_media">Social Media</a></li>
+                                <li><a href="#page_builder_counter">Counter</a></li>
+                                <li><a href="#page_builder_progress_bar">Progress Bar</a></li>
+                                <li><a href="#page_builder_accordion">Accordion</a></li>
+                                <li><a href="#page_builder_toggle">Toggle</a></li>
+                                <li><a href="#page_builder_icon_list">Icon List</a></li>
+                                <li><a href="#page_builder_contact_forms">Contact Forms</a></li>
+                                <li><a href="#page_builder_button">Button</a></li>
+                                <li><a href="#page_builder_icon_box">Icon Box</a></li>
+                                <li><a href="#page_builder_image_box">Image Box</a></li>
+                                <li><a href="#page_builder_divider">Divider</a></li>
+                                <li><a href="#page_builder_shape_divider">Shape Divider</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#contact-form-settings">Contact form 7</a></li>
+                        <li><a href="#mailchimp-setting">MailChimp</a></li>
+                        <li><a href="#thank-you">Thank You</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <footer>
+                Copyright La-StudioWeb.com 2018
+            </footer>
+        </div>
+        <div class="wrapper-right">
+            <section id="introduction">
+                <h1 style="text-transform: none">Draven - Multipurpose Creative Theme</h1>
+                <h2 style="text-transform: none">WordPress Version</h2>
+                <ul>
+                    <li>Created: 03/01/2019</li>
+                    <li>Latest update: 03/01/2019</li>
+                    <li>By: LA-Studio</li>
+                    <li>Profile: <a href="https://la-studioweb.com/">https://la-studioweb.com</a></li>
+                    <li>Email: <a href="mailto:info@la-studioweb.com">info@la-studioweb.com</a></li>
+                    <li>HelpDesk: <a href="https://wpelite.ticksy.com">https://support.la-studioweb.com</a></li>
+                </ul>
+                <p class="thank-you">Thank you for purchasing our theme. If you have any questions that are beyond the scope of this documentation, please feel free create topic on my help desk. Thanks so much!</p>
+            </section>
+            
+            <section id="introduction_wp_general">
+            	<h2 style="text-transform: none">WordPress General</h2>
+                <p>First of all, to install our theme and run it you need the content management system which is called WordPress.</p>
+					<ol>
+						<li><strong><a target="_BLANK" href="https://codex.wordpress.org/Installing_WordPress">Installing WordPress</a></strong> WordPress is well-known for its ease of installation. Under most circumstances, installing WordPress is a very simple process and takes less than five minutes to complete. Many web hosts now offer tools (e.g. Fantastico) to automatically install WordPress for you. However, if you wish to install WordPress yourself, the following guide will help.</li>
+						<li><strong><a target="_BLANK" href="https://codex.wordpress.org/First_Steps_With_WordPress">First Steps With WordPress</a></strong> Let’s take a step-by-step tour through your WordPress site and see how the different functions work and how to make your new site your own. During the first part of this tutorial, please don’t change anything within the program unless it is part of the tutorial. After following these steps, you’ll soon be changing everything.</li>
+						<li><strong><a target="_BLANK" href="https://codex.wordpress.org/New_To_WordPress_-_Where_to_Start">New To WordPress - Where to Start</a></strong>If you are new to WordPress, here is a step-by-step plan for getting started. If you need help along the way, plenty of options for assistance are listed in this article. Welcome to the exciting world of WordPress!</li>
+					</ol>
+            </section>
+            
+            <section id="introduction_theme_general">
+            	<h2 style="text-transform: none">Theme General</h2>
+                <p><strong>Front End Builder & Options:</strong> Very powerful features of our theme are front-end page builders, theme options are built on the live customizer of WordPress and the elements are built with the most powerful front-end page builder Elementor.</p>
+                <p><strong>Customizer:</strong> With the very powerful innovative WordPress Live Customizer you will be able to preview the changes made to your WordPress website in real time before pushing them live. Lots of options will make it a breeze for you to modify the structure and the visuals of your theme, including color scheme, typography, portfolio, blog, shop layout, and much more.</p>
+                <p><strong>Elementor:</strong> Elementor is the ultimate WordPress page builder, the key difference is that you can reach a high level of design while designing live and on the front end of your site. Elementor is a page builder plugin that replaces the basic WordPress editor with a live frontend editor, so you can create complex layouts visually, and design your website live, without having to switch between the editor and the preview mode. The page builder enables you to reach a top-notch quality of design without needing to use code or CSS and doesn't require code knowledge.</p>
+                <p><strong>Inherit Option:</strong> Most of the options in the elements have the option to inherit the values from the theme options. With this option, you can create multiple pages or have multiple elements with the same settings inherited from the theme options. No worries, inherit is not the only option from the select, the inherit option usually stands at the top which is followed by the normal options.</p>
+                <p><strong>Support:</strong> To have someone cover your back 24/7 is really something when it comes to the questions that are related to the product. The satisfaction of the client is what motivates us to work more and more. Currently, our author rating from our clients stands at 4.98 from 5 with more than 240 reviews with 5 stars. Start by creating a ticket at our support system at <a href="https://support.la-studioweb.com/">https://support.la-studioweb.com/</a></p>
+            </section>
+            
+            <section id="files-included">
+                <h2>Files Included</h2>
+                <div class="content">
+                    <ul class="files-included">
+                        <li>The theme zip file <i>draven.zip</i></li>
+                        <li>Child theme for easier customize in <i>draven-child.zip</i></li>
+                        <li>Document in <i>Documentation</i></li>
+                    </ul>
+                    <h4>Struct look like:</h4>
+                    <p><img src="images/main-download-files.jpg" alt="dashboard" class="img-left"></p>
+                </div>
+            </section>
+            <section id="system-requires">
+                <h2>System Requires</h2>
+                <div class="content">
+                    <p>To use Draven, you must be running <strong>WordPress 4.4</strong> or higher, <strong>PHP5.6</strong> or higher, and <strong>MySQL 5</strong> or higher. We have tested it with Mac, Windows and Linux. Below is a list of items you should ensure your host can comply with.</p>
+                    <h4><strong>PHP Extension Require</strong></h4>
+                    <p><a href="http://php.net/manual/en/book.xmlreader.php" target="_blank">XMLReader</a></p>
+                    <h4><strong>Requirement PHP Configuration Limits</strong></h4>
+					<p>Many issues that you may run into such as: white screen, demo content fails when importing, empty page content and other similar issues are all related to low PHP configuration limits. The solution is to increase the PHP limits. You can do this on your own, or contact your web host and ask them to increase those limits to a minimum as follows:</p>
+					
+					<textarea data-lang="php">Memory Size: memory_limit = 128M</textarea>
+					<textarea data-lang="php">Script execution time: max_execution_time = 300</textarea>
+					<textarea data-lang="php">Script input time: max_input_time = 300</textarea>
+					<textarea data-lang="php">Number of input variables: max_input_vars = 5000</textarea>
+					<textarea data-lang="php">upload_max_filesize = 32M</textarea>
+					<textarea data-lang="php">post_max_size = 32M</textarea>
+					
+					<p>If you don’t have access to the php.ini file, you can add the following values in your <code>.htaccess</code> file:</p>
+					
+					<textarea data-lang="htaccess">php_value memory_limit 128M</textarea>
+					<textarea data-lang="htaccess">php_value max_execution_time 300</textarea>
+					<textarea data-lang="htaccess">php_value max_input_time 300</textarea>
+					<textarea data-lang="htaccess">php_value max_input_vars 5000</textarea>
+					<textarea data-lang="htaccess">php_value upload_max_filesize 32M</textarea>
+					<textarea data-lang="htaccess">php_value post_max_size 32M</textarea>
+                </div>
+            </section>
+            <section id="download-theme">
+                <h2>Download Draven Theme</h2>
+                <div class="content">
+                    <p>Get the <strong>Draven</strong> Theme installation package from your account(after login on Themeforest.net) at <a href="http://themeforest.net/downloads">downloads page</a> and save it to your computer. </p>
+                    <p><img src="images/Downloads.png" alt="dashboard" class="img-center"></p>
+                </div>
+            </section>
+            <section id="theme-installation">
+                <h2>Install Draven Theme</h2>
+                <div class="content">
+                    <h4>Installation via Wordpress</h4>
+                    <p><span class="step">Step 1</span> - Login to your Wordpress Dashboard</p>
+                    <p><span class="step">Step 2</span> - Go to Appearance > Themes. Click the Add New button or Add new theme link. (check screenshot below)</p>
+                    <p><span class="step">Step 3</span> - Click on the Upload Theme button. Locate "draven.zip" and click Install Now.</p>
+                    <p><span class="step">Step 4</span> - Click on the Activate button to activate Draven. Congratulations, you have now activated Draven! You can now proceed with Draven's Plugin Installation.</p>
+                    <p><img width="900" src="images/01-dashboard.jpg" alt="dashboard" class="img-center"></p>
+                    <p><img width="900" src="images/01-install.gif" alt="install" class="img-center"></p>
+                    <p><img width="900" src="images/02-install.jpg" alt="install" class="img-center"></p>
+                    <p><img src="images/main-download-files.jpg" alt="install" class="img-center"></p>
+                    <p><img width="900" src="images/03-install.jpg" alt="install" class="img-center"></p>
+                    <h4>Installation via FTP</h4>
+                    <p><span class="step">Step 1</span> - Log into your Hosting server using an FTP client (like FileZilla or WinSCP).</p>
+                    <p><span class="step">Step 2</span> - Locate "draven.zip" that you found in your ThemeForest Package and unzip it somewhere on your hard drive. Once it is unzipped it will look like a folder named Draven with all theme files in it.</p>
+                    <p><span class="step">Step 3</span> - Locate your Wordpress installation and upload the theme directory Draven (you unzipped in the previous step) into ../wp-content/themes/ in your Wordpress installation.</p>
+                    <p><span class="step">Step 4</span> - Click on the Activate button to activate Draven. Congratulations, you have now activated Draven! You can now proceed with Draven's Plugin Installation.</p>
+                </div>
+            </section>
+            <section id="plugin-installation">
+                <h2>Install Draven Required Plugins</h2>
+                <div class="content">
+                    <p>All plugins required have been zipped/already into your download package, so you only need to do is click on the "<strong>Begin installing plugins</strong>".</p>
+                    <p>You should be navigated to the <strong>Install Required Plugin</strong> page, which shows a plugin list similar to this(<strong>list plugins on images below only an example, not for Draven</strong>):</p>
+                    <img class="img-center" src="images/01-install-plugins-list.png" alt="install plugins">
+                    <p>Next, Click on the checkbox beside "<strong>Plugin</strong>" label to select all plugins in the list.</p>
+                    <img class="img-center" src="images/01-install-required-plugins-checkalllist.jpg" alt="install check list">
+                    <p>Then choose "<strong>Install</strong>" from the drop-down list at the top and then click "<strong>Apply</strong>". </p>
+                    <img class="img-center" src="images/01-install-required-plugins-action.jpg" alt="install action">
+                    <p>The installing process status will be shown in your browser. It may takes a few minutes, so please be patient. After sucessfull, your screen like that</p>
+                    <img class="img-center" src="images/01-installing-plugins.png" alt="install plugins">
+                    <p>When the notice "<strong>All installations have been completed</strong>" appears, click on the "<strong>Return to Required Plugins Installer</strong>" link to turn back to the plugin list.</p>
+                    <img class="img-center" src="images/01-installing-plugins-sucessfull.gif" alt="install plugins">
+                    <p>Next, click on the box beside the Plugin label again to select all plugins and choose <strong>Activate</strong> this time as image below.</p>
+                    <p><img class="img-center" src="images/01-active-all-plugins.jpg" alt="active all required plugins"></p>
+                </div>
+            </section>
+            <section id="theme-update">
+                <h2>How do I update my ThemeForest theme?</h2>
+                <p>There are a couple of different ways to update  our <a href="http://themeforest.net/user/la-studio?ref=la-studio">WordPress themes</a> to the latest version:</p>
+                <h4>Method 1: Install the WordPress <a href="https://github.com/envato/wp-envato-market">Envato Market</a> plugin</h4>
+                <p> Once installed, activated, and setup, the Envato Market plugin will display a notice in your WordPress dashboard when an update is available. To setup: </p>
+                <ol>
+                    <li><a href="http://envato.github.io/wp-envato-market/dist/envato-market.zip">Download</a> the Envato Market plugin and install it through the WordPress Dashboard at:&nbsp;Appearance&nbsp;&gt; Widgets</li>
+                    <li>Activate the plugin.</li>
+                    <li>Navigate to the Envato Market menu,&nbsp;follow the instructions to generate a&nbsp;Global OAuth Personal Token, and enter the Token in your WordPress Dashboard:</li>
+                </ol>
+                <p> <img src="images/theme-update-01.jpg"/> </p>
+                <p> <img src="images/theme-update-02.jpg"/> </p>
+                <h3> Method 2:&nbsp;Manually Install the Update</h3>
+                <div>
+                    To manually install a new version of the theme:
+                </div>
+                <ol>
+                    <li><a href="http://codex.wordpress.org/WordPress_Backups">Backup</a> the current version of the theme.</li>
+                    <li>Delete the old version&nbsp;and reinstall the latest version. You will not be able to install the new version while the old version is still installed.</li>
+                </ol>
+                <div class="callout-red">
+                    <strong>NOTICE:</strong> If direct customizations have been made to the parent theme, they will be overwritten when the theme is updated. The recommended way to apply theme file customizations is to use a&nbsp;
+                    <a href="https://codex.wordpress.org/Child_Themes">child theme</a>.&nbsp;
+                </div>
+            </section>
+            <section id="auto-setting-up">
+                <h2>Demo Importer</h2>
+                <div class="content">
+                    <p>With Draven, you can build a functioning website just by clicking a button and install our demo data or click <a href="#create-new-page" class="data-ref"><strong>4.2.1 Create A New Page</strong></a> to step by step. Your Draven installation will be set up with what we have on our demo website, and you can use it as a template to develop your own website.</p>
+                    <p>Go to <strong>Tools > Demo Importer</strong></p>
+                    <p><img class="img-center" src="images/install-demo-data-01.jpg" alt="Import Demo Content in One Click"></p>
+                    <p>Then select the demo which you want import and click to button "Import Demo"</p>
+                    <p><img src="images/install-demo-data-02.jpg" alt="Import Demo Content in One Click02"></p>
+                    <p> The progressing would be displayed on import status bars so you will know when it is finished and your data is ready.</p>
+                    <p><img src="images/01-processing-import.jpg" alt="waitting"/></p>
+                    <p>This process will take about some minutes</p>
+                    <p><img src="images/02-importer-sucess.jpg" alt="sucess"/></p>
+                    <p><strong>DONE. Now, you can visit your website to view demo.</strong></p>
+                </div>
+            </section>
+            <section id="create-new-page">
+                <h2>Creat a new page</h2>
+                <div class="content">
+                    <p>You can create any number of pages with content. Our theme includes several page templates to choose from, and you will need to choose the page template that suits your needs. All of this is done in the pages section of your WordPress admin.</p>
+                    <p>If you <strong>DID NOT One Click Install Demo Data</strong>, you will need to <strong>MANUALLY CREATE</strong> your Home and other pages. Here’s how to build it:</p>
+                    <p><strong>Step 1</strong> – Navigate to Pages in your admin sidebar and click Add New option.</p>
+                    <p><strong>Step 2</strong> – Input a new name for your page.</p>
+                    <p><strong>Step 3</strong> – Set your Parent page. It’s usually set to No Parent.</p>
+                    <p><strong>Step 4</strong> – Set your page template from the Template dropdown list.</p>
+                    <p><strong>Step 5</strong> – Content for your page goes in the editing field, use the <strong>Visual</strong> or <strong>Text</strong> editor.</p>
+                    <p>Next, you can publish this page and set it as your frontpage(<a title="Settings a static page as Home" class="data-ref" href="#home-page">5.2.9. Settings a static page as Home</a>) in the Wordpress Settings panel.</p>
+                </div>
+            </section>
+            <section id="import-demo-content">
+                <h2>Import Demo Content</h2>
+                <div class="document-content">
+                    <p>If you are new to WordPress and have problems with setting up the theme you might want to import the demo content file that comes with the theme. The following actions will import some dummy posts and pages from the live preview:</p>
+                    <ul>
+                        <li>Go to menu <strong>Tools</strong> &gt; <strong>Import</strong></li>
+                        <li>Select <strong>WordPress</strong> from the list</li>
+                        <li>If you haven't installed the <strong>WordPress import plugin</strong>, a popup window will appears and ask you to install it. Just click Install Now. When the installation progress is completed, click <strong>Activate Plugin &amp; Run Importer</strong>. If you have installed this plugin, skip to next step.</li>
+                        <li>Click <strong>Browse</strong> and select <strong>data-sample.xml</strong> file from the download package<br/>
+                            <i>(Example: cleaning demo on path: Draven_Theme/Assets/Dummy Data/Content/data-sample.xml, so the same for others)</i>
+                        </li>
+                        <li>Click <strong>Upload</strong> file and import</li>
+                        <li>When you are asked to import author, you can create new author or import to existing author. You also should check the <strong>Download</strong> checkbox and import file attachments.
+                        </li>
+                    </ul>
+                    <p><img alt="demo" src="images/import-demo-content-1.gif"></p>
+                    <p>
+                    </p>
+                    <p>Select <strong>WordPress</strong> from the list</p>
+                    <p><img alt="demo" src="images/import-demo-content-2.gif"></p>
+                    <p>Continue with steps in image</p>
+                    <p><img alt="demo" src="images/import-demo-content-3.gif"></p>
+                    <p><img src="images/01-select-file-form-pc.jpg" alt="select file"/>
+                    <p>Display asked to import author, selected and continue</p>
+                    <p><img alt="demo" src="images/import-demo-content-4.gif"></p>
+                    <p>After completing all above steps, you must re-check somethings compare wih my demo, because have some settings/data maybe not include.</p>
+                    <p>If you don't want to use the demo content pack, you can read the instructions on how to work with our theme built-in page to make your own pages.</p>
+                </div>
+            </section>
+            <section id="sidebar-widget">
+                <h2>Sidebars and Widgets</h2>
+                <div class="document-content">
+                    <p>In this section will provide a list of pre-defined sidebars as well as a map of their locations on a page, so that you will find it easier when pulling out widgets to set up your site.</p>
+                    <p><img src="images/themeoption-widgets.jpg"/></p>
+                    
+                    <p>To add new widget areas : Please go to Appearance -> Widgets</p>
+                    <p><img src="images/sidebar-widgets-01.jpg"></p>
+                </div>
+            </section>
+            <section id="contact-form">
+                <h2>Contact Form</h2>
+                <div class="document-content">
+                    <p>You can do step by step as image below to build contact form</p>
+                    <h7>Add New Contact Form</h7>
+                    <p><img src="images/contact-form-01.gif"></p>
+
+                    <p>You can visit <a href="https://wordpress.org/plugins/contact-form-7/" target="_blank">Contact Form 7 Plugin</a> to further details.</p>
+                    <p>Or copy and paste content below to Form field(see image above)</p>
+                    <h7>Value Content "Contact Form 01"</h7>
+                    <p>
+<textarea data-lang="html">
+<div class="cf7-style-default">
+<div class="row">
+<div class="col-xs-12">[text* your-name placeholder "Your name*"]</div>
+</div>
+<div class="row">
+<div class="col-xs-12">[email* your-email placeholder "Email address*"]</div>
+</div>
+<div class="row">
+<div class="col-xs-12">[text* your-phone placeholder "Your Phone*"]</div>
+</div>
+<div class="row">
+<div class="col-xs-12">[textarea* your-message 40x6 placeholder "Message"]</div>
+</div>
+<div class="row">
+<div class="col-xs-12">[submit class:btn class:btn-style-flat class:btn-color-black class:font-weight-400 "Send"]</div>
+</div>
+</div>
+</textarea>
+					</p>
+
+                </div>
+            </section>
+            <section id="general-options">
+                <h2>General Options</h2>
+                <div class="document-content">
+                    <p>You can adjust WordPress settings as follow:</p>
+                    <p><strong>Step 1</strong>&nbsp;– You can set <em>Site Title, Tagline</em>&nbsp;in <strong>Settings &gt; General</strong></p>
+                    <p><img class="img-center" src="images/general-options.jpg"></p>
+                    <p>&nbsp;</p>
+                    <p><strong>Step 2</strong>&nbsp;– You can set <em>Blog pages show at most</em> in <strong>Settings &gt; Reading</strong></p>
+                    <p>&nbsp;</p>
+                    <p><strong>Step 3</strong>&nbsp;– You can select <em>Front Page displays&nbsp;</em>in <strong>Settings &gt; Reading</strong></p>
+                    <p><img class="img-center" src="images/reading.png"></p>
+                    <p>&nbsp;</p>
+                    <p><strong>Step 4</strong>&nbsp;– You can set <em>Discussion settings</em> in <strong>Settings &gt; Discussion</strong></p>
+                    <p><img class="img-center" src="images/discussion.png"></p>
+                    <p>&nbsp;</p>
+                    <p><strong>Step 5</strong>&nbsp;– You can change <em>Image sizes</em> in <strong>Settings &gt; Media<img class="img-center" src="images/media.png"></a></strong></p>
+                    <p>To add more image sizes - you can use 3rd plugin <a href="https://wordpress.org/plugins/simple-image-sizes/" target="_blank"><code>https://wordpress.org/plugins/simple-image-sizes/</code></a></p>
+                    <p style="padding-left: 30px;">We used the following sizes on our demo sites:<br>
+                        <strong>Thumbnail size:</strong>&nbsp;370 x 250<br>
+                        <strong>Medium size:</strong>&nbsp;570 x 380<br>
+                        <strong>Large size:</strong> 770 x 390</p>
+                    <p style="padding-left: 30px;">
+                    </p>
+                    <p><strong>Step 6</strong>&nbsp;– You should ensure that a non-default permalink setting is selected, e.g. <em>Month and name</em> in <strong>Settings &gt; Permalinks</strong></p>
+                    <p><img class="img-center" src="images/month.png"></a>
+                    </p>
+                </div>
+            </section>
+            
+            <section id="header_builder">
+                <h2>Header Builder</h2>
+                
+                <p>Header Builder is a drag-and-drop editor to help you build and customize your own headers.</p>
+                
+                <p>To user this feature - please go to Appearance -> Header Builder</p>
+                
+                <p>To better understand how it works you can see more video tutorials <a href="https://www.youtube.com/channel/UCESTyTYhnWI_HlIjFnQY5cQ" target="_blank"><code>https://www.youtube.com/channel/UCESTyTYhnWI_HlIjFnQY5cQ</code></a></p>
+
+                <p><strong>Elements Avaiables</strong></p>
+                <p><img class="img-center" src="images/header-builder-3.jpg"></p>
+                
+                <p><strong>Admin Mode</strong></p>
+                <p><img class="img-center" src="images/header-builder-1.jpg"></p>
+                
+                <p><strong>Front-End Mode</strong></p>
+                <p><img class="img-center" src="images/header-builder-2.jpg"></p>
+                
+			</section>
+			
+			<section id="footer_builder">
+                <h2>Footer Builder</h2>
+                
+                <p>To better understand how it works you can see more video tutorials <a href="https://www.youtube.com/channel/UCESTyTYhnWI_HlIjFnQY5cQ" target="_blank"><code>https://www.youtube.com/channel/UCESTyTYhnWI_HlIjFnQY5cQ</code></a></p>
+                
+                <p><strong>Manager Footer Template</strong> Please go to Elementor -> My Templates -> Footer</p>
+                <p><img class="img-center" src="images/footer-builder-1.jpg"></p>
+                
+                <p><strong>Editing Footer</strong></p>
+                <p><img class="img-center" src="images/footer-builder-2.jpg"></p>
+                
+                <p><strong>Change Footer Layout</strong> Please go to Appearance -> Theme Options -> Footer and then you will see the option</p>
+                <p><img class="img-center" src="images/footer-builder-3.jpg"></p>
+                
+			</section>
+			
+            <section id="theme-options">
+                <h2>Them Customizer/Draven Options</h2>
+                <div class="document-content">
+
+                    <p><img class="img-center" src="images/global-theme-options.jpg"></p>
+                    <p>&nbsp;</p>
+
+                </div>
+            </section>
+            <section id="config-options-general-settings">
+                <h2>Global Layout</h2>
+                <div class="document-content">
+                    <p>"Global Layout" tab is divided into a few sections. Asides from the Install Demo Data section mentioned above, there are a few important sections for you to customize your layout.</p>
+                    <p><img class="img-center" src="images/customizer-global-layout.jpg" alt=""/> </p>
+
+                    <h3>1. General</h3>
+                    <table class="table-ref" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Layout</td>
+                                <td>Select main content and sidebar alignment. Choose between 1, 2 or 3 column layout.</td>
+                            </tr>
+                            <tr>
+                                <td>Enable Main FullWidth</td>
+                                <td>layout website full screen</td>
+                            </tr>
+                            <tr>
+                                <td>Enable Google Rich Snippets</td>
+                                <td>Show Google Rich Snippets In the Breadcrumbs</td>
+                            </tr>
+                            <tr>
+                                <td>Show Button "Back To Top"</td>
+                                <td>Turn on this option if you want to enable "back to top" button on your site</td>
+                            </tr>
+                            <tr>
+                                <td>Enable Page Loader Icon</td>
+                                <td>Turn on Overlay & Icon loader when visit page</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="logo">
+                <h2>Logo settings</h2>
+                <p><img src="images/customizer-logo.jpg" alt="logo Setting"/></p>
+            </section>
+            <section id="header">
+                <h2>Header</h2>
+                <p>In this section you can control global header settings of your site</p>
+                <p><img src="images/customizer-header.jpg" /></p>
+
+            </section>
+            <section id="footer">
+                <h2>Footer</h2>
+                <p>In this section you can control all footer settings of your site</p>
+                <p><img src="images/customizer-footer.jpg" /></p>
+
+            </section>
+            <section id="main-blog">
+                <h2>Blog Page</h2>
+                <p><img src="images/customizer-blog.jpg" alt="Blog page"/></p>
+                <table class="table-ref" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Layout</td>
+                            <td>Select main content and sidebar alignment. Choose between 1, 2 or 3 column layout.</td>
+                        </tr>
+                        <tr>
+                            <td>Blog Type</td>
+                            <td>Post item will be display (Ex: Grid, List ..)</td>
+                        </tr>
+                        <tr>
+                            <td>Post columns</td>
+                            <td>Number post will be displaying in per row</td>
+                        </tr>
+                        <tr>
+                            <td>Enable Masonry Mode</td>
+                            <td>If value is "ON" the masonry mode is enable</td>
+                        </tr>
+                        <tr>
+                            <td>Excerpt Length</td>
+                            <td>Type Number ( Number characters of excerpt will be displayed</td>
+                        </tr>
+                        <tr>
+                            <td>Post Image Size</td>
+                            <td>Enter image size (Example: "thumbnail", "medium", "large", "full" or other sizes defined by theme). Alternatively enter size in pixels (Example: 200x100 (Width x Height)).</td>
+                        </tr>
+                        <tr>
+                            <td>Show Continue Reading</td>
+                            <td>If value is "ON" the link "Continue reading" will be display</td>
+                        </tr>
+                        <tr>
+                            <td>Enable Pagination ajax loader</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Enable Infinite Scroll</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="single-post">
+                <h2>Single post</h2>
+                <p>In this section you can control all single blog settings of your site</p>
+                <p><img src="images/customize-single-post.jpg" /></p>
+                <table class="table-ref" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width: 250px;">Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Custom Page Layout</td>
+                            <td>Select main content and sidebar alignment. Choose between 1, 2 or 3 column layout.</td>
+                        </tr>
+                        <tr>
+                            <td>Show Breadcrumbs</td>
+                            <td>Turn Off this option if you want to hide breadcrumbs info area on single blog</td>
+                        </tr>
+                        <tr>
+                            <td>Show Posts Navigation</td>
+                            <td>Turn Off this option if you want to hide navigation on single blog</td>
+                        </tr>
+                        <tr>
+                            <td>Show Author Info</td>
+                            <td>Turn Off this option if you want to hide author info area on single blog</td>
+                        </tr>
+                        <tr>
+                            <td>Show social share link</td>
+                            <td>Turn Off this option if you want to hide social share link area on single blog</td>
+                        </tr>
+                        <tr>
+                            <td>Show comment</td>
+                            <td>Turn Off this option if you want to hide comment form area on single blog</td>
+                        </tr>
+                        <tr>
+                            <td>Related Post</td>
+                            <td>Turn Off this option if you want to hide related post area on single blog</td>
+                        </tr>
+                        <tr>
+                            <td>Related Post By</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Related Post Columns</td>
+                            <td>Number columns rel pos display</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="typography">
+                <h2>Typography</h2>
+                <p>In this section you can control all typography settings of your site</p>
+                <p><img src="images/themeoption-typography.jpg" /></p>
+                <table class="table-ref" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width: 250px;">Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Body Font</td>
+                            <td>Inlcuded: Font Family(name of font), Font Size, Font Weight.</td>
+                        </tr>
+                        <tr>
+                            <td>Primary Font</td>
+                            <td>Inlcuded: Font Family(name of font)</td>
+                        </tr>
+                        <tr>
+                            <td>Secondary Font</td>
+                            <td>Inlcuded: Font Family(name of font)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="social_link">
+                <h2>Social Link</h2>
+                <p>In this section you can control all social settings of your site</p>
+                <p><img src="images/customizer-social-link.jpg" /></p>
+                <table class="table-ref" width="100%">
+                    <thead>
+                    <tr>
+                        <th style="width: 250px;">Attribute</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Social Share</td>
+                        <td>Use for share on each post, inlcuded: facebook, twitter, linkedin, google, tumblr, pinterest.</td>
+                    </tr>
+                    <tr>
+                        <td>Social Profiles</td>
+                        <td>Define link social profiles, inlcuded: Dribbble, Vimeo, Github, Xing, Behance, Deviantart, SoundClound, Yelp, Rss, VK, Email, Instagram, Foursquare, Skype, Flickr, facebook, twitter, linkedin, google, tumblr, pinterest</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="social">
+                <h2>Social Share</h2>
+                <p>In this section you can control all social settings of your site</p>
+                <p><img src="images/customizer-social-share.jpg" /></p>
+                <table class="table-ref" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width: 250px;">Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Social Share</td>
+                            <td>Use for share on each post, inlcuded: facebook, twitter, linkedin, google, tumblr, pinterest.</td>
+                        </tr>
+                        <tr>
+                            <td>Social Profiles</td>
+                            <td>Define link social profiles, inlcuded: Dribbble, Vimeo, Github, Xing, Behance, Deviantart, SoundClound, Yelp, Rss, VK, Email, Instagram, Foursquare, Skype, Flickr, facebook, twitter, linkedin, google, tumblr, pinterest</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="custom-code">
+                <h2>Custom Code</h2>
+                <p>In this section you can custom css & javascript of your site</p>
+                <p><img src="images/cusomizer-custom-code.jpg" /></p>
+                <table class="table-ref" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width: 250px;">Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Custom CSS</td>
+                            <td>Add some CSS to your theme by adding it to this text-area. Please do not include any style tags.</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Javascript</td>
+                            <td>Add some Javascript to your theme by adding it to this text-area. Please do not include any style tags.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="menus">
+                <h2>Menus</h2>
+                <p>In this section you can do all things about menu on your site(create, delete, update)</p>
+
+                <p><img width="700" src="images/primary-menu-overview.png" /></p>
+
+                <h3>Setting MegaMenu</h3>
+                <p>Megamenu Type "Narrow"</p>
+                <p><img src="images/megamenu-narrow.png"/></p>
+                <h7>Preview</h7>
+                <p><img src="images/megamenu-narrow-preview.png"/></p>
+                <p>Megamenu Type "Wide"</p>
+                <p><img src="images/megamenu-wide.png"/></p>
+                <h7>Preview</h7>
+                <p><img src="images/megamenu-wide-preview.png"/></p>
+            </section>
+            <section id="widgets">
+                <h2>Widgets</h2>
+                <p>In this section you can do all things about widgets on your site(create, delete, update). Have 7 widget areas, included: Main Sidebar, Shop Filter Sidebar, Custom Block Top, Custom Block Inner Top, Custom Block Inner Bottom, Custom Block Bottom, Custom Block After Add To Cart </p>
+                <p><img src="images/sidebar-widgets-01.jpg" /></p>
+                <table class="table-ref" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width: 250px;">Name Area</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Main Sidebar</td>
+                            <td>Add widgets here to appear in your sidebar</td>
+                        </tr>
+                        <tr>
+                            <td>Shop Filter Sidebar</td>
+                            <td>Appears at the top of the product on shop page</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Block Top</td>
+                            <td>Appears at the before of main content</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Block Inner Top</td>
+                            <td>Appears at the top content of main content</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Block Inner Bottom</td>
+                            <td>Appears at the bottom content of main content</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Block Bottom</td>
+                            <td>Appears at the after of main content</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Block After Add To Cart</td>
+                            <td>Appears at the after Add To Cart button</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="home-page">
+                <h2>Setting a static page as Home</h2>
+                <div class="document-content">
+                    <p>If you installed the <strong>Demo Content,</strong> you don’t need to choose a Home Page because my theme do it. In case you creat page manual then following these steps to set a new Page to FrontPage:</p>
+                    <ul>
+                        <li>Go to Settings &gt; Reading</li>
+                        <li>For Front page displays, select A static page (select below)</li>
+                        <li>Choose either Home 1, Home 2...ect(example) from the dropdown for Front page</li>
+                        <li>Click Save Changes</li>
+                    </ul>
+                    <p><img src="images/build-page-01.gif" /></p>
+                    <p><img src="images/build-page-02.png" /></p>
+                    <p><strong>Save all your changes!</strong></p>
+                <div>
+            </section>
+            <!-- Page Builder -->
+            <section id="page_builder">
+            <h2 class="dark-text">Page Builder</h2>
+            <p><b>Elementor</b> is the ultimate WordPress page builder, the key difference is that you can
+                reach a high level of design while designing live and on the front end of your site.
+                Elementor is a page builder plugin that replaces the basic WordPress editor with a live
+                frontend editor, so you can create complex layouts visually, and design your website live,
+                without having to switch between the editor and the preview mode. The page builder enables
+                you to reach a top-notch quality of design without needing to use code or CSS and doesn't
+                require code knowledge.</p>
+            </section>
+            <!-- Page Builder > Heading -->
+            <section id="page_builder_heading">
+                <h2>Heading</h2>
+                <p>A very simple element called heading but very powerful, has many use cases and its
+                    options make it very powerful and easy to use.</p>
+                <b>Content Tab:</b>
+                <ul>
+                    <li><b>Title</b>: Enter the heading text, you can enter on the front end too, it's
+                        writable there too.</li>
+                    <li><b>Link</b>: Make the heading clickable with a link that you'll enter it on this
+                        field. If you click the cogs icon on the
+                        right two new options will appear, Open in a new window and Add no-follow.</li>
+                    <li><b>Size</b>: Change the size of the Heading element, the default size is the
+                        default size of the HTML tag.</li>
+                    <li><b>HTML Tag</b>: Change the element tag of heading, it's very useful for SEO
+                        reasons.</li>
+                    <li><b>Alignment</b>: Change the alignment of the heading, you can expand these options
+                        by clicking on the monitor, the same
+                        options will be available on tablet screens and mobile screen.</li>
+                </ul>
+
+                <b>Style Tab:</b>
+                <ul>
+                    <li><b>Text Color</b>: Simply change the color of heading with a simple picker, by
+                        moving the right bar you will be able to
+                        change the alpha of the color.</li>
+                    <li><b>Typography</b>: Advanced typography is included to change the typography
+                        properties, you can reset anytime the options of
+                        the typography.</li>
+                    <li><b>Text Shadow</b>: Add easily text shadow to the element, when you press on the
+                        pencil, an option for color, blur and
+                        horizontal, vertical will be displayed.</li>
+                    <li><b>Blend Mode</b>: The blend mode property defines how an element’s content should
+                        blend with its background. This means
+                        that any images or text, borders or headings will be influenced by this property.</li>
+                </ul>
+            </section>
+                        
+            <!-- Page Builder > Typed Heading -->
+            <section id="page_builder_type_heading">
+                <h2>Typed Heading</h2>
+                <p>Enter in any string, and watch it type at the speed you've set, backspace what it's
+                    typed, and begin a new sentence for
+                    however many strings you've set.</p>
+                <b>Content Tab:</b>
+                <ul>
+                    <li><b>Content</b>: Add the words inside the double curly brackets, separate the words
+                        with commas.
+                        <code>{{First Word, Second Word, Third Word}}</code></li>
+                    <li><b>Loop</b>: Make the text repeat after it's finished once.</li>
+                    <li><b>Cursor Character</b>: Change the cursor characted on typing the default one is
+                        <code>_</code>.</li>
+                    <li><b>Type Speed</b>: Enter the typing speed.</li>
+                    <li><b>Start Delay</b>: Enter the time that delays the start of words.</li>
+                    <li><b>Back Delay</b>: Enter the time that delays when it's start removing of words.</li>
+                    <li><b>Back Speed</b>: Enter the time that delays the remove of words.</li>
+                    <li><b>HTML Tag</b>: Choose any html tag, it's very handy for seo purposes.</li>
+                    <li><b>Alignment</b>: Select the alignment of the heading.</li>
+                </ul>
+
+                <b>Style Tab:</b>
+                <ul>
+                    <li><b>Content Color</b>: Enter the color of the heading.</li>
+                    <li><b>Typed Color</b>: Enter the color of the typed strings.</li>
+                    <li><b>Typed Background Color</b>: Enter the background color of the typed strings.</li>
+                    <li><b>Content Typography</b>: Change the typography of the heading.</li>
+                    <li><b>Typed Typography</b>: Change the typography of the typed strings.</li>
+                </ul>
+            </section>
+            <!-- Page Builder > Social Media -->
+            <section id="page_builder_social_media">
+                <h2>Social Media</h2>
+                <p>Present your social media with style, plenty of options offer unlimited possibilities
+                    for the style or layout.</p>
+                <b>Content Tab:</b>
+                <ul>
+                    <li><b>Social Icons</b>: Add the social icons inside the repeater, in the first field
+                        you have to select the icon and in the second link you have to enter the URL of the
+                        social media, you can press on the cogs icon and two new options will appear for
+                        opening in a new window and adding a no-follow attribute to the link.</li>
+                    <li><b>Shape</b>: Various shapes can be selected for the social media elements for
+                        example rounded, square, circle.</li>
+                    <li><b>Alignment</b>: Easily align the social media on each side you want to be left,
+                        center, right or just.</li>
+                </ul>
+
+                <b>Icon:</b>
+                <ul>
+                    <li><b>Color</b>: The first option makes each social media color to be represented by
+                        its official color, so you don't need to add any custom color, the first option in
+                        the color is custom, so two new fields of color pickers will appear where you can
+                        select the primary and the secondary color of the social media.</li>
+                    <li><b>Size</b>: Adjust the size of the icon with a great looking spinner.</li>
+                    <li><b>Padding</b>: Add padding between the social media and its holder, it can be
+                        changed to different em size.</li>
+                    <li><b>Border Type</b>: The border type of social media can be changed to solid,
+                        double, dotted, dashed or groove.</li>
+                    <li><b>Border Radius</b>: Set border-radius to each corner, you can unlink the
+                        properties by clicking the icon on the right.</li>
+                </ul>
+
+                <b>Icon Hover:</b>
+                <ul>
+                    <li><b>Primary Color</b>: Change the primary color of the social media on hover.</li>
+                    <li><b>Secondary Color</b>: Change the secondary color of the social media on hover.</li>
+                    <li><b>Hover Animation</b>: Add a different animation to the social media on hover.</li>
+                </ul>
+            </section>
+            <!-- Page Builder > Content -->
+            <section id="page_builder_counter">
+                <h2>Counter</h2>
+                <p>Set counters to a specific end number in a creative way, multiple settings will allow
+                    the element to be used attractively.</p>
+                <b>Content Tab:</b>
+                <ul>
+                    <li><b>Starting Number</b>: Enter the starting number of the counter.</li>
+                    <li><b>Ending Number</b>: Enter the ending number of the counter.</li>
+                    <li><b>Number Prefix</b>: Add a number prefix, so the actual starting and ending number
+                        will have a prefix number.</li>
+                    <li><b>Number Suffix</b>: Add a number suffix, it will be displayed after the number
+                        and can be used for different symbols.</li>
+                    <li><b>Animation Duration</b>: Select the animation duration, the number is represented
+                        by milliseconds.</li>
+                    <li><b>Thousand Separator</b>: Add a separator between thousands.</li>
+                    <li><b>Separator</b>: Select the separator between thousand, the default is a comma,
+                        you can choose between dot and space.</li>
+                    <li><b>Title</b>: Add the title which usually is displayed below the counting number.</li>
+                </ul>
+
+                <b>Style Tab:</b>
+                <ul>
+                    <li><b>Number</b>
+                        <ul>
+                            <li><b>Text Color</b>: Change the color of the number in the counter element.</li>
+                            <li><b>Typography</b>: Advanced typography is included to change the typography
+                                properties, you can reset anytime the options of
+                                the typography.</li>
+                        </ul>
+                    </li>
+                    <li><b>Text</b>
+                        <ul>
+                            <li><b>Text Color</b>: Change the color of the title in the counter element.</li>
+                            <li><b>Typography</b>: Advanced typography is included to change the typography
+                                properties, you can reset anytime the options of the typography.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- Page Builder > Progress Bar -->
+            <section id="page_builder_progress_bar">
+                <h2>Progress Bar</h2>
+                <p>There are two progress bars, one default which comes from Elementor and the custom one
+                    that we have created, both are great for use, we'll explain the one that is located in
+                    Neuron Elements.</p>
+                <b>Functionality:</b>
+                <ul>
+                    <li><b>Title</b>: Add the title above the progress bar.</li>
+                    <li><b>Percentage</b>: Select the percentage of the progress bar between 1 and 100.</li>
+                    <li><b>Height</b>: Enter the height of the progress bar, the default height is 6
+                        pixels.</li>
+                </ul>
+
+                <b>Style:</b>
+                <ul>
+                    <li><b>Color</b>: Change the color of the bar.</li>
+                    <li><b>Background Color</b>: Change the background color of the bar.</li>
+                    <li><b>Title Color</b>: Change the color of the title which is placed above the bar.</li>
+                    <li><b>Percentage Color</b>: Change the color of the percentage unit.</li>
+                </ul>
+            </section>
+            <!-- Page Builder > Accordion -->
+            <section id="page_builder_accordion">
+                <h2>Accordion</h2>
+                <p>Using the Accordion element lets you save space while still presenting an abundance of
+                    content. Add the accordions with
+                    a great repeater where you can add the title and the content.</p>
+                <p>With the Accordion, visitors can scan the item titles, and choose to expand an item only
+                    if it is of interest.</p>
+                <p>When a page is loaded, the first item of the Accordion element is expanded, while all
+                    other items remain collapsed.
+                    With the Toggle element, however, all items are collapsed when a page is first loaded.</p>
+                <p>Only one item of an Accordion can be expanded at one time. As you expand another
+                    Accordion item, the previously opened
+                    item automatically collapses, looking similar to an accordion. With the Toggle element,
+                    however, as many items as
+                    desired can be expanded at the same time.</p>
+
+                <b>Content:</b>
+                <ul>
+                    <li><b>Accordion Items Title & Content</b>: Enter the title and description for each
+                        item.</li>
+                    <li><b>Icon</b>: Select the icon to represent the action of expanding an item.</li>
+                    <li><b>Active Icon</b>: Select the icon to represent the action of collapsing the
+                        active item.</li>
+                    <li><b>Title HTML Tag</b>: Set the HTML tag used for the title to H1- H6 or DIV.</li>
+                    <li><b>Add Item</b>: Use the 'Add Item' button to add more accordion items to the list.</li>
+                </ul>
+
+                <b>Style:</b>
+                <ul>
+                    <li><b>Accordion</b>
+                        <ul>
+                            <li><b>Border Width</b>: Set the thickness of the border around the accordion
+                                and between each item.</li>
+                            <li><b>Border Color</b>: Choose the color of the border around the accordion
+                                and between each item.</li>
+                        </ul>
+                    </li>
+                    <li><b>Title</b>
+                        <ul>
+                            <li><b>Background:</b> Choose the color of the title’s background.</li>
+                            <li><b>Color</b>: Choose the color of the non-active titles’ text.</li>
+                            <li><b>Active Color</b>: Choose the color of the active title’s text.</li>
+                            <li><b>Typography</b>: Set the typography options for the titles.</li>
+                            <li><b>Padding</b>: Set the padding for the titles.</li>
+                        </ul>
+                    </li>
+                    <li><b>Icon</b>
+                        <ul>
+                            <li><b>Alignment:</b> Align the icon to the left or right of the title.</li>
+                            <li><b>Color</b>: Choose the color of the icons.</li>
+                            <li><b>Active Color</b>: Choose the color of the active icon.</li>
+                            <li><b>Spacing</b>: Control the spacing between the icon and the title.</li>
+                        </ul>
+                    </li>
+
+                    <li><b>Content</b>
+                        <ul>
+                            <li><b>Background:</b> Choose the background color of the content.</li>
+                            <li><b>Color:</b> Choose the text color of the content.</li>
+                            <li><b>Typography:</b> Set the typography options for the content.</li>
+                            <li><b>Padding:</b> Set the padding for the content.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- Page Builder > Toggle -->
+            <section id="page_builder_toggle">
+                <h2>Toggle</h2>
+                <p>The toggle element lets you create text boxes that are collapsed, so the visitor only
+                    sees the titles of each text box
+                    item. This lets you show your content in a condensed form, so visitors don't have to
+                    scroll through a long page and can
+                    sift through the titles easily.</p>
+
+                <p>A similar element is the Accordion element, but there are two main differences between
+                    the Toggle element and the
+                    Accordion element.</p>
+
+                <ol>
+                    <li>When a page is loaded, all toggle element items are collapsed. With the accordion
+                        element, however, the first item is expanded, while all other items remain
+                        collapsed.</li>
+                    <li>With the Toggle element, as many items as desired can be expanded at the same time.
+                        With the Accordion element, however, only one item can be expanded at one time. As
+                        you expand another Accordion item, the previously opened item automatically
+                        collapses, looking similar to an accordion.</li>
+                </ol>
+
+                <b>Toggle</b>
+                <ul>
+                    <li><b>Toggle Items:</b> Enter the title and description for each item.</li>
+                    <li><b>Icon</b>: Select the icon to represent the action of expanding an item.</li>
+                    <li><b>Active Icon</b>: Select the icon to represent the action of collapsing the
+                        active item.</li>
+                    <li><b>Title HTML Tag</b>: Set the HTML tag used for the title to H1- H6 or DIV.</li>
+                    <li><b>Add Item</b>: Use the 'Add Item' button to add more toggle items to the list.</li>
+                </ul>
+                <b>Style</b>
+                <ul>
+                    <li><b>Border Width:</b> Set the thickness of the border around the toggle element and
+                        between each item.</li>
+                    <li><b>Border Color</b>: Choose the color of the border around the toggle element and
+                        between each item.</li>
+                    <li><b>Space Between</b>: Set the amount of space between each item.</li>
+                    <li><b>Box Shadow</b>: Set the box shadow around the toggle element, or around each
+                        item if there is space between each. You can
+                        adjust the box shadow’s Color, Horizontal position, Vertical position, Blur, and
+                        Spread as well as the shadow’s -
+                        Position, which can be either Inset or Outline.</li>
+                </ul>
+
+                <b>Title</b>
+                <ul>
+                    <li><b>Background</b>: Choose the color of the title’s background.</li>
+                    <li><b>Color</b>: Choose the color of the non-active titles’ text.</li>
+                    <li><b>Active Color</b>: Choose the color of the active title’s text.</li>
+                    <li><b>Typography</b>: Set the typography options for the titles.</li>
+                    <li><b>Padding</b>: Set the padding for the titles.</li>
+                </ul>
+
+                <b>Icon</b>
+                <ul>
+                    <li>Alignment: Align the icon to the left or right of the title.</li>
+                    <li>Color: Choose the color of the icons.</li>
+                    <li>Active Color: Choose the color of the active icon.</li>
+                    <li>Spacing: Control the spacing between the icon and the title.</li>
+                </ul>
+                <b>Content</b>
+                <ul>
+                    <li><b>Background</b>: Choose the background color of the content.</li>
+                    <li><b>Color</b>: Choose the text color of the content.</li>
+                    <li><b>Typography</b>: Set the typography options for the content.</li>
+                    <li><b>Padding</b>: Set the padding for the content.</li>
+                </ul>
+            </section>
+            <!-- Page Builder > Icon List -->
+            <section id="page_builder_icon_list">
+                <h2>Icon List</h2>
+                <p>The Icon List element creates an easy-to-manage list of items, with each item
+                    highlighted by its own icon.</p>
+
+                <b>Content Tab</b>
+                <ul>
+                    <li><b>Layout</b>: Choose Default or Inline. Default displays items in a vertical list,
+                        while Inline displays items
+                        horizontally.</li>
+                    <li><b>Items</b>
+                        <ul>
+                            <li><b>Text</b>: Enter the list item’s text</li>
+                            <li><b>Icon</b>: Select the icon for the item</li>
+                            <li><b>Link</b>: Enter the URL for the item’s link. Click the Link Options cog
+                                to either add rel=nofollow to the link or to open the link in a new window.</li>
+                        </ul>
+                    </li>
+                    <li><b>Tip</b>: Quickly duplicate or delete items by clicking an item’s Duplicate or
+                        Delete icon</li>
+                </ul>
+
+                <b>Style</b>
+                <ul>
+                    <li><b>List</b>
+                        <ul>
+                            <li><b>Space Between</b>: Control the space between list items</li>
+                            <li><b>Alignment</b>: Align the list left, right, or center</li>
+                            <li><b>Divider</b>: Turn the item divider lines on or off, if the Divider
+                                option is turned on, the following style options
+                                become available:
+                                <ul>
+                                    <li><b>Style</b>: Choose from Solid, Double, Dotted or Dashed</li>
+                                    <li><b>Weight</b>: Set the thickness of the divider</li>
+                                    <li><b>Width</b>: Control the width of the divider relative to the
+                                        container</li>
+                                    <li><b>Color</b>: Choose the divider’s color</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><b>Icon</b>
+                        <ul>
+                            <li><b>Color</b>: Choose the icon’s color.</li>
+                            <li><b>Hover</b>: Choose the color of the icon’s hover state.</li>
+                            <li><b>Size</b>: Set the exact size of the icon.</li>
+                        </ul>
+                    </li>
+                    <li><b>Text</b>
+                        <ul>
+                            <li><b>Text Color</b>: Choose the color of the text.</li>
+                            <li><b>Hover</b>: Choose the color of the text’s hover state.</li>
+                            <li><b>Text Indent</b>: Set the distance between the icon and the text.</li>
+                            <li><b>Typography</b>: Set the typography options for the text.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- Page Builder > Contact Forms -->
+            <section id="page_builder_contact_forms">
+                <h2>Contact Forms</h2>
+                <p class="intro2">Make sure to install and activate the plugin Contact Form 7, without the
+                    plugin you won't be able to create contact forms. </p>
+                <p>The contact forms are created on the WordPress dashboard menu item called Contact, you
+                    can configure them and
+                    use them later via the Elementor element shortcode. An example of use.</p>
+                <pre>[contact-form-7 id="5430" title="Classic Style"]</pre>
+                <p>The created form in the contact section:</p>
+                - <a href="https://pastebin.com/raw/EkFF433y" target="_BLANK">https://pastebin.com/raw/EkFF433y</a>
+            </section>
+            
+            <!-- Page Builder > Button -->
+            <section id="page_builder_button">
+                <h2>Button</h2>
+                <p>The Button element helps you easily design and customize buttons without the need for
+                    any other plugins or shortcodes.</p>
+
+                <b>Content</b>
+                <ul>
+                    <li><b>Type</b>: Select from 5 styles of buttons to begin your design. Choose from
+                        Default, Info, Success, Warning, or Danger</li>
+                    <li><b>Text</b>: Enter the button’s text</li>
+                    <li><b>Link</b>: Set the URL for the button’s link. Click the cog to set the link to
+                        either open in a new window or to add
+                        rel=nofollow to the link</li>
+                    <li><b>Alignment</b>: Align the button to the left, center, right, or justified in
+                        relation to its column.</li>
+                    <li><b>Size</b>: Select the preset button sizes, from Extra Small to Extra Large</li>
+                    <li><b>Icon</b>: Select a FontAwesome icon to display on the button</li>
+                    <li><b>Icon Position</b>: Set the icon to appear before or after the button text</li>
+                    <li><b>Icon Spacing</b>: Adjust the amount of space between the icon and the button
+                        text</li>
+                    <li><b>Button ID</b>: (Optional) Assign a unique button ID to use for situations such
+                        as Google Analytics events</li>
+                </ul>
+
+                <b>Style</b>
+                <ul>
+                    <li><b>Typography</b>: Change the default typography options for the button’s text.</li>
+                    <li><b>Text Color</b>: Select the color of the button’s text.</li>
+                    <li><b>Background Color</b>: Select the button’s background color for both Normal and
+                        Hover states.</li>
+                    <li><b>Hover Animation</b>: Click on the Hover tab to set a Hover Animation.</li>
+                    <li><b>Border Type</b>: Select the type of border to use around the button.</li>
+                    <li><b>Width</b>: Control the thickness of the border around the button.</li>
+                    <li><b>Color</b>: Choose the border’s color.</li>
+                    <li><b>Border Radius</b>: Set the border radius to control corner roundness.</li>
+                    <li><b>Box Shadow</b>: Set options to apply a box shadow on the button.</li>
+                    <li><b>Padding</b>: Change the padding settings of the button.</li>
+                </ul>
+
+                <p>How to Track "Button onClick" Event (for Facebook Pixel, Google Analytics or Google Tag
+                    Manager)</p>
+                Follow these steps to track button onClick events:
+                <ol>
+                    <li>Edit Button > Advanced > set CSS ID = My_Button</li>
+                    <li>Add to the page HTML widget (after the button will be fine)</li>
+                    <li>Paste the following code into the HTML Code field:</li>
+                </ol>
+
+                <pre class="brush: html; highlight: [2,4]">
+&lt;script type="text/javascript"&gt; 
+    document.addEventListener("DOMContentLoaded", function (event) {
+        jQuery('#My_Button a').click(function () {
+            // tracking code here
+            // for example Facebook Pixel: 
+            fbq('track', 'AddToCart');
+        });
+    }); 
+&lt;/script&gt;
+</pre>
+            </section>
+            <!-- Page Builder > Icon Box -->
+            <section id="page_builder_icon_box">
+                <h2>Icon Box</h2>
+                <p>Icon boxes come in very handy when building websites. The most common usage is for
+                    sections that list features of products or services. It has various options you get to
+                    customize every element of this widget: the icon, the headline, and the description.
+                    The icons are derived from the Font Awesome Icons, and you are able to search through
+                    them and pick the right one.</p>
+
+                <b>Content Tab</b>
+                <ul>
+                    <li><b>View:</b> Set the view of the icon as 'Default', 'Stacked' or 'Framed'. Stacked
+                        is with a background and frame is with a
+                        frame surrounding the icon.</li>
+                    <li><b>Choose Icon:</b> Here you have a list of the entire collection of Font Awesome
+                        icons.</li>
+                    <li><b>Title & Description:</b> Insert the title and description of your Icon Box
+                        widget.</li>
+                    <li><b>Link to:</b> Insert a link, and choose if it will open on a new window.</li>
+                    <li><b>Icon Position:</b> Set the position of the icon on the left, top or right side
+                        of the box.</li>
+                    <li><b>Title HTML Tag:</b> Choose the title tag, from H1..H6, Div, Span or P.</li>
+                </ul>
+
+                <b>Style Tab</b>
+
+                <ul>
+                    <li><b>Icon</b>
+                        <ul>
+                            <li><b>Primary Color:</b> note that if you choose stacked or framed icon box,
+                                you will also have a secondary color.</li>
+                            <li><b>Icon spacing:</b> The space between the icon and the heading.</li>
+                            <li><b>Icon size:</b> Scale up and down the size of the icon.</li>
+                            <li><b>Icon Rotate:</b> Rotate the icon.</li>
+                        </ul>
+                    </li>
+                    <li><b>Icon Hover</b>
+                        <ul>
+                            <li><b>Color: </b> Choose the primary and secondary color for the icon hover.</li>
+                            <li><b>Animation: </b> Choose from a long list of animations for the hover.</li>
+                        </ul>
+                    </li>
+                    <li><b>Content</b>
+                        <ul>
+                            <li><b>Title</b>
+                                <ul>
+                                    <li><b>Alignment:</b> Left, centers, right or justified.</li>
+                                    <li><b>Vertical Align:</b> Top, middle and button.</li>
+                                    <li><b>Title Spacing:</b> Set the spacing between the title and the
+                                        description.</li>
+                                    <li><b>Title color:</b> Change the color of the title.</li>
+                                    <li><b>Typography:</b> Here I can customize the typography of the
+                                        title.</li>
+                                </ul>
+                            </li>
+                            <li><b>Description</b>
+                                <ul>
+                                    <li><b>Description Color</b>: Change the color of the description.</li>
+                                    <li><b>Typography</b>: Choose custom to change the typography, just
+                                        like with the title.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- Page Builder > Image Box -->
+            <section id="page_builder_image_box">
+                <h2>Image Box</h2>
+                <p>The Image Box element lets you add an image box that combines an image with a headline
+                    and text, which is often used in features sections, as an alternative to using the Icon
+                    Box element.</p>
+
+                <b>Content</b>
+                <ul>
+                    <li><b>Choose Image</b>: Select an image from the media library, or upload a new image</li>
+                    <li><b>Image Size</b>: Select the size of the image, from thumbnail to full, or enter a
+                        custom size</li>
+                    <li><b>Title & Description</b>: Add the title and description that will appear in the
+                        image box</li>
+                    <li><b>Link to</b>: Enter the URL for the item’s link. Click the Link Options cog to
+                        either add rel=nofollow to the link or to
+                        open the link in a new window.</li>
+                    <li><b>Image Position</b>: Set the position of the image to the left, top or right,
+                        relative to the title and description</li>
+                    <li><b>Title HTML Tag</b>: Set the HTML tag of the title as H1...H6, div, span or
+                        paragraph</li>
+                </ul>
+
+                <b>Style</b>
+                <ul>
+                    <li><b>Image</b>
+                        <ul>
+                            <li><b>Spacing</b>: Set the exact space between the image and the title</li>
+                            <li><b>Width</b>: Scale the image width from 0 to 100%</li>
+                            <li><b>Hover Animation</b>: Add Hover Animation to the image</li>
+                            <li><b>CSS Filters</b>: Adjust the image style by changing the CSS Filter
+                                scales for Blur, Brightness, Contrast, Saturation, and
+                                Hue settings in Normal and Hover states</li>
+                            <li><b>Opacity</b>: Control the opacity of the image in Normal and Hover states</li>
+                            <li><b>Transition Duration</b>: Set the time it takes for each slide to appear.
+                                This time is in milliseconds, so 1000 ms is
+                                equal to 1 second</li>
+                        </ul>
+                    </li>
+                    <li><b>Content</b>
+                        <ul>
+                            <li><b>Alignment:</b> Align the content to the left, right, center or justified</li>
+                            <li><b>Vertical Alignment:</b> Align the content to the top, middle or bottom
+                                of the box</li>
+                            <li><b>Title Spacing:</b> Set the space between the title and description</li>
+                            <li><b>Title Color:</b> Set the color of the title</li>
+                            <li><b>Title Typography:</b> Set the typography options for the title</li>
+                        </ul>
+                    </li>
+                    <li><b>Description</b>
+                        <ul>
+                            <li><b>Color</b>: Set the color of the description text</li>
+                            <li><b>Typography</b>: Set the typography options for the description</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- Page Builder > Divider -->
+            <section id="page_builder_divider">
+                <h2>Divider</h2>
+                <p>The Divider element allows you to add style, horizontal lines that divide your content.
+                    This is a basic element, but
+                    it can help you create nice effects as separators of various sections, or for
+                    highlighting your headings.</p>
+                <ul>
+                    <li><b>Style</b>: Choose between solid, double, dotted or dashed styles.</li>
+                    <li><b>Weight</b>: Control the thickness of the divider.</li>
+                    <li><b>Color</b>: Choose the color of the divider.</li>
+                    <li><b>Width</b>: Control the width of the divider as a percentage from 0 to 100
+                        percent.</li>
+                    <li><b>Alignment</b>: Align the divider to the left, center or right of the page.</li>
+                    <li><b>Gap</b>: Control the space above and below the divider</li>
+                </ul>
+            </section>
+        
+            <!-- Page Builder > Shape Dividers -->
+            <section id="page_builder_shape_divider">
+                <h2>Shape Divider</h2>
+                <p>Shape dividers are graphic shapes that separate the sections of a page.</p>
+                <b>How to Add Shape Dividers</b>
+                <ol>
+                    <li>Add a new Section</li>
+                    <li>Go to Section > Style > Shape Divider</li>
+                    <li>Choose to display at the Top or Bottom of your section</li>
+                    <li>Type: Click the drop-down to choose your Shape Divider style</li>
+                    <li>Color: Pick a color</li>
+                    <li>Width: Set the width of your Shape Divider</li>
+                    <li>Height: Set the height of your Shape Divider</li>
+                    <li>Flip: Flip the direction of your Shape Divider</li>
+                    <li>Bring to front: Force your Shape Divider to be in front of other objects</li>
+                </ol>
+            </section>
+                    
+            <section id="page-meta-options">
+            	<h2>Meta Views</h2>
+            	<p><img src="images/page-meta-view.jpg" alt="" /></p>
+                <p><img src="images/category-meta-view.jpg" alt="" /></p>
+            </section>
+            <section id="woocommerce-settings">
+                <h2>WooCommerce Settings</h2>
+                <h4>How to config product image like demo</h4>
+                <h5>Step 1</h5>
+                <div class="document-content">
+                <p><img src="images/woo-commerce-settings-01.png"></p>
+                </div>
+                <h5>Step 2</h5>
+                <div class="document-content">
+                <p><img src="images/woo-commerce-settings-02.png"></p>
+                </div>
+                <h5>Step 3</h5>
+                <div class="document-content">
+                <p>Install plugin <a href="http://wordpress.org/extend/plugins/regenerate-thumbnails/">http://wordpress.org/extend/plugins/regenerate-thumbnails/</a></p>
+                </div>
+                <h5>Step 4</h5>
+                <div class="document-content">
+                <p><img src="images/woo-commerce-settings-03.png"></p>
+                </div>
+            </section>
+            <section id="color-swatches-settings">
+                <h2>Attributes Swatches Settings</h2>
+
+                <p>1.<strong> Go to:</strong> Products &gt; Attributes.</p>
+                <p><img src="swatches/variation-color-and-image-swatches-01.png"></p>
+                <p>2.<strong> Create</strong> a new attribute, or skip this step if you already have one.</p>
+                <p>3.<strong> Select
+                    the gear icon</strong> on the right next to the attribute. When you hover over this icon, you’ll see “Configure
+                    terms”.
+                </p>
+                <p><img src="swatches/variation-color-and-image-swatches-02.png" alt=""></p>
+                <p>4.<strong> Add New Color</strong> or whatever your attribute is called&nbsp;(or choose to edit an existing term).</p>
+                <p>5.<strong> Select</strong> either “Color” or “Image” in the&nbsp;<strong>Swatch Type</strong> dropdown.</p>
+                <ul>
+                    <li>If you’ve chosen color, you’ll be able to click on the color icon and <strong>select the color</strong> you want
+                        to use in the color picker. Alternatively, you can type in the HEX value for the color.&nbsp;<img src="swatches/variation-color-and-image-swatches-03-e1484575127786.png" >
+                    </li>
+                    <li>If you’ve chosen image, you’ll be able to <strong>upload an image</strong>.<br> <img src="swatches/variation-color-and-image-swatches-04.png" /></a>
+                    </li>
+                </ul>
+                <p>8.<strong> Select</strong>&nbsp;Add New Color.</p>
+                <p>For more information about setting up and managing Global
+                    Product Attributes, see:&nbsp;<span class="woo-sc-ilink">
+                    <a class="info" href="http://docs.woocommerce.com/document/managing-product-taxonomies/">Managing Attributes</a></span>.
+                </p>
+                <div class="woo-sc-box alert "><strong>Warning:</strong> If you change the attribute name and/or slug you permanently&nbsp;lose
+                    the swatches configuration.
+                </div>
+                <h2 id="section-3">Add color and image swatches to variable products</h2>
+                <p>Color and photo swatches can only be
+                    used for variable products.
+                </p>
+                <p>1.<strong> Create a variable product</strong>. Make sure that you select a global
+                    attribute or create a custom one in the “Attributes” tab. Also set up the “Variations” tab. More information about
+                    that can be found here:
+                </p>
+
+                <p>2.<strong> Publish</strong> your product.</p>
+                <p>3.<strong> Go to</strong> the Swatches tab.</p>
+                <p>4.<strong> Select a “Type”</strong> for each of the attributes
+                    used for the variations.
+                </p>
+                <ul>
+                    <li><strong>None.</strong> The options will be offered in a dropdown.</li>
+                    <li><strong>Taxonomy Colors and Images.</strong> The options of the global attribute will be offered. (Only
+                        available for global attributes.)
+                    </li>
+                    <li><strong>Custom Colors and Images.</strong> You will be able to add colors and image swatches.</li>
+                    <li><strong>Radio Buttons.&nbsp;</strong>The available options will be displayed as radio buttons.</li>
+                </ul>
+                <p>5.<strong> Choose whether to add a label or not</strong> and where to add it, if you’ve selected “Taxonomy
+                    Colors and Images” or “Custom Colors and Images”. This label will display the name of the selected term.
+                </p>
+                <p><img src="swatches/variation-color-and-image-swatches-06.png"></p>
+                <p>6.<strong> Select the size of the swatches</strong> if you’ve selected “Custom Colors and Images”. This will
+                    determine how large the swatches will be on the product page.
+                </p>
+                <p>
+                    <img src="swatches/variation-color-and-image-swatches-07.png">
+                </p>
+                <p>7.<strong> Configure the attribute terms.</strong> This is similar to how global attribute terms are configured
+                    (see above).
+                </p>
+                <ul>
+                    <li><strong>Select</strong> the term.</li>
+                    <li><strong>Choose</strong> Attribute Color or Image.</li>
+                    <li>If you’ve chosen color, <strong>select a color</strong>.</li>
+                    <li>If you’ve chosen image, <strong>upload an image</strong>.</li>
+                </ul>
+                <p><img src="swatches/variation-color-and-image-swatches-05-e1484578075779.png"/></p>
+                <p>8.<strong> Update&nbsp;</strong>the product.</p>
+
+            </section>
+			<section id="woo-general">
+				<h4>General</h4>
+				<p><img src="images/woo-general.jpg"></p>
+			</section>
+			<section id="woo-product-page">
+				<h4>Product Page</h4>
+				<p><img src="images/woo-single.jpg"></p>
+			</section>
+			<section id="woo-cart">
+				<h4>Cart Page</h4>
+				<p><img src="images/woo-cart.jpg"></p>
+			</section>
+			<section id="woo-catalog">
+				<h4>Catalog Mode</h4>
+				<p><img src="images/woo-catalog-mode.jpg"></p>
+			</section>
+            <section id="theme-maintaince">
+                <h4>Maintaince Mode</h4>
+                <p><img src="images/theme-maintaince.jpg"></p>
+            </section>
+            <section id="contact-form-settings">
+                <h2>Contact Forms Settings</h2>
+                <div class="document-content">
+                    <h7>Settings For Send Mail</h7>
+                    <p><img src="images/contact-form-03.gif"></p>
+                    <p><img src="images/contact-form-04.jpg"></p>
+                    <p>You can visit <a href="https://wordpress.org/plugins/wp-mail-smtp/" target="_blank">WP Mail SMTP Plugin</a> to further details.</p>
+                </div>
+            </section>
+            <section id="mailchimp-setting">
+                <h2>Mail Chimp Settings</h2>
+                <div class="document-content">
+                    <p>Please go to <b>Appearance></b> -> <b>Theme Options</b> -> <b>Extensions</b> -> Mailing List Manager</p>
+                    <p><img src="images/mailchimp-setup.jpg"></p>
+                        
+                    <p>And then you can see the widget on the elements</p>
+                        
+                    <p><img src="images/mailchimp-setup-2.jpg"></p>
+                </div>
+            </section>
+            <section id="thank-you">
+                <h2>Thank you for purchasing our theme</h2>
+                <div class="document-content">
+                    <p>If you have any questions that are beyond the scope of this documentation</p>
+                    <p>Please feel free to us via HelpDesk <a href="https://support.la-studioweb.com/">https://support.la-studioweb.com/</a>.</p>
+                    Thanks so much!
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

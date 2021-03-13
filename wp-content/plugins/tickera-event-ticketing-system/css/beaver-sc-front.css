@@ -1,0 +1,13 @@
+/* beaver builder popup*/
+.tc-shortcodes-colorbox{z-index: 100012 !important;}
+#tc-shortcode-builder{margin-bottom: 0px;}
+.tc-shortcode-atts h3{font-size: 1.3em;font-weight: 600;}
+#tc-wb-event-shortcode td{padding: 0em 1.41575em;background-color: #ffffff !important;}
+#tc-calendar-shortcode .color-option {display: inline-block;width: 24%;padding: 5px 15px 15px;box-sizing: border-box;margin-bottom: 3px;cursor: pointer;}
+#tc-calendar-shortcode td{padding: 0px 0px !important;}
+.shortcode-table th{background-color: #ffffff !important;font-size: 13px;}
+.tc-title-wrap h3{font-size: 1.3em;line-height: 1.4;}
+.tc-title-wrap{padding: 10px 15px;}
+.tc-shortcode-atts { margin-top: 20px;}
+.tc-shortcode-wrap .submit{margin-bottom: 10px;}
+#tc-shortcode-builder .button-primary{background: #007cba;border-color: #007cba;color: #fff;text-shadow: none;display: inline-block;text-decoration: none;font-size: 13px;line-height: 2.15384615;min-height: 30px;margin: 0;padding: 0 10px;cursor: pointer;border-width: 1px;border-style: solid;-webkit-appearance: none;border-radius: 3px;white-space: nowrap;box-sizing: border-box;}

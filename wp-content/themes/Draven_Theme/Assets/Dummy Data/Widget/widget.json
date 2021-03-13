@@ -1,0 +1,123 @@
+{
+  "draven_widget_area_5": {
+    "woocommerce_product_categories-2": {
+      "title": "Categories",
+      "orderby": "name",
+      "dropdown": 0,
+      "count": 1,
+      "hierarchical": 1,
+      "show_children_only": 0,
+      "hide_empty": 0,
+      "max_depth": "",
+      "classes": ""
+    },
+    "woocommerce_price_filter-2": {
+      "title": "Price",
+      "classes": ""
+    },
+    "woocommerce_layered_nav-5": {
+      "title": "Size",
+      "attribute": "size",
+      "display_type": "list",
+      "query_type": "or",
+      "classes": "menu-item-two-columns"
+    },
+    "woocommerce_layered_nav-6": {
+      "title": "Color",
+      "attribute": "color",
+      "display_type": "list",
+      "query_type": "or",
+      "classes": "menu-item-two-columns"
+    },
+    "woocommerce_layered_nav-7": {
+      "title": "Brands",
+      "attribute": "brands",
+      "display_type": "list",
+      "query_type": "or",
+      "classes": "menu-item-two-columns"
+    },
+    "woocommerce_product_tag_cloud-2": {
+      "title": "Product Tags",
+      "classes": ""
+    },
+    "text-3": {
+      "title": "",
+      "text": "[elementor-template id=\"2332\"]",
+      "filter": true,
+      "visual": true,
+      "classes": ""
+    }
+  },
+  "sidebar-primary": {
+    "search-2": {
+      "title": ""
+    },
+    "categories-2": {
+      "title": "Categories",
+      "count": 1,
+      "hierarchical": 0,
+      "dropdown": 0,
+      "classes": ""
+    },
+    "la-recent-posts-2": {
+      "title": "Popular Post",
+      "number": 5,
+      "show_date": true,
+      "classes": ""
+    },
+    "archives-2": {
+      "title": "Archives",
+      "count": 0,
+      "dropdown": 1,
+      "classes": ""
+    },
+    "tag_cloud-2": {
+      "title": "Tags",
+      "count": 0,
+      "taxonomy": "post_tag",
+      "classes": ""
+    },
+    "text-2": {
+      "title": "",
+      "text": "[elementor-template id=\"2332\"]",
+      "filter": true,
+      "visual": true,
+      "classes": ""
+    }
+  },
+  "sidebar-shop-filter": {
+    "la-price-filter-list-2": {
+      "title": "Price",
+      "text": "20|40\r\n40|50\r\n50|60\r\n60|80\r\n80|100\r\n100|",
+      "classes": ""
+    },
+    "woocommerce_layered_nav-2": {
+      "title": "Size",
+      "attribute": "size",
+      "display_type": "list",
+      "query_type": "or",
+      "classes": "menu-item-two-columns"
+    },
+    "woocommerce_layered_nav-3": {
+      "title": "Color",
+      "attribute": "color",
+      "display_type": "list",
+      "query_type": "or",
+      "classes": "menu-item-two-columns"
+    },
+    "woocommerce_layered_nav-4": {
+      "title": "Brands",
+      "attribute": "brands",
+      "display_type": "list",
+      "query_type": "or",
+      "classes": "menu-item-two-columns"
+    }
+  },
+  "s-p-after-add-cart": {
+    "custom_html-2": {
+      "title": "",
+      "content": "<p><a href=\"#\"><i class=\"dlicon location_pin\"><\/i>Store availability<\/a><a href=\"#\"><i><svg width=\"16\" height=\"16\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><g stroke=\"currentColor\" fill=\"none\" fill-rule=\"evenodd\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M.5.5h2v9h13\"\/><circle cx=\"4\" cy=\"14\" r=\"1.5\"\/><circle cx=\"13\" cy=\"14\" r=\"1.5\"\/><path d=\"M6.5 3.5h7v3\"\/><path d=\"M9.5.5l-3 3 3 3\"\/><\/g><\/svg><\/i>Delivery and return<\/a><a href=\"#\"><i class=\"dlicon design_measure-17\"><\/i>Size Guide<\/a><\/p>",
+      "classes": ""
+    }
+  }
+}
