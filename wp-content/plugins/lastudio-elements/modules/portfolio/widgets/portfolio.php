@@ -493,7 +493,7 @@ class Portfolio extends Lastudio_Widget {
             'image_list',
             array(
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
                         'item_image'       => array(
@@ -2488,7 +2488,7 @@ class Portfolio extends Lastudio_Widget {
 
         $image_item = $item[ 'item_image' ];
 
-        if ( ! empty( $image_item['id'] ) ) {
+        if ( ! empty( $image_item['id'] ) && is_attachment($image_item['id']) ) {
             $image_data = wp_get_attachment_image_src( $image_item['id'], 'full' );
 
             $params[] = $image_data[0];
@@ -2511,9 +2511,11 @@ class Portfolio extends Lastudio_Widget {
             $srcset = 'srcset="' . $item['item_image_2x'][ 'url' ] . ' 2x"';
         }
 
-        $srcset = 'srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="';
+        $lazy = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
 
-        return sprintf( '<img class="lastudio-portfolio__image-instance la-lazyload-image" src="%1$s" data-src="%1$s" width="%2$s" height="%3$s" %4$s alt="">', $params[0], $params[1], $params[2], $srcset );
+        $srcset = 'srcset="'.$lazy.'"';
+
+        return sprintf( '<img class="lastudio-portfolio__image-instance la-lazyload-image" src="%1$s" data-src="%1$s" width="%2$s" height="%3$s" alt="" %4$s>', $params[0], $params[1], $params[2], $srcset, $lazy);
     }
 
     /**

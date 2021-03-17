@@ -2882,7 +2882,15 @@
 		self.init = function() {
 			self.layoutBuild();
 		}
-
+		self.makeImageLoaded = function ( $item ){
+			$item.imagesLoaded().progress( function( instance, image ) {
+				$('.lastudio-portfolio__image-loader', $item).remove();
+				$item.addClass('item-loaded');
+				try{
+					$masonryInstance.masonry('layout');
+				} catch (ex){}
+			});
+		}
         self.get_item_column = function (w_w, item_w) {
             return Math.round(w_w / item_w);
         }
@@ -2972,23 +2980,7 @@
                 LaStudioElements.initCarousel( $instanceList, $instance.find('.lastudio-carousel').data( 'slider_options' ) );
 			}
 
-            $( '.lastudio-portfolio__image', $itemsList ).imagesLoaded().progress( function( instance, image ) {
-                var $image      = $( image.img ),
-                    $parentItem = $image.closest( '.lastudio-portfolio__item' ),
-                    $loader     = $( '.lastudio-portfolio__image-loader', $parentItem );
-
-                LaStudioElementsTools.makeImageAsLoaded(image.img);
-
-                $loader.remove();
-                $parentItem.addClass( 'item-loaded' );
-
-                if($instance.find('.lastudio-carousel').length == 0) {
-                    $masonryInstance.masonry('layout');
-                }
-            } );
-
-
-            if($instance.hasClass('advancedMasonry')) {
+            if( $instance.hasClass('advancedMasonry') ) {
                 $(window).on('resize', function (e) {
                     self.calc_item_sizes();
                 });
@@ -3046,15 +3038,26 @@
 				}
 			}
 
+			var found = 0;
+
 			$.each( itemsData, function( index, obj ) {
 				var visible = false;
-
-				if ( self.isItemVisible( obj.slug ) && ! obj['more'] ) {
+				if ( self.isItemVisible( obj.slug ) && !obj.more ) {
 					visible = true;
+					found++;
 				}
-
 				obj.visible = visible;
 			} );
+
+			if(found < settings.perPage){
+				$.each( itemsData, function( index, obj ) {
+					if ( self.isItemVisible( obj.slug ) && obj.more && found < settings.perPage ) {
+						obj.more = false;
+						obj.visible = true;
+						found++;
+					}
+				} );
+			}
 
 			self.render();
 			self.checkMoreButton();
@@ -3066,15 +3069,11 @@
 		 * @return {[type]}       [description]
 		 */
 		self.moreButtonHandler = function( event ) {
-			var $this   = $( this ),
-				counter = 1;
-
+			var counter = 1;
 			$.each( itemsData, function( index, obj ) {
-
 				if ( self.isItemVisible( obj.slug ) && obj.more && counter <= settings.perPage ) {
 					obj.more = false;
 					obj.visible = true;
-
 					counter++;
 				}
 			} );
@@ -3119,7 +3118,6 @@
 					return true;
 				}
 			}
-
 			return false;
 		}
 
@@ -3154,7 +3152,7 @@
 
 				if ( itemData.visible ) {
 					itemData.selector.addClass( 'visible-status' );
-
+					self.makeImageLoaded(itemData.selector);
 					showAnimation = anime( {
 						targets: selector[0],
 						opacity: {
@@ -3169,7 +3167,9 @@
 						delay: 50,
 						elasticity: false
 					} );
-				} else {
+
+				}
+				else {
 					itemData.selector.addClass( 'hidden-status' );
 					hideAnimation = anime( {
 						targets: selector[0],

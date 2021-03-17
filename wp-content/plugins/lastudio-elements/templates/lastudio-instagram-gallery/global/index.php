@@ -4,7 +4,7 @@ $data_settings = $this->generate_setting_json();
 
 $attr_array = array();
 $class_array = array( 'lastudio-instagram-gallery__instance' );
-$class_array[] = 'layout-type-' . $settings['layout_type'];
+$class_array[] = 'layout-salvattore layout-type-' . $settings['layout_type'];
 
 if ( 'grid' === $settings['layout_type'] ) {
 	$class_array[] = 'col-row';

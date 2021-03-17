@@ -128,7 +128,7 @@ class Subscribe_Form extends Lastudio_Widget {
             'additional_fields',
             [
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => [
                     [
                         'type'        => 'fname',

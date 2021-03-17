@@ -478,7 +478,7 @@ class Products extends Products_Base {
             'masonry_item_sizes',
             array(
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
                         'item_title'  => esc_html__( 'Size 1x1', 'lastudio-elements' ),

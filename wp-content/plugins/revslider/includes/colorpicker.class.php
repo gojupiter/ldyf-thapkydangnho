@@ -367,8 +367,11 @@ if(!class_exists('RSColorpicker')){
 		 * @since 5.3.1.6
 		 */
 		public static function rgbValues($values, $num){
-			$values = substr( $values, strpos($values, '(') + 1  , strpos($values, ')')-strpos($values, '(') - 1 );
-			$values = explode(",", $values);
+			if(empty($values)) return $values;
+			if(strpos($values, '(') === false) return $values;
+			if(strpos($values, ')') === false) return $values;
+			$values = substr($values, strpos($values, '(') + 1, strpos($values, ')') - strpos($values, '(') - 1);
+			$values = explode(',', $values);
 			
 			if(count($values) == 3 && $num == 4) $values[3] = '1';
 			for($i = 0; $i < $num; $i++){
@@ -506,7 +509,8 @@ if(!class_exists('RSColorpicker')){
 		 * @since: 6.0
 		 */  
 		public static function normalizeColor($color) {
-
+			if(empty(trim($color))) return $color;
+			
 			$color = RSColorpicker::process($color, true);
 			$clr = $color[0];
 			$tpe = $color[1];

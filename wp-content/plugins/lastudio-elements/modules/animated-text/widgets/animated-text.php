@@ -85,7 +85,7 @@ class Animated_Text extends Lastudio_Widget {
             array(
                 'type'    => Controls_Manager::REPEATER,
                 'label'   => esc_html__( 'Animated Text', 'lastudio-elements' ),
-                'fields'  => array_values( $repeater->get_controls() ),
+                'fields'  => $repeater->get_controls(),
                 'default' => array(
                     array(
                         'item_text' => esc_html__( 'Create', 'lastudio-elements' ),

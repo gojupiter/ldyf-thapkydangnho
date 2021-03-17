@@ -47,7 +47,6 @@ if ( 'list' == $settings['layout_type'] && $settings['preset_list'] == 'list-typ
 
 $this->add_render_attribute( $link_instance, 'class', $link_css_class);
 
-
 $item_image_url = $this->__loop_item( array( 'item_image', 'url' ), '%s' );
 $item_button_url = $this->__loop_item( array( 'item_button_url', 'url' ), '%s' );
 
@@ -61,7 +60,7 @@ $this->add_render_attribute( $link_instance, 'href', $item_button_url );
 <article <?php echo $this->get_render_attribute_string( $item_instance ); ?>>
 	<div class="lastudio-portfolio__inner">
 		<a <?php echo $this->get_render_attribute_string( $link_instance ); ?>>
-			<div class="lastudio-portfolio__image" style="background-image: url('<?php echo esc_url($item_image_url); ?>')">
+			<div class="lastudio-portfolio__image la-lazyload-image" data-background-image="<?php echo esc_url($item_image_url); ?>">
 				<?php echo $this->__loop_image_item(); ?>
 				<div class="lastudio-portfolio__image-loader"><span></span></div>
 			</div>

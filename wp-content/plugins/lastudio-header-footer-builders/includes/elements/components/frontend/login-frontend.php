@@ -12,6 +12,7 @@ function lahfb_login( $atts, $uniqid, $once_run_flag ) {
 		'show_tooltip'		=> 'false',
 		'tooltip_text'		=> 'Login',
 		'tooltip_position'	=> 'tooltip-on-bottom',
+		'login_icon'	    => '',
 		'extra_class'		=> '',
 	), $atts ));
 
@@ -23,8 +24,14 @@ function lahfb_login( $atts, $uniqid, $once_run_flag ) {
     global $user_ID, $user_identity;
 	$out = $modal = $wrap_class = '';
 
+	if($login_icon == 'none'){
+        $login_icon = '';
+    }
+
+	$login_icon = !empty($login_icon) ? $login_icon : 'fa fa-user-circle-o';
+
     $icon_alignment     = $login_text_icon == 'true' ? 'icon-right ' : '';
-    $login_text_icon    = $login_type == 'icon_text' ? '<i class="fa fa-user-circle-o"></i>' : '';
+    $login_text_icon    = ($login_type == 'icon_text' || $login_type == 'icon') ? '<i class="'.esc_attr($login_icon).'"></i>' : '';
     $login_text         = $login_text ? $login_text : '';
 	
 	
@@ -44,12 +51,13 @@ function lahfb_login( $atts, $uniqid, $once_run_flag ) {
         $show_avatar    = $show_avatar == 'true' ? '<span class="la-header-avatar">' . get_avatar( $user_ID, $size = '50') . '</span>' : $login_text_icon;
     }
     else {
-        $show_avatar    = $login_type == 'icon' ? '<i class="fa fa-user-circle-o"></i>' : $login_text_icon;
+        $show_avatar    = $login_type == 'icon' ? '<i class="'.esc_attr($login_icon).'"></i>' : $login_text_icon;
     }
     // login
 	if ( is_user_logged_in() ) {
         $login_text = $show_avatar . '<span class="lahfb-login-text-modal">' .  esc_html($user_identity).'</span>';
-    } else {
+    }
+	else {
     	$login_text = $show_avatar . '<span class="lahfb-login-text-modal">' . LAHFB_Helper::render_string($login_text) .'</span>' ;
     }
 

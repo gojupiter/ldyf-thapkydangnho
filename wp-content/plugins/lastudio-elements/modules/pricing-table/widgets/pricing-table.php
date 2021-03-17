@@ -292,7 +292,7 @@ class Pricing_Table extends Lastudio_Widget {
             'features_list',
             array(
                 'type'    => Controls_Manager::REPEATER,
-                'fields'  => array_values( $repeater->get_controls() ),
+                'fields'  => $repeater->get_controls(),
                 'default' => array(
                     array(
                         'item_text'     => esc_html__( 'Feature #1', 'lastudio-elements' ),

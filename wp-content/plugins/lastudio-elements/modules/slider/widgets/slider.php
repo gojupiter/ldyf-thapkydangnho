@@ -187,7 +187,7 @@ class Slider extends Lastudio_Widget {
             'item_list',
             array(
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
                         'item_image'                 => array(

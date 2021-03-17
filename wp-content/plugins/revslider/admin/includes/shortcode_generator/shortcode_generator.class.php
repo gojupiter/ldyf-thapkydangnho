@@ -25,7 +25,8 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 	}
 
 	public static function add_styles(){
-		wp_enqueue_style('revslider-material-icons', RS_PLUGIN_URL . 'admin/assets/icons/material-icons.css', array(), RS_REVISION);
+		wp_enqueue_style('revslider-material-icons', RS_PLUGIN_URL . 'public/assets/fonts/material/material-icons.css', array(), RS_REVISION);
+		//wp_enqueue_style('revslider-material-icons', RS_PLUGIN_URL . 'admin/assets/icons/material-icons.css', array(), RS_REVISION);
 		wp_enqueue_style('revslider-basics-css', RS_PLUGIN_URL . 'admin/assets/css/basics.css', array(), RS_REVISION);
 		wp_enqueue_style('rs-color-picker-css', RS_PLUGIN_URL . 'admin/assets/css/tp-color-picker.css', array(), RS_REVISION);
 		wp_enqueue_style('revbuilder-select2RS', RS_PLUGIN_URL . 'admin/assets/css/select2RS.css', array(), RS_REVISION);
@@ -57,7 +58,7 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 			$current_screen = get_current_screen();
 
 			// checks for built-in gutenberg version
-			$is_gutenberg = method_exists($current_screen, 'is_block_editor') && $current_screen->is_block_editor();
+			$is_gutenberg = !empty($current_screen) && method_exists($current_screen, 'is_block_editor') && $current_screen->is_block_editor();
 
 			// checks for old plugin version
 			if(!$is_gutenberg) $is_gutenberg = function_exists('is_gutenberg_page') && is_gutenberg_page();
@@ -89,7 +90,7 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 			wp_enqueue_script('revbuilder-utils', RS_PLUGIN_URL . 'admin/assets/js/plugins/utils.min.js', array('jquery','wp-color-picker'), RS_REVISION, false);
 		}
 
-		wp_enqueue_script('tp-tools', RS_PLUGIN_URL . 'public/assets/js/rbtools.min.js', array('jquery'), RS_REVISION, true);
+		wp_enqueue_script('tp-tools', RS_PLUGIN_URL . 'public/assets/js/rbtools.min.js', array('jquery'), RS_TP_TOOLS, true);
 
 		// object library translations
 		wp_localize_script('revbuilder-utils', 'RVS_LANG', array(			
@@ -153,12 +154,17 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 			'setupnotes' => __('Setup Notes', 'revslider'),
 			'requirements' => __('Requirements', 'revslider'),
 			'installedversion' => __('Installed Version', 'revslider'),
-			'availableversion' => __('Available Version', 'revslider'),
-			'installpackage' => __('Installing Template Package', 'revslider'),
+			'availableversion' => __('Available Version', 'revslider'),			
+			'installpackage' => __('Installing Template Package', 'revslider'),			
+			'doinstallpackage' => __('Install Template Package', 'revslider'),
 			'installtemplate' => __('Install Template', 'revslider'),
+			'installingaddon' => __('Installing Add-on', 'revslider'),
+			'installpackageandaddons' => __('Install Template Package & Addon(s)', 'revslider'),
+			'installtemplateandaddons' => __('Install Template & Addon(s)', 'revslider'),
 			'licencerequired' => __('Activate License', 'revslider'),
 			'redownloadTemplate' => __('Re-Download Online', 'revslider'),
 			'createBlankPage' => __('Create Blank Page', 'revslider'),
+			'pluginsmustbeupdated' => __('Plugin Outdated. Please Update', 'revslider'),
 			'please_wait_a_moment' => __('Please Wait a Moment', 'revslider'),
 			'search' => __('Search', 'revslider'),
 			'folderBIG' => __('FOLDER', 'revslider'),
@@ -202,7 +208,7 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 			'active_sr_plg_activ' => __('Register Purchase Code', 'revslider'),
 			'active_sr_plg_activ_key' => __('Register License Key', 'revslider'),
 			'getpurchasecode' => __('Get a Purchase Code', 'revslider'),
-			'getlicensekey' => __('Licensing Options', 'revslider'),
+			'getlicensekey' => __('Get a License Key', 'revslider'),
 			'ihavepurchasecode' => __('I have a Purchase Code', 'revslider'),
 			'ihavelicensekey' => __('I have a License Key', 'revslider'),
 			'enterlicensekey' => __('Enter License Key', 'revslider'),
@@ -220,6 +226,9 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 		$rs_compression = $rsaf->compression_settings();
 		$favs = get_option('rs_favorite', array());
 		$favs = !empty($favs) ? $rsaf->json_encode_client_side($favs) : false;
+		
+		$rs_color_picker_presets = RSColorpicker::get_color_presets();
+		
 		?>
 		<script type="text/javascript">
 			window.RVS = window.RVS === undefined ? {F:{}, C:{}, ENV:{}, LIB:{}, V:{}, S:{}} : window.RVS;
@@ -235,16 +244,17 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 			RVS.ENV.activated	= '<?php echo (get_option('revslider-valid', 'false')) == 'true' ? 'true' : 'false'; ?>';
 			RVS.ENV.activated	= RVS.ENV.activated == 'true' || RVS.ENV.activated == true ? true : false;
 			RVS.ENV.selling		= <?php echo ($rsaf->get_addition('selling') === true) ? 'true' : 'false'; ?>;
+			RVS.LIB.COLOR_PRESETS	= <?php echo (!empty($rs_color_picker_presets)) ? 'JSON.parse('. $rsaf->json_encode_client_side($rs_color_picker_presets) .')' : '{}'; ?>;
 			
 			window.addEventListener('load', function(){
-				RVS.ENV.output_compress	= <?php echo (!empty($rs_compression)) ? 'jQuery.parseJSON('. $rsaf->json_encode_client_side($rs_compression) .')' : '[]'; ?>;
+				RVS.ENV.output_compress	= <?php echo (!empty($rs_compression)) ? 'JSON.parse('. $rsaf->json_encode_client_side($rs_compression) .')' : '[]'; ?>;
 				<?php if(!empty($rsa)){ ?>
-				RVS.LIB.OBJ = {shortcode_generator: true, types: jQuery.parseJSON(<?php echo $obj; ?>)};
+				RVS.LIB.OBJ = {shortcode_generator: true, types: JSON.parse(<?php echo $obj; ?>)};
 				<?php }else{ ?>
 				RVS.LIB.OBJ = {};
 				<?php }
 				if(!empty($favs)){ ?>
-				RS_SHORTCODE_FAV = jQuery.parseJSON(<?php echo $favs; ?>);
+				RS_SHORTCODE_FAV = JSON.parse(<?php echo $favs; ?>);
 				<?php } ?>
 			});
 

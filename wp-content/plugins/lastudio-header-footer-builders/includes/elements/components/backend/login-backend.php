@@ -43,7 +43,7 @@
 						),
 						'dependency'	=> array(
 							'text'  	=> array( 'login_text', 'login_text_icon' ),
-							'icon_text'	=> array( 'login_text', 'login_text_icon' ),
+							'icon_text'	=> array( 'login_text', 'login_text_icon' )
 						),
 					));
 
@@ -111,6 +111,11 @@
 							'tooltip-on-bottom' => esc_html__( 'Bottom', 'lastudio-header-footer-builder' ),
 						),
 					));
+
+                    lahfb_icon( array(
+                        'title'			=> esc_html__( 'Select your desired icon', 'lastudio-header-footer-builder' ),
+                        'id'			=> 'login_icon',
+                    ));
 
 				?>
 

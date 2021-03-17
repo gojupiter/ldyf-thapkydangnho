@@ -194,7 +194,7 @@ class Horizontal_Timeline extends Lastudio_Widget {
             'cards_list',
             array(
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
                         'is_item_active'  => 'yes',

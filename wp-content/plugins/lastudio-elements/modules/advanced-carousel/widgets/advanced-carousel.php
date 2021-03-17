@@ -132,7 +132,7 @@ class Advanced_Carousel extends Lastudio_Widget {
             'items_list',
             array(
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
                         'item_image' => array(
@@ -1782,7 +1782,7 @@ class Advanced_Carousel extends Lastudio_Widget {
             return;
         }
 
-        if ( 'full' !== $size && ! empty( $image['id'] ) ) {
+        if ( 'full' !== $size && ! empty( $image['id'] ) && is_attachment($image['id']) ) {
             $url = wp_get_attachment_image_url( $image['id'], $size );
         } else {
             $url = $image['url'];

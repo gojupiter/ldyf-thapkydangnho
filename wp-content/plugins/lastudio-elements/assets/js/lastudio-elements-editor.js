@@ -34,8 +34,25 @@
                 elementor.settings.page.model.on('change', LaStudioElementsEditor.addPageCustomCss);
                 elementor.on('preview:loaded', LaStudioElementsEditor.addPageCustomCss);
 			}
-
+            LaStudioElementsEditor.onFixPreview();
 		},
+
+        onFixPreview: function (){
+            if(elementor.getPreferences('lastudio_fix_small_browser') == 'yes'){
+                $('body').addClass('fix-small-browser');
+            }
+            else{
+                $('body').removeClass('fix-small-browser');
+            }
+            elementor.settings.editorPreferences.addChangeCallback('lastudio_fix_small_browser', function(val){
+                if(val == 'yes'){
+                    $('body').addClass('fix-small-browser');
+                }
+                else{
+                    $('body').removeClass('fix-small-browser');
+                }
+            });
+        },
 
 		onAnimatedBoxSectionActivated: function( sectionName, editor ) {
 			var editedElement = editor.getOption( 'editedElementView' ),
@@ -119,12 +136,22 @@
             }
         },
 
-        addCustomCss: function (css, view) {
-            var model = view.getEditModel(),
+        addCustomCss: function (css, context) {
+
+            if (!context) {
+                return;
+            }
+
+            var model = context.model,
                 customCSS = model.get('settings').get('custom_css');
+            var selector = '.elementor-element.elementor-element-' + model.get('id');
+
+            if ('document' === model.get('elType')) {
+                selector = elementor.config.document.settings.cssWrapperSelector;
+            }
 
             if (customCSS) {
-                css += customCSS.replace(/selector/g, '.elementor-element.elementor-element-' + view.model.id);
+                css += customCSS.replace(/selector/g, selector);
             }
 
             return css;

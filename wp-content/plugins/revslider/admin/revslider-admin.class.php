@@ -10,7 +10,7 @@ if(!defined('ABSPATH')) exit();
 class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	//private $theme_mode = false;
 	private $view			 = 'slider';
-	private $user_role		 = 'admin';
+	private $user_role		 = 'administrator';
 	private $global_settings = array();
 	private $screens		 = array(); //holds all RevSlider Relevant screens in it
 	private $allowed_views	 = array('sliders', 'slider', 'slide', 'update'); //holds pages, that are allowed to be included
@@ -82,7 +82,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 		
 		if(in_array($this->get_val($_GET, 'page'), $this->pages)){
 			wp_enqueue_style('revbuilder-select2RS', RS_PLUGIN_URL . 'admin/assets/css/select2RS.css', array(), RS_REVISION);
-			//wp_enqueue_style('codemirror-css', RS_PLUGIN_URL .'admin/assets/css/codemirror.css', array(), RS_REVISION);
+			//wp_enqueue_style('RevMirror-css', RS_PLUGIN_URL .'admin/assets/css/RevMirror.css', array(), RS_REVISION);
 			wp_enqueue_style('rs-frontend-settings', RS_PLUGIN_URL . 'public/assets/css/rs6.css', array(), RS_REVISION);
 			wp_enqueue_style('rs-icon-set-fa-icon-', RS_PLUGIN_URL . 'public/assets/fonts/font-awesome/css/font-awesome.css', array(), RS_REVISION);
 			wp_enqueue_style('rs-icon-set-pe-7s-', RS_PLUGIN_URL . 'public/assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css', array(), RS_REVISION);
@@ -110,11 +110,13 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 		/*
 		//enqueue in all pages / posts in backend
 		$screen = get_current_screen();
-
-		$post_types = get_post_types('', 'names');
-		foreach($post_types as $post_type){
-			if($post_type == $screen->id){
-				wp_enqueue_script('revslider-tinymce-shortcode-script', RS_PLUGIN_URL . 'admin/assets/js/modules/tinymce-shortcode-script.js', array('jquery'), RS_REVISION, true);
+		
+		if(!empty($screen)){
+			$post_types = get_post_types('', 'names');
+			foreach($post_types as $post_type){
+				if($post_type == $screen->id){
+					wp_enqueue_script('revslider-tinymce-shortcode-script', RS_PLUGIN_URL . 'admin/assets/js/modules/tinymce-shortcode-script.js', array('jquery'), RS_REVISION, true);
+				}
 			}
 		}
 		*/
@@ -227,7 +229,23 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	 * @since: 6.0
 	 **/
 	public function set_user_role(){
-		$this->user_role = $this->get_val($this->global_settings, 'permission', 'admin');
+		$this->user_role = $this->get_val($this->global_settings, 'permission', 'administrator');
+		if($this->user_role === 'admin') $this->user_role = 'administrator';
+		if(!in_array($this->user_role, array('author', 'editor', 'administrator'))) $this->user_role = 'administrator';
+		
+		switch($this->user_role){
+			case 'author':
+				$this->user_role = 'edit_published_posts';
+			break;
+			case 'editor':
+				$this->user_role = 'edit_pages';
+			break;
+			default:
+			case 'admin':
+			case 'administrator':
+				$this->user_role = 'manage_options';
+			break;
+		}
 	}
 
 	/**
@@ -235,20 +253,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	 * @since: 6.0
 	 **/
 	public function add_admin_pages(){
-		switch ($this->user_role){
-		case 'author':
-			$role = 'edit_published_posts';
-			break;
-		case 'editor':
-			$role = 'edit_pages';
-			break;
-		default:
-		case 'admin':
-			$role = 'manage_options';
-			break;
-		}
-
-		$this->screens[] = add_menu_page('Slider Revolution', 'Slider Revolution', $role, 'revslider', array($this, 'display_admin_page'), 'dashicons-update');
+		$this->screens[] = add_menu_page('Slider Revolution', 'Slider Revolution', $this->user_role, 'revslider', array($this, 'display_admin_page'), 'dashicons-update');
 	}
 
 	/**
@@ -305,12 +310,12 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 				<div class="clear"></div>				
 			</li>
 			<li id="slide_template_row">				
-					<label class="rs_wp_ppset" id="slide_template_text"><?php _e('Slide Template', 'revslider');?></label><select style="max-width:82px" name="slide_template" id="slide_template">
-							<?php
-							foreach($output as $handle => $name){
-								echo '<option ' . selected($handle, $meta) . ' value="' . $handle . '">' . $name . '</option>';
-							}
-							?></select>				
+				<label class="rs_wp_ppset" id="slide_template_text"><?php _e('Slide Template', 'revslider');?></label><select style="max-width:82px" name="slide_template" id="slide_template">
+				<?php
+				foreach($output as $handle => $name){
+					echo '<option ' . selected($handle, $meta) . ' value="' . $handle . '">' . $name . '</option>';
+				}
+				?></select>
 			</li>
 			<li id="slide_template_row" style="margin-top:40px">
 				<solidiconbox><i class="material-icons">flag</i></solidiconbox><div class="pli_twoline_wp"><div class="pli_subtitle"><?php _e('Installed Version', 'revslider');?></div><div class="dynamicval pli_subtitle"><?php echo RS_REVISION; ?></div></div>
@@ -342,18 +347,26 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 		
 		// Slide Template
 		$slide_template = $f->get_post_var('slide_template');
-		update_post_meta($post_id, 'slide_template', $slide_template);
+		if(in_array($slide_template, array('', 'default'))){
+			delete_post_meta($post_id, 'slide_template');
+		}else{
+			update_post_meta($post_id, 'slide_template', $slide_template);
+		}
 
 		// Blank Page Template Background Color
 		$rs_page_bg_color = $f->get_post_var('rs_page_bg_color');
-		update_post_meta($post_id, 'rs_page_bg_color', $rs_page_bg_color);
+		if(strtolower($rs_page_bg_color) === '#ffffff'){
+			delete_post_meta($post_id, 'rs_page_bg_color');
+		}else{
+			update_post_meta($post_id, 'rs_page_bg_color', $rs_page_bg_color);
+		}
 
 		// Set/Unset Blank Template depending on Blank Template Switch
 		$rs_blank_template = $f->get_post_var('rs_blank_template');
-		if( empty( $rs_blank_template ) && !empty($rs_page_bg_color)  && get_post_meta($post_id, '_wp_page_template',true) == '../public/views/revslider-page-template.php' ){
+		if(empty($rs_blank_template) && !empty($rs_page_bg_color) && get_post_meta($post_id, '_wp_page_template', true) == '../public/views/revslider-page-template.php'){
 			update_post_meta($post_id, '_wp_page_template','');
 		}
-		if( !empty( $rs_blank_template ) &&  $rs_blank_template=="on" ) {
+		if(!empty($rs_blank_template) &&  $rs_blank_template == 'on'){
 			update_post_meta($post_id, '_wp_page_template','../public/views/revslider-page-template.php');
 		}
 	}
@@ -427,6 +440,9 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 		
 		add_action('admin_init', array($this, 'merge_addon_notices'), 99);
 		add_action('admin_init', array($this, 'add_suggested_privacy_content'), 15);
+		
+		$instagram = new RevSliderInstagram();
+		$instagram->add_actions();
 	}
 
 	/**
@@ -434,7 +450,6 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	 **/
 	public function add_filters(){
 		add_filter('admin_body_class', array($this, 'modify_admin_body_class'));
-		
 		add_filter('plugin_locale', array($this, 'change_lang'), 10, 2);
 	}
 	
@@ -496,7 +511,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	public function add_addon_plugins_page_notices(){
 		?>
 		<div class="error below-h2 soc-notice-wrap revaddon-notice" style="display: none;">
-			<p><?php echo __('Action required for Slider Revolution AddOns: Please <a href="//revolution.themepunch.com/" target="_blank">install</a>/<a href="//www.themepunch.com/slider-revolution/install-activate-and-update/#register-purchase-code" target="_blank">activate</a>/<a href="//www.themepunch.com/slider-revolution/install-activate-and-update/#plugin-updates" target="_blank">update</a> Slider Revolution</a>', 'revslider'); ?><span data-addon="rs-addon-notice" data-noticeid="rs-addon-merged-notices" style="float: right; cursor: pointer" class="revaddon-dismiss-notice dashicons dashicons-dismiss"></span></p>
+			<p><?php echo __('Action required for Slider Revolution AddOns: Please <a href="https://www.sliderrevolution.com/manual-section/manual/getting-started/quick-setup/" target="_blank">install</a>/<a href="https://www.sliderrevolution.com/manual-section/manual/getting-started/quick-setup/register-plugin/" target="_blank">activate</a>/<a href="https://www.sliderrevolution.com/manual-section/manual/getting-started/quick-setup/update-plugin/" target="_blank">update</a> Slider Revolution</a>', 'revslider'); ?><span data-addon="rs-addon-notice" data-noticeid="rs-addon-merged-notices" style="float: right; cursor: pointer" class="revaddon-dismiss-notice dashicons dashicons-dismiss"></span></p>
 		</div>
 		<?php
 	}
@@ -565,7 +580,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	public static function show_purchase_notice($plugin_file, $plugin_data, $plugin_status){
 		?>
 		<p>
-			<?php _e('Activate Slider Revolution for <a href="https://revolution.themepunch.com/direct-customer-benefits/" target="_blank">Premium Benefits (e.g. Live Updates)</a>.', 'revslider');?>
+			<?php _e('Activate Slider Revolution for <a href="https://www.sliderrevolution.com/premium-slider-revolution/" target="_blank">Premium Benefits (e.g. Live Updates)</a>.', 'revslider');?>
 		</p>
         <?php
 	}
@@ -639,8 +654,8 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 					break;
 				}
 			}
-
-			if(!current_user_can('administrator') && apply_filters('revslider_restrict_role', true)){
+			
+			if(!current_user_can($this->user_role) && apply_filters('revslider_restrict_role', true)){
 				switch($action){
 					case 'activate_plugin':
 					case 'deactivate_plugin':
@@ -659,13 +674,13 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 					case 'trigger_font_deletion':
 					case 'get_v5_slider_list':
 					case 'reimport_v5_slider':
-						$this->ajax_response_error(__('Function Only Available for Adminstrators', 'revslider'));
+						$this->ajax_response_error(__('Function only available for administrators', 'revslider'));
 						exit;
 					break;
 					default:
 						$return = apply_filters('revslider_admin_onAjaxAction_user_restriction', true, $action, $data, $slider, $slide, $operations);
 						if($return !== true){
-							$this->ajax_response_error(__('Function Only Available for Adminstrators', 'revslider'));
+							$this->ajax_response_error(__('Function only available for administrators', 'revslider'));
 							exit;
 						}
 					break;
@@ -902,7 +917,6 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 							foreach($ztt as $old => $new){
 								$slider = new RevSliderSliderImport();
 								$slider->init_by_id($new);
-								
 								$slider->update_modal_ids($ztt, $slides_ids);
 							}
 						}
@@ -1046,15 +1060,50 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 							}
 
 							//get the Slides that are no longer needed and delete them
+							$existing_slide_ids = array();
 							foreach($slides as $key => $_slide){
 								$id = $_slide->get_id();
 								if(!in_array($id, $slide_ids)){
 									$delete_slides[] = $id;
-									unset($slides[$key]); //remove none existing slides for further ordering process
+								}else{
+									$existing_slide_ids[] = $id;
 								}
 							}
-
+							
+							foreach($slides as $key => $_slide){
+								//check if the parentID exists in the $slides, if not remove this child slide
+								$parentID = $_slide->get_param(array('child', 'parentId'), false);
+								if($parentID !== false){
+									if(!in_array($parentID, $existing_slide_ids)){
+										$slid = $_slide->get_id();
+										if(!in_array($slid, $delete_slides)){
+											$delete_slides[] = $slid;
+										}
+									}
+								}
+							}
+							
 							if(!empty($delete_slides)){
+								//check for parentID's and if they exist, if the parentID will be deleted
+								foreach($slides as $key => $_slide){
+									//params -> child -> parentID
+									$parentID = $_slide->get_param(array('child', 'parentId'), false);
+									$child = $_slide->get_param(array('child'), false);
+									//var_dump($parentID);
+									if($parentID !== false){
+										if(in_array($parentID, $delete_slides)){
+											$delete_slides[] = $_slide->get_id();
+										}
+									}
+								}
+								
+								foreach($slides as $key => $_slide){
+									$id = $_slide->get_id();
+									if(in_array($id, $delete_slides)){
+										unset($slides[$key]); //remove none existing slides for further ordering process
+									}
+								}
+
 								foreach($delete_slides as $delete_slide){
 									$slide->delete_slide_by_id($delete_slide);
 								}
@@ -1144,15 +1193,14 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 					$arrSliders = $slider->get_sliders();
 					$post60		= (version_compare($slider->get_setting('version', '1.0.0'), '6.0.0', '<')) ? false : true;
 					// Given Alias
-					$alias = $this->get_val($data, 'alias');
-					
-					$return = array_search($alias,$arrSliders);
-
+					$alias	= $this->get_val($data, 'alias');
+					$return = array_search($alias, $arrSliders);
+					$title	= '';
 					foreach($arrSliders as $sliderony){
-						if( $sliderony->get_alias() == $alias ){
+						if($sliderony->get_alias() == $alias){
 							$slider_found = $sliderony->get_overview_data();
-							$return = $slider_found['size'];
-							$title = $slider_found['title'];
+							$return	= $slider_found['size'];
+							$title	= $slider_found['title'];
 						}
 					}
 					
@@ -1523,6 +1571,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 						}
 						
 						$output = new RevSliderOutput();
+						$output->set_preview_mode(true);
 						$slider->init_by_data($_slider);
 						if($slider->is_stream() || $slider->is_posts()){
 							$slides = $slider->get_slides_for_output();
@@ -1548,7 +1597,6 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 						$output->set_slider($slider);
 						$output->set_current_slides($slides);
 						$output->set_static_slide($static_slide);
-						$output->set_preview_mode(true);
 						
 						ob_start();
 						$slider = $output->add_slider_to_stage($slider_id);
@@ -1578,10 +1626,18 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 					
 					global $revslider_is_preview_mode;
 					$revslider_is_preview_mode = true;
+					if(extension_loaded('newrelic')){ //Ensure PHP agent is available
+						if(function_exists('newrelic_disable_autorum')){
+							newrelic_disable_autorum();
+						}
+					}
+					
 					require_once(RS_PLUGIN_PATH . 'public/includes/functions-public.class.php');
 					$rev_slider_front = new RevSliderFront();
 					
 					$post = $this->create_fake_post($content, $title);
+					
+					define('SHOW_CT_BUILDER', false); //fix for oxygen builder plugin to not remove the <html> tag and so on
 					
 					ob_start();
 					include(RS_PLUGIN_PATH . 'public/views/revslider-page-template.php');
@@ -1879,6 +1935,83 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 					
 					$this->ajax_response_data(array('data' => $img_data));
 				break;
+				case 'create_customlibrary_tags':
+					$obj = new RevSliderObjectLibrary();
+					
+					$name = $this->get_val($data, 'name', '');
+					$type = $this->get_val($data, 'type', '');
+					
+					$return = $obj->create_custom_tag($name, $type);
+					if(!is_array($return)){
+						$this->ajax_response_error($return);	
+					}else{
+						$this->ajax_response_data($return);
+					}
+				break;
+				case 'edit_customlibrary_tags':
+					$obj = new RevSliderObjectLibrary();
+					
+					$id = $this->get_val($data, 'id', '');
+					$name = $this->get_val($data, 'name', '');
+					$type = $this->get_val($data, 'type', '');
+					
+					$return = $obj->edit_custom_tag($id, $name, $type);
+					if($return !== true){
+						$this->ajax_response_error($return);	
+					}else{
+						$this->ajax_response_success(__('Tag successfully saved', 'revslider'));
+					}
+				break;
+				case 'delete_customlibrary_tags':
+					$obj = new RevSliderObjectLibrary();
+					
+					$id = $this->get_val($data, 'id', '');
+					$type = $this->get_val($data, 'type', '');
+					
+					$return = $obj->delete_custom_tag($id, $type);
+					if($return !== true){
+						$this->ajax_response_error($return);	
+					}else{
+						$this->ajax_response_success(__('Tag successfully deleted', 'revslider'));
+					}
+				break;
+				case 'upload_customlibrary_item':
+					$obj = new RevSliderObjectLibrary();
+					
+					$return = $obj->upload_custom_item($data);
+					
+					if(!is_array($return)){
+						$this->ajax_response_error($return);
+					}else{
+						$this->ajax_response_data($return);
+					}
+				break;
+				case 'edit_customlibrary_item':
+					$obj = new RevSliderObjectLibrary();
+					
+					$id = $this->get_val($data, 'id', '');
+					$type = $this->get_val($data, 'type', '');
+					$name = $this->get_val($data, 'name', '');
+					$tags = $this->get_val($data, 'tags', '');
+					$return = $obj->edit_custom_item($id, $type, $name, $tags);
+					if($return !== true){
+						$this->ajax_response_error(__('Item could not be changed', 'revslider'));	
+					}else{
+						$this->ajax_response_success(__('Item successfully changed', 'revslider'));
+					}
+				break;
+				case 'delete_customlibrary_item':
+					$obj = new RevSliderObjectLibrary();
+					
+					$id = $this->get_val($data, 'id', '');
+					$type = $this->get_val($data, 'type', '');
+					$return = $obj->delete_custom_item($id, $type);
+					if($return !== true){
+						$this->ajax_response_error(__('Item could not be deleted', 'revslider'));
+					}else{
+						$this->ajax_response_success(__('Item successfully deleted', 'revslider'));
+					}
+				break;
 				case 'get_help_directory':
 					include_once(RS_PLUGIN_PATH . 'admin/includes/help.class.php');
 
@@ -2017,6 +2150,9 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 					$return = apply_filters('revslider_do_ajax', $return, $action, $data);
 					if($return){
 						if(is_array($return)){
+							if(isset($return['error'])){
+								$this->ajax_response_error($return['error']);
+							}
 							//if(isset($return['message'])) $this->ajax_response_success($return["message"]);
 							if(isset($return['message'])){
 								$this->ajax_response_data(array('message' => $return['message'], 'data' => $return['data']));
@@ -2115,7 +2251,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	 * echo json ajax response as error
 	 * @before: RevSliderBaseAdmin::ajaxResponseError();
 	 */
-	protected function ajax_response_error($message, $data = null){
+	public function ajax_response_error($message, $data = null){
 		$this->ajax_response(false, $message, $data, true);
 	}
 
@@ -2123,7 +2259,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	 * echo ajax success response with redirect instructions
 	 * @before: RevSliderBaseAdmin::ajaxResponseSuccessRedirect();
 	 */
-	protected function ajax_response_redirect($message, $url){
+	public function ajax_response_redirect($message, $url){
 		$data = array('is_redirect' => true, 'redirect_url' => $url);
 
 		$this->ajax_response(true, $message, $data, true);
@@ -2133,7 +2269,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	 * echo json ajax response, without message, only data
 	 * @before: RevSliderBaseAdmin::ajaxResponseData()
 	 */
-	protected function ajax_response_data($data){
+	public function ajax_response_data($data){
 		$data = (gettype($data) == 'string') ? array('data' => $data) : $data;
 
 		$this->ajax_response(true, '', $data);
@@ -2143,7 +2279,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	 * echo ajax success response
 	 * @before: RevSliderBaseAdmin::ajaxResponseSuccess();
 	 */
-	protected function ajax_response_success($message, $data = null){
+	public function ajax_response_success($message, $data = null){
 
 		$this->ajax_response(true, $message, $data, true);
 	}

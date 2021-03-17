@@ -114,7 +114,7 @@ class Price_List extends Lastudio_Widget {
             'price_list',
             array(
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
                         'item_title' => esc_html__( 'Item #1', 'lastudio-elements' ),

@@ -238,7 +238,7 @@ class Table extends Lastudio_Widget {
             'table_header',
             array(
                 'type'    => Controls_Manager::REPEATER,
-                'fields'  => array_values( $table_header_repeater->get_controls() ),
+                'fields'  => $table_header_repeater->get_controls(),
                 'default' => array(
                     array(
                         'cell_text' => esc_html__( 'Heading #1', 'lastudio-elements' ),
@@ -538,7 +538,7 @@ class Table extends Lastudio_Widget {
             'table_body',
             array(
                 'type'    => Controls_Manager::REPEATER,
-                'fields'  => array_values( $table_body_repeater->get_controls() ),
+                'fields'  => $table_body_repeater->get_controls(),
                 'default' => array(
                     array(
                         'action' => 'row',

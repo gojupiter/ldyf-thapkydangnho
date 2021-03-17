@@ -188,7 +188,7 @@ class Tabs_Widget extends Lastudio_Widget {
             'tabs',
             array(
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
                         'item_label'  => esc_html__( 'Tab #1', 'lastudio-elements' ),

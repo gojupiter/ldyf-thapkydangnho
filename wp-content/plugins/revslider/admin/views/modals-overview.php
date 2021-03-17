@@ -26,19 +26,19 @@ if(!defined('ABSPATH')) exit();
 								<div class="mcg_o_title"><?php _e('What\'s new?');?></div>
 								<div class="mcg_o_descp"><?php printf(__( 'Check out our Change Log to learn about new Features and Bug Fixes in Version %s.', 'revslider'), RS_REVISION); ?></div>
 								<div class="div25"></div>
-								<a  target="_blank" href="https://www.themepunch.com/slider-revolution/changelog/" class="basic_action_button autosize basic_action_lilabutton"><?php _e('More Info');?></a>
+								<a  target="_blank" href="https://www.sliderrevolution.com/documentation/changelog/" class="basic_action_button autosize basic_action_lilabutton"><?php _e('More Info');?></a>
 							</div>
 							<div class="st_scene mcg_guide_optionwrap mcg_option_third">																
 								<div class="mcg_o_title"><?php _e('Docs & FAQs');?></div>
 								<div class="mcg_o_descp"><?php printf(__( 'Checkout our all new Help Center<br>with updated %s Support Material.', 'revslider'), RS_REVISION); ?></div>
 								<div class="div25"></div>
-								<a  target="_blank" href="https://www.themepunch.com/support-center" class="basic_action_button autosize basic_action_lilabutton"><?php _e('Help Center');?></a>
+								<a  target="_blank" href="https://www.sliderrevolution.com/help-center/" class="basic_action_button autosize basic_action_lilabutton"><?php _e('Help Center');?></a>
 							</div>
 							<div class="st_carousel mcg_guide_optionwrap mcg_option_third last">																
 								<div class="mcg_o_title"><?php _e('Clear your Browser Cache');?></div>
 								<div class="mcg_o_descp"><?php _e('To make sure that all Slider Revolution files<br>are updated, please clear your cache.');?></div>
 								<div class="div25"></div>
-								<a  target="_blank" href="https://www.themepunch.com/faq/updating-make-sure-clear-caches/" class="basic_action_button autosize basic_action_lilabutton"><?php _e('How to?');?></a>
+								<a  target="_blank" href="https://www.sliderrevolution.com/faq/updating-make-sure-clear-caches/" class="basic_action_button autosize basic_action_lilabutton"><?php _e('How to?');?></a>
 							</div>
 						</div>
 						<div class="div75"></div>
@@ -136,7 +136,7 @@ if(!defined('ABSPATH')) exit();
 						<div class="div25"></div>						
 						<label_a><?php _e('Enable Google Fonts download', 'revslider');?></label_a><select id="fontdownload" name="fontdownload" data-theme="inmodal" class="globalinput easyinit nosearchbox tos2" data-r="globals.fontdownload">
 										<option selected="selected" value="off"><?php _e('Load from Google','revslider');?></option>
-										<option value="preload"><?php _e('Preload from Google', 'revslider');?></option>
+										<option value="preload"><?php _e('Cache Fonts Local', 'revslider');?></option>
 										<option value="disable"><?php _e('Disable, Load on your own', 'revslider');?></option>
 									</select><span class="linebreak"></span>
 						<label_a><?php _e('Optional Google Fonts loading URL', 'revslider');?></label_a><input type="text" class="easyinit globalinput" data-r="globals.fonturl" placeholder="<?php _e('(ie. http://fonts.useso.com/css?family for chinese Environment)', 'revslider');?>"><span class="linebreak"></span>

@@ -1891,7 +1891,7 @@
 	"use strict";
 	$(function(){
 
-		$(window).load(function(){
+		$(window).on('load', function(){
 			try{
 				if('la_portfolio' !== pagenow){
 					$('.vc_add-element-container .wpb-content-layouts li[data-element="la_portfolio_info"]').remove();
@@ -2550,7 +2550,7 @@ laWoocommerceProductColumnsDependencyCallback = function(){
 /** VC Inline Front Editor **/
 (function($) {
 	'use strict';
-	$(window).load(function(){
+	$(window).on('load',function(){
 		if( typeof vc !== 'undefined' && typeof vc.frame_window !== 'undefined' && typeof vc.events !== 'undefined'){
 			vc.events.on('shortcodeView:updated', function(e){
 				vc.frame_window.LA.core.initAll(e.view.$el);

@@ -39,9 +39,15 @@ if('masonry' == $layout){
     if(!empty($settings['enable_custom_masonry_layout'])){
         $this->add_render_attribute( 'main-container', 'class', 'advancedMasonry');
     }
-    $this->add_render_attribute( 'main-container', 'data-container-width', $settings['container_width']['size'] );
-    $this->add_render_attribute( 'main-container', 'data-item-width', $settings['masonry_item_width']['size'] );
-    $this->add_render_attribute( 'main-container', 'data-item-height', $settings['masonry_item_height']['size'] );
+    if(isset($settings['container_width']['size'])){
+        $this->add_render_attribute( 'main-container', 'data-container-width', $settings['container_width']['size'] );
+    }
+    if(isset($settings['masonry_item_width']['size'])){
+        $this->add_render_attribute( 'main-container', 'data-item-width', $settings['masonry_item_width']['size'] );
+    }
+    if(isset($settings['masonry_item_height']['size'])){
+        $this->add_render_attribute( 'main-container', 'data-item-height', $settings['masonry_item_height']['size'] );
+    }
 }
 
 if( 'grid' != $layout ) {

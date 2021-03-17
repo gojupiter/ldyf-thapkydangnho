@@ -234,6 +234,39 @@ class Posts extends Shortcode_Base {
 					'is_archive_template!' => 'true',
 				),
 			),
+            'enable_pagination' => array(
+                'label'        => esc_html__( 'Enable Pagination', 'lastudio-elements' ),
+                'type'         => 'switcher',
+                'label_on'     => esc_html__( 'Yes', 'lastudio-elements' ),
+                'label_off'    => esc_html__( 'No', 'lastudio-elements' ),
+                'return_value' => 'true',
+                'default'      => ''
+            ),
+            'paginate_as_loadmore' => array(
+                'label'        => esc_html__( 'Pagination as load more', 'lastudio-elements' ),
+                'type'         => 'switcher',
+                'label_on'     => esc_html__( 'Yes', 'lastudio-elements' ),
+                'label_off'    => esc_html__( 'No', 'lastudio-elements' ),
+                'return_value' => 'true',
+                'default'      => '',
+                'condition'   => array(
+                    'enable_pagination' => 'true'
+                ),
+            ),
+            'loadmore_text' => array(
+                'type'        => 'text',
+                'label'       => esc_html__( 'Load more text', 'lastudio-elements' ),
+                'default'     => '',
+                'condition'   => array(
+                    'enable_pagination' => 'true',
+                    'paginate_as_loadmore' => 'true'
+                ),
+            ),
+            '_id' => array(
+                'label'        => esc_html__( 'Shortcode ID', 'lastudio-elements' ),
+                'type'         => 'hidden',
+                'default'      => ''
+            ),
 			'show_title' => array(
 				'type'         => 'switcher',
 				'label'        => esc_html__( 'Show Posts Title', 'lastudio-elements' ),
@@ -617,6 +650,14 @@ class Posts extends Shortcode_Base {
 			$query_args = $this->get_default_query_args();
 		}
 
+        $paged_key = 'post-page' . $this->get_attr('_id');
+
+        $page = absint( empty( $_GET[$paged_key] ) ? 1 : $_GET[$paged_key] );
+
+        if ( 1 < $page ) {
+            $query_args['paged'] = $page;
+        }
+
 		$query = new \WP_Query( $query_args );
 
 		return $query;
@@ -640,7 +681,8 @@ class Posts extends Shortcode_Base {
 		$loop_item  = $this->get_template( 'loop-item' );
 		$loop_end   = $this->get_template( 'loop-end' );
 
-		global $post;
+
+        $_id = $this->get_attr('_id');
 
 		ob_start();
 
@@ -673,6 +715,55 @@ class Posts extends Shortcode_Base {
 		}
 
 		include $loop_end;
+
+
+		if( $this->get_attr('enable_pagination') == 'true' ){
+            if( !empty($this->get_attr('loadmore_text')) ) {
+                $load_more_text = $this->get_attr('loadmore_text');
+            }
+            else{
+                $load_more_text = esc_html__('Load More', 'lastudio-elements');
+            }
+            $nav_classes = array('post-pagination', 'la-pagination', 'clearfix', 'la-ajax-pagination');
+            if(true|| $this->get_attr('paginate_as_loadmore') == 'true') {
+                $nav_classes[] = 'active-loadmore';
+            }
+            $paginated = ! $query->get( 'no_found_rows' );
+
+            $p_total_pages = $paginated ? (int) $query->max_num_pages : 1;
+            $p_current_page = $paginated ? (int) max( 1, $query->get( 'paged', 1 ) ) : 1;
+
+            $paged_key = 'post-page' . $_id;
+
+            $p_base = esc_url_raw( add_query_arg( $paged_key, '%#%', false ) );
+            $p_format = '?'.$paged_key.'=%#%';
+
+            if( $p_total_pages == $p_current_page ) {
+                $nav_classes[] = 'nothingtoshow';
+            }
+            ?>
+            <nav class="<?php echo join(' ', $nav_classes) ?>" data-parent-container="#lapost_<?php echo $_id ?>" data-container="#lapost_<?php echo $_id ?> .lastudio-posts" data-item-selector=".lastudio-posts__item" data-ajax_request_id="<?php echo $paged_key ?>">
+                <div class="la-ajax-loading-outer"><div class="la-loader spinner3"><div class="dot1"></div><div class="dot2"></div><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div><div class="cube1"></div><div class="cube2"></div><div class="cube3"></div><div class="cube4"></div></div></div>
+                <div class="post__loadmore_ajax pagination_ajax_loadmore">
+                    <a href="javascript:;"><span><?php echo esc_html($load_more_text); ?></span></a>
+                </div>
+                <?php
+                echo paginate_links( apply_filters( 'lastudio_elementor_ajax_pagination_args', array(
+                    'base'         => $p_base,
+                    'format'       => $p_format,
+                    'add_args'     => false,
+                    'current'      => max( 1, $p_current_page ),
+                    'total'        => $p_total_pages,
+                    'prev_text'    => '<i class="fa fa-angle-double-left"></i>',
+                    'next_text'    => '<i class="fa fa-angle-double-right"></i>',
+                    'type'         => 'list',
+                    'end_size'     => 3,
+                    'mid_size'     => 3
+                ), 'post' ) );
+                ?>
+            </nav>
+            <?php
+        }
 
 		/**
 		 * Hook after loop end template included

@@ -229,7 +229,11 @@ class RevSliderFunctions extends RevSliderData {
 		$json = '';
 		
 		if(!empty($arr)){
-			$json = json_encode($arr);
+			if(defined('JSON_INVALID_UTF8_IGNORE')){
+				$json = json_encode($arr, JSON_INVALID_UTF8_IGNORE);
+			}else{
+				$json = json_encode($arr);
+			}
 			$json = addslashes($json);
 		}
 
@@ -383,7 +387,8 @@ class RevSliderFunctions extends RevSliderData {
 	/**
 	 * Check if Path is a Valid Image File	 	
 	 **/	 
-	public function check_valid_image($url){		
+	public function check_valid_image($url){
+		if(empty($url)) return false;
 		$pos = strrpos($url, '.', -1);
 	    if($pos === false) return false;
 	    $ext = strtolower(substr($url, $pos));
@@ -754,7 +759,7 @@ class RevSliderFunctions extends RevSliderData {
 					'post_parent'	 => '',
 					'post_type'		 => 'attachment',
 					'guid'			 => $ul_dir['baseurl'].'/'.$s_dir,
-					'post_mime_type' => $file_info['mime'],
+					'post_mime_type' => $this->get_val($file_info, 'mime'),
 					'post_excerpt'	 => '',
 					'post_content'	 => ''
 				);
@@ -1258,15 +1263,18 @@ class RevSliderFunctions extends RevSliderData {
 		switch($special){
 			case 'http':
 				$url = str_replace('https://', 'http://', $url);
+				if(strpos($url, 'http://') === false) $url = 'http://'.$url;
 			break;
 			case 'https':
 				$url = str_replace('http://', 'https://', $url);
+				if(strpos($url, 'https://') === false) $url = 'https://'.$url;
 			break;
 			case 'keep': //do nothing
 			break;
 			case 'auto':
 			default:
 				$url = str_replace(array('http://', 'https://'), '//' , $url);
+				//if(strpos($url, '//') === false) $url = '//'.$url;
 			break;
 		}
 		return $url;
@@ -1316,6 +1324,21 @@ class RevSliderFunctions extends RevSliderData {
 			if($cml < $wp_ml) @ini_set('memory_limit', WP_MAX_MEMORY_LIMIT);
 		}
 	}
+	
+	
+	/**
+	 * Check if page is edited in Gutenberg
+	 */
+	public function _is_gutenberg_page(){
+		if(isset($_GET['action']) && $_GET['action'] == 'elementor') return false; // Elementor Page Edit
+		if(isset($_GET['vc_action']) && $_GET['vc_action'] == 'vc_inline') return false; // WP Bakery Front Edit
+		if(function_exists('is_gutenberg_page') && is_gutenberg_page()) return true; // Gutenberg Edit with WP < 5
+		$current_screen = get_current_screen();
+		if(!empty($current_screen) && method_exists($current_screen, 'is_block_editor') && $current_screen->is_block_editor()) return true; //Gutenberg Edit with WP >= 5
+		
+		return false;
+	}
+
 }
 
 //class RevSliderFunctions extends rs_functions {}

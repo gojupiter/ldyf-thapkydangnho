@@ -36,7 +36,7 @@ class Frontend extends Base {
 
 		$file_content = file_get_contents( $this->template_file );
 
-        $file_content = preg_replace_callback( '/ELEMENTOR_SCREEN_([A-Z0-9]+)_([A-Z]+)/', function ( $placeholder_data ) use ( $breakpoints_keys, $breakpoints ) {
+		$file_content = preg_replace_callback( '/ELEMENTOR_SCREEN_([A-Z0-9]+)_([A-Z]+)/', function ( $placeholder_data ) use ( $breakpoints_keys, $breakpoints ) {
 			$breakpoint_index = array_search( strtolower( $placeholder_data[1] ), $breakpoints_keys );
 
 			$is_max_point = 'MAX' === $placeholder_data[2];

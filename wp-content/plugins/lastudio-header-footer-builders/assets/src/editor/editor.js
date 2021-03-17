@@ -906,10 +906,10 @@ window.onload = function () {
                     let $this = $(this);
 
                     if ($this.is(':checked')) {
-                        $this.attr('value', 'true');
+                        $this.val('true');
                         $this.prop('checked', true);
                     } else {
-                        $this.attr('value', 'false');
+                        $this.val('false');
                         $this.prop('checked', false);
                     }
                 });
@@ -951,7 +951,7 @@ window.onload = function () {
                             $imgContainer.html('').append('<img src="' + attachment.url + '" alt="">').css('display', 'block');
 
                             // Send the attachment id to our hidden input
-                            $imgIdInput.attr('value', attachment.id);
+                            $imgIdInput.val(attachment.id);
 
                             // Unhide the remove image link
                             $delImgLink.show();
@@ -974,7 +974,7 @@ window.onload = function () {
                         $delImgLink.hide();
 
                         // Delete the image id from the hidden input
-                        $imgIdInput.attr('value', '');
+                        $imgIdInput.val('');
                     });
                 });
 
@@ -995,7 +995,7 @@ window.onload = function () {
                         $option.removeClass('lahfb-active');
                         $this.addClass('lahfb-active');
                         if (num_val) {
-                            $fieldInput.attr('value', num_val + unit);
+                            $fieldInput.val( num_val + unit);
                         }
                     });
 
@@ -1007,9 +1007,9 @@ window.onload = function () {
                         let num_val = $inputNumber.val();
 
                         if (num_val) {
-                            $fieldInput.attr('value', num_val + unit);
+                            $fieldInput.val(num_val + unit);
                         } else {
-                            $fieldInput.attr('value', '');
+                            $fieldInput.val('');
                         }
                     });
                 });
@@ -1024,7 +1024,7 @@ window.onload = function () {
 
                     $option.removeClass('lahfb-active');
                     $this.addClass('lahfb-active');
-                    $fieldInput.attr('value', value);
+                    $fieldInput.val(value);
                 });
 
                 // Icons field
@@ -1038,7 +1038,7 @@ window.onload = function () {
                         let iconClass = $this.attr('for');
                         $icon.removeClass('lahfb-active');
                         $this.addClass('lahfb-active');
-                        $fieldInput.attr('value', $('#' + iconClass).val());
+                        $fieldInput.val($('#' + iconClass).val());
                     });
                 });
 

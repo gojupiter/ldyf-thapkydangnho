@@ -180,7 +180,7 @@ class RevSliderFront extends RevSliderFunctions {
 
 		?>
 		<script type="text/javascript">
-			jQuery(document).ready(function(){
+			function rs_adminBarToolBarTopFunction() {
 				if(jQuery('#wp-admin-bar-revslider-default').length > 0 && jQuery('rs-module-wrap').length > 0){
 					var aliases = new Array();
 					jQuery('rs-module-wrap').each(function(){
@@ -190,8 +190,8 @@ class RevSliderFront extends RevSliderFunctions {
 					if(aliases.length > 0){
 						jQuery('#wp-admin-bar-revslider-default li').each(function(){
 							var li = jQuery(this),
-								t = jQuery.trim(li.find('.ab-item .rs-label').data('alias')); //text()
-							
+								t = li.find('.ab-item .rs-label').data('alias'); //text()
+							t = t!==undefined && t!==null ? t.trim() : t;
 							if(jQuery.inArray(t,aliases)!=-1){
 							}else{
 								li.remove();
@@ -201,7 +201,19 @@ class RevSliderFront extends RevSliderFunctions {
 				}else{
 					jQuery('#wp-admin-bar-revslider').remove();
 				}
-			});
+			}
+			var adminBarLoaded_once = false
+			if (document.readyState === "loading") 
+				document.addEventListener('readystatechange',function(){
+					if ((document.readyState === "interactive" || document.readyState === "complete") && !adminBarLoaded_once) {
+						adminBarLoaded_once = true;
+						rs_adminBarToolBarTopFunction()
+					}
+				});
+			else {
+				adminBarLoaded_once = true;
+				rs_adminBarToolBarTopFunction();
+			}
 		</script>
 		<?php
 }

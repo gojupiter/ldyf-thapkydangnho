@@ -264,7 +264,7 @@ class Advanced_Map extends Lastudio_Widget {
             'pins',
             array(
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
                         'pin_address' => $default_address,

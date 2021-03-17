@@ -3,7 +3,7 @@
  * Plugin Name:       LA-Studio Core
  * Plugin URI:        https://themeforest.net/user/la-studio/?ref=la-studio
  * Description:       This plugin use only for LA-Studio theme with Elementor
- * Version:           2.0.7.3
+ * Version:           2.0.9
  * Author:            LA-Studio
  * Author URI:        https://themeforest.net/user/la-studio/?ref=la-studio
  * License:           GPL-2.0+
@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Currently plugin version.
  */
-define( 'LASTUDIO_VERSION', '2.0.7.3' );
+define( 'LASTUDIO_VERSION', '2.0.9' );
 
 /**
  * The code that runs during plugin activation.

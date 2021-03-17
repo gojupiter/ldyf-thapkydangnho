@@ -267,9 +267,9 @@ class Products_Renderer extends \WC_Shortcode_Products {
                     $container_attr  = ' data-la_component="DefaultMasonry"';
                 }
 
-                $container_attr .= ' data-item-width="' . ( $this->settings['masonry_item_base_width'] ? intval($this->settings['masonry_item_base_width']) : 300 ) . '"';
-                $container_attr .= ' data-item-height="' . ( $this->settings['masonry_item_base_height'] ? intval($this->settings['masonry_item_base_height']) : 300 ) . '"';
-                $container_attr .= ' data-container-width="' . ( $this->settings['masonry_container_width'] ? intval($this->settings['masonry_container_width']) : 1170 ) . '"';
+                $container_attr .= ' data-item-width="' . ( !empty($this->settings['masonry_item_base_width']['size']) ? intval($this->settings['masonry_item_base_width']['size']) : 300 ) . '"';
+                $container_attr .= ' data-item-height="' . ( !empty($this->settings['masonry_item_base_height']['size']) ? intval($this->settings['masonry_item_base_height']['size']) : 300 ) . '"';
+                $container_attr .= ' data-container-width="' . ( !empty($this->settings['masonry_container_width']['size']) ? intval($this->settings['masonry_container_width']['size']) : 1170 ) . '"';
                 $container_attr .= ' data-md-col="' . ($this->settings['columns_tablet'] ? $this->settings['columns_tablet'] : 1) . '"';
                 $container_attr .= ' data-sm-col="' . ($this->settings['columns_width800'] ? $this->settings['columns_width800'] : 1) . '"';
                 $container_attr .= ' data-xs-col="' . ($this->settings['columns_mobile'] ? $this->settings['columns_mobile'] : 1) . '"';
@@ -336,6 +336,8 @@ class Products_Renderer extends \WC_Shortcode_Products {
             );
 
             $original_post = isset($GLOBALS['post']) ? $GLOBALS['post'] : false;
+
+            do_action('woocommerce_shortcode_before_la_products_loop');
 
             // Fire standard shop loop hooks when paginating results so we can show result counts and so on.
             if ( wc_string_to_bool( $this->attributes['paginate'] ) ) {

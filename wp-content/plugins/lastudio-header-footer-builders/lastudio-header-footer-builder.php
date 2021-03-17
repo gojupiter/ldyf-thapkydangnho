@@ -16,7 +16,7 @@
  * Plugin Name:       LA-Studio Header Builder
  * Plugin URI:        https://la-studioweb.com/
  * Description:       This plugin use only for LA-Studio theme
- * Version:           1.0.3.1
+ * Version:           1.0.5
  * Author:            LA-Studio
  * Author URI:        https://la-studioweb.com/
  * License:           GPL-2.0+
@@ -76,7 +76,7 @@ if ( ! class_exists( 'LaStudio_Header_Footer_Builder' ) ) :
 		 *
 		 * @since    1.0.0
 		 */
-		const VERSION		= '1.0.3.1';
+		const VERSION		= '1.0.5';
 
 		/**
 		 * The LaStudio Header Footer Builder prefix to reference classes inside it.
@@ -118,8 +118,6 @@ if ( ! class_exists( 'LaStudio_Header_Footer_Builder' ) ) :
 			self::$url	= plugin_dir_url( __FILE__ );
 
 
-            //add_action('init', array( $this, 'register_my_session' ), 1);
-
             require_once( self::$path . 'includes/functions/functions.php' );
 			require_once( self::$path . 'includes/class-loader.php' );
 
@@ -152,12 +150,6 @@ if ( ! class_exists( 'LaStudio_Header_Footer_Builder' ) ) :
 		public static function get_url() {
 			return self::$url;
 		}
-
-		public function register_my_session(){
-            if( !session_id() ) {
-                session_start();
-            }
-        }
     }
 
 	// Create a simple alias

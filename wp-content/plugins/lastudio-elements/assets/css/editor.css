@@ -206,3 +206,10 @@ div#elementor-panel.ui-resizable.active {
 .elementor-icons-manager__tab__item__content .dlicon {
     font-size: 25px;
 }
+
+@media(max-width: 1700px){
+    .fix-small-browser.elementor-device-desktop #elementor-preview-responsive-wrapper{
+        min-width: 1600px;
+        height: calc(100% - 10px);
+    }
+}

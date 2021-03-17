@@ -264,7 +264,7 @@ class LastudioPlugin {
             'lastudio-salvattore',
             LASTUDIO_ELEMENTS_URL . 'assets/js/lib/salvattore/salvattore.min.js',
             [],
-            '1.0.9',
+            '1.0.9.1',
             true
         );
 
@@ -484,6 +484,9 @@ class LastudioPlugin {
 
         add_filter('elementor/icons_manager/additional_tabs', [ $this, 'add_dlicon_library' ]);
 
+        add_action('elementor/element/column/layout/before_section_end', [$this, 'modify_column_widget'], 99, 2);
+
+        add_action('elementor/element/editor-preferences/preferences/before_section_end', [ $this, 'modify_panel_backend' ], 10, 2);
 	}
 
 	public function single_elementor_library_template( $template ){
@@ -573,6 +576,47 @@ class LastudioPlugin {
         ];
 
         return $tabs;
+    }
+
+    public function modify_column_widget( $element, $args ){
+        $element->update_responsive_control(
+            '_inline_size',
+            [
+                'device_args' => [
+                    'laptop' => [
+                        'max' => 100,
+                        'required' => false,
+                    ],
+                    'width800' => [
+                        'max' => 100,
+                        'required' => false,
+                    ],
+                    'tablet' => [
+                        'max' => 100,
+                        'required' => false,
+                    ],
+                    'mobile' => [
+                        'max' => 100,
+                        'required' => false,
+                    ],
+                ],
+                'min_affected_device' => [
+                    'desktop' => 'laptop',
+                    'laptop' => 'laptop'
+                ],
+            ]
+        );
+    }
+
+    public function modify_panel_backend( $element, $args ){
+        $element->add_control(
+            'lastudio_fix_small_browser',
+            [
+                'label' => __( 'Fix Small Browser', 'lastudio' ),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'description' => __( 'Force set up minimum width for Elementor Preview', 'lastudio' ),
+            ]
+        );
     }
 
 }

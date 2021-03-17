@@ -183,8 +183,8 @@ if ( ! class_exists( 'LAHFB_Nav_Walker' ) ) :
             $item_output = '';
 
             foreach ( $atts as $attr => $value ) {
-                if ( ! empty( $value ) ) {
-                    $value = ( 'href' === $attr && ! empty( $item->url ) ) ? esc_url( $value ) : '#';
+                if ( is_scalar( $value ) && '' !== $value && false !== $value ) {
+                    $value       = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
                     $attributes .= ' ' . $attr . '="' . $value . '"';
                 }
             }
@@ -278,8 +278,8 @@ if ( ! class_exists( 'LAHFB_Nav_Walker' ) ) :
             $item_output = '';
 
             foreach ( $atts as $attr => $value ) {
-                if ( ! empty( $value ) ) {
-                    $value = ( 'href' === $attr && ! empty( $item->url ) ) ? esc_url( $value ) : '#';
+                if ( is_scalar( $value ) && '' !== $value && false !== $value ) {
+                    $value       = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
                     $attributes .= ' ' . $attr . '="' . $value . '"';
                 }
             }

@@ -2,7 +2,7 @@
 /**
  * @package RevSliderExtension
  * @author    ThemePunch <info@themepunch.com>
- * @link      https://revolution.themepunch.com/
+ * @link      https://www.sliderrevolution.com/
  * @copyright 2019 ThemePunch
  */
  
@@ -139,10 +139,7 @@ class RevSliderExtension {
 		?>
 		<script type="text/javascript">
 			var ajaxRevslider;
-			
-			jQuery(document).ready(function() {
-
-				
+			function rsCustomAjaxContentLoadingFunction() {
 				// CUSTOM AJAX CONTENT LOADING FUNCTION
 				ajaxRevslider = function(obj) {
 				
@@ -194,11 +191,21 @@ class RevSliderExtension {
 						// type:  Name of the Post to load via Ajax into the Essential Grid Ajax Container
 						// func: the Function Name which is Called once the Item with the Post Type has been clicked
 						// killfunc: function to kill in case the Ajax Window going to be removed (before Remove function !
-						// openAnimationSpeed: how quick the Ajax Content window should be animated (default is 0.3)
-					
-				
-				
-			});
+						// openAnimationSpeed: how quick the Ajax Content window should be animated (default is 0.3)					
+			}
+			
+			var rsCustomAjaxContent_Once = false
+			if (document.readyState === "loading") 
+				document.addEventListener('readystatechange',function(){
+					if ((document.readyState === "interactive" || document.readyState === "complete") && !rsCustomAjaxContent_Once) {
+						rsCustomAjaxContent_Once = true;
+						rsCustomAjaxContentLoadingFunction();
+					}
+				});
+			else {
+				rsCustomAjaxContent_Once = true;
+				rsCustomAjaxContentLoadingFunction();
+			}					
 		</script>
 		<?php
 	}

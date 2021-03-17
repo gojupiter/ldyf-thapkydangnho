@@ -3,7 +3,7 @@
  * Plugin Name: LaStudio Elements For Elementor
  * Plugin URI:  https://la-studioweb.com
  * Description: This plugin use only for LA-Studio theme with Elementor Page Builder
- * Version:     1.0.4
+ * Version:     1.0.9
  * Author:      LaStudio
  * Author URI:  https://la-studioweb.com
  * Text Domain: lastudio-elements
@@ -19,11 +19,11 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'LASTUDIO_ELEMENTS_VER', '1.0.4' );
+define( 'LASTUDIO_ELEMENTS_VER', '1.0.9' );
 define( 'LASTUDIO_ELEMENTS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'LASTUDIO_ELEMENTS_BASE', plugin_basename( __FILE__ ) );
 define( 'LASTUDIO_ELEMENTS_URL', plugins_url( '/', __FILE__ ) );
-define( 'LASTUDIO_ELEMENTS_ELEMENTOR_VERSION_REQUIRED', '2.8.5' );
+define( 'LASTUDIO_ELEMENTS_ELEMENTOR_VERSION_REQUIRED', '3.1.0' );
 define( 'LASTUDIO_ELEMENTS_PHP_VERSION_REQUIRED', '5.6' );
 
 require_once LASTUDIO_ELEMENTS_PATH . 'includes/helper-functions.php';
@@ -39,38 +39,59 @@ require_once LASTUDIO_ELEMENTS_PATH . 'classes/class-lastudio-elements-wpml.php'
 if(!function_exists('lastudio_elementor_recreate_editor_file')){
     function lastudio_elementor_recreate_editor_file(){
 
+        global $wp_filesystem;
+        if (empty($wp_filesystem)) {
+            require_once(ABSPATH . '/wp-admin/includes/file.php');
+            WP_Filesystem();
+        }
         $wp_upload_dir = wp_upload_dir( null, false );
-        $target_source_file = $wp_upload_dir['basedir'] . '/elementor/editor.min.js';
-        $remote_source_file = plugin_dir_path(dirname( __FILE__ )) . 'elementor/assets/js/editor.min.js';
-        if(file_exists($remote_source_file)){
-            try {
-                $file_content = @file_get_contents($remote_source_file);
-                $string_search = array(
-                    '["desktop","tablet","mobile"]'
-                );
-                $string_replace = array(
-                    '["desktop","laptop","tablet","width800","mobile"]'
-                );
-                $new_content = str_replace($string_search, $string_replace, $file_content);
+        $target_source_folder = $wp_upload_dir['basedir'] . '/elementor';
+        $target_source_file = $target_source_folder . '/editor.min.js';
+        $remote_source_file = plugin_dir_path( LASTUDIO_ELEMENTS_PATH ) . 'elementor/assets/js/editor.min.js';
+        if($wp_filesystem->exists($remote_source_file)){
+            $file_content = $wp_filesystem->get_contents($remote_source_file);
+            $string_search = array(
+                '["desktop","tablet","mobile"]'
+            );
+            $string_replace = array(
+                '["desktop","laptop","tablet","width800","mobile"]'
+            );
+            $new_content = str_replace($string_search, $string_replace, $file_content);
 
-                $new_content = preg_replace(
-                    '/stylesheet\.addDevice\((.*)\)},addStyleRules/',
-                    'stylesheet.addDevice("mobile",0).addDevice("width800",elementorFrontend.config.breakpoints.md).addDevice("tablet",elementorFrontend.config.breakpoints.width800).addDevice("laptop",elementorFrontend.config.breakpoints.lg).addDevice("desktop",elementorFrontend.config.breakpoints.xl)},addStyleRules',
-                    $new_content
-                );
+            $new_content2 = preg_replace(
+                '/stylesheet\.addDevice\((.*)\)},addStyleRules/',
+                'stylesheet.addDevice("mobile",0).addDevice("width800",elementorFrontend.config.breakpoints.md).addDevice("tablet",elementorFrontend.config.breakpoints.width800).addDevice("laptop",elementorFrontend.config.breakpoints.lg).addDevice("desktop",elementorFrontend.config.breakpoints.xl)},addStyleRules',
+                $new_content
+            );
 
-                if (@file_put_contents($target_source_file, $new_content)) {
-                    update_option('lastudio-elementor-has-init-js', true);
+            if(empty($new_content2)){
+                $tmp1 = explode('stylesheet.addDevice', $new_content);
+                $tmp2 = explode('},addStyleRules', $new_content);
+                $new_content = $tmp1[0] . 'stylesheet.addDevice("mobile",0).addDevice("width800",elementorFrontend.config.breakpoints.md).addDevice("tablet",elementorFrontend.config.breakpoints.width800).addDevice("laptop",elementorFrontend.config.breakpoints.lg).addDevice("desktop",elementorFrontend.config.breakpoints.xl)},addStyleRules' . $tmp2[1];
+            }
+            else{
+                $new_content = $new_content2;
+            }
+
+            if(!$wp_filesystem->is_dir($target_source_folder)){
+                if(! wp_mkdir_p( $target_source_folder )){
+                    return new WP_Error( 'lastudio_elementor.cannot_put_contents', __( 'Could not open the file for fetching', 'lastudio-elements' ) );
                 }
-                return true;
+            }
 
-            }catch (\Exception $exception){
-                return new WP_Error( 'lastudio_elementor.cannot_fetching', __( 'Could not open the file for fetching', 'lastudio-elements' ) );
+            if($wp_filesystem->put_contents($target_source_file, $new_content)){
+                update_option('lastudio-elementor-has-init-js', true);
+                return true;
+            }
+            else{
+                update_option('lastudio-elementor-has-init-js', false);
+                return new WP_Error( 'lastudio_elementor.cannot_put_contents', __( 'Could not open the file for fetching', 'lastudio-elements' ) );
             }
         }
         else{
-            return new WP_Error( 'lastudio_elementor.cannot_fetching', __( 'Could not open the file for fetching', 'lastudio-elements' ) );
+            return new WP_Error( 'lastudio_elementor.resource_not_exists', __( 'Resource does not exist', 'lastudio-elements' ) );
         }
+
     }
 }
 add_action('lastudio_elementor_recreate_editor_file', 'lastudio_elementor_recreate_editor_file');
@@ -292,11 +313,39 @@ function lastudio_elements_init() {
         add_action('script_loader_src', 'lastudio_elements_override_editor_before_enqueue_scripts', 10, 2);
         add_action('elementor/editor/wp_head', 'lastudio_elements_override_editor_wp_head' );
 
-        require LASTUDIO_ELEMENTS_PATH . 'override/includes/base/controls-stack.php';
-        require LASTUDIO_ELEMENTS_PATH . 'override/core/files/css/base.php' ;
-        require LASTUDIO_ELEMENTS_PATH . 'override/core/responsive/files/frontend.php';
-        require LASTUDIO_ELEMENTS_PATH . 'override/core/responsive/responsive.php';
+        $need_include = get_option('lastudio_has_elementor_error', false);
 
+        if(empty($need_include)){
+            require LASTUDIO_ELEMENTS_PATH . 'override/includes/base/controls-stack.php';
+            require LASTUDIO_ELEMENTS_PATH . 'override/core/files/css/base.php';
+            require LASTUDIO_ELEMENTS_PATH . 'override/core/responsive/files/frontend.php';
+            require LASTUDIO_ELEMENTS_PATH . 'override/core/responsive/responsive.php';
+        }
+
+    }
+}
+
+function lastudio_grab_shutdown_handler_if_has_elementor_error() {
+    $last_error = error_get_last();
+    if (isset ($last_error['type']) && $last_error['type'] == E_ERROR) {
+        if(strpos($last_error['file'], 'wp-content/plugins/elementor/') !== false || strpos($last_error['file'], 'wp-content/plugins/lastudio-elements/') !== false){
+            update_option('lastudio_has_elementor_error', 'has_error');
+        }
+    }
+}
+register_shutdown_function ('lastudio_grab_shutdown_handler_if_has_elementor_error');
+
+add_action('lastudio_elementor_fix_error', function (){
+    delete_option('lastudio_has_elementor_error');
+});
+
+add_action('admin_notices', 'lastudio_admin_notices_if_has_elementor_error');
+
+function lastudio_admin_notices_if_has_elementor_error(){
+    $has_error = get_option('lastudio_has_elementor_error', false);
+    if(!empty($has_error)){
+        $msg = sprintf('The latest version of %1$s is incompatible with %2$s plugin,<br/> Please downgrade %1$s plugin to the previous version, then reactivate %2$s plugin and wait for updated version of the theme', '<strong>Elementor</strong>', '<strong>LaStudio Elements For Elementor</strong>');
+        echo sprintf('<div class="%1$s"><p>%2$s</p></div>', 'notice notice-error la-has-elementor-error', $msg);
     }
 }
 
@@ -307,8 +356,144 @@ function lastudio_elements_init() {
  * @modified 1.0.2.8
  * @return void
  */
-function lastudio_elements_plugin_activation()
-{
+function lastudio_elements_plugin_activation() {
     lastudio_elementor_recreate_editor_file();
+    do_action('lastudio_elementor_fix_error');
 }
 register_activation_hook( __FILE__, 'lastudio_elements_plugin_activation' );
+
+if(!function_exists('lastudio_elements_fix_elementor_override_core_file')){
+    function lastudio_elements_fix_elementor_override_core_file(){
+        $msg = [];
+        $elementor_path = WP_PLUGIN_DIR . '/elementor/';
+        $target_path = WP_PLUGIN_DIR . '/lastudio-elements/override/';
+        $override = [
+            'core-files-css-base' => [
+                'source' => $elementor_path . 'core/files/css/base.php',
+                'target' => $target_path . 'core/files/css/base.php',
+                'find' => [
+                    '->add_device( \'tablet\', $breakpoints[\'md\'] )',
+                    '->add_device( \'desktop\', $breakpoints[\'lg\'] )'
+                ],
+                'replace' => [
+                    '->add_device( \'width800\', $breakpoints[\'md\'] )->add_device( \'tablet\', $breakpoints[\'width800\'] )',
+                    '->add_device( \'laptop\', $breakpoints[\'lg\'] )->add_device( \'desktop\', $breakpoints[\'xl\'] )'
+                ]
+            ],
+            'core-responsive-files-frontend' => [
+                'source' => $elementor_path . 'core/responsive/files/frontend.php',
+                'target' => $target_path . 'core/responsive/files/frontend.php',
+                'find' => [
+                    'ELEMENTOR_SCREEN_([A-Z]+)_([A-Z]+)'
+                ],
+                'replace' => [
+                    'ELEMENTOR_SCREEN_([A-Z0-9]+)_([A-Z]+)'
+                ]
+            ],
+            'core-responsive-responsive' => [
+                'source' => $elementor_path . 'core/responsive/responsive.php',
+                'target' => $target_path . 'core/responsive/responsive.php',
+                'find' => [
+                    '\'xl\' => 1440,',
+                    '\'xxl\' => 1600,'
+                ],
+                'replace' => [
+                    '\'xl\' => 1600,',
+                    '\'xxl\' => 1825,\'width800\' => 800,'
+                ]
+            ],
+            'includes-base-controlsstack' => [
+                'source' => $elementor_path . 'includes/base/controls-stack.php',
+                'target' => $target_path . 'includes/base/controls-stack.php',
+                'find' => [
+                    'const RESPONSIVE_MOBILE = \'mobile\';',
+                    'self::RESPONSIVE_MOBILE,'
+                ],
+                'replace' => [
+                    'const RESPONSIVE_MOBILE = \'mobile\';const RESPONSIVE_LAPTOP = \'laptop\';const RESPONSIVE_WIDTH800 = \'width800\';',
+                    'self::RESPONSIVE_MOBILE,self::RESPONSIVE_LAPTOP,self::RESPONSIVE_WIDTH800,'
+                ]
+            ]
+        ];
+        global $wp_filesystem;
+        if (empty($wp_filesystem)) {
+            require_once(ABSPATH . '/wp-admin/includes/file.php');
+            WP_Filesystem();
+            if(!defined('FS_METHOD')){
+                define('FS_METHOD', 'direct');
+            }
+        }
+        foreach ($override as $k => $file){
+            $status = false;
+            if($wp_filesystem->exists($file['source'])){
+                $file_content = $wp_filesystem->get_contents($file['source']);
+                $new_content = str_replace( $file['find'], $file['replace'], $file_content );
+                if($wp_filesystem->put_contents($file['target'], $new_content)){
+                    $status = true;
+                }
+            }
+            $msg[$k] = $status;
+        }
+
+        $result = array_filter( $msg, function ( $val ) {
+            return !$val;
+        } );
+
+        if(count($result) > 0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+}
+
+add_action('admin_menu', function (){
+    add_submenu_page(
+        'tools.php',
+        esc_html__('Fix LaStudio Elements', 'lastudio-elements'),
+        esc_html__('Fix LaStudio Elements', 'lastudio-elements'),
+        'manage_options',
+        'fix-lastudio-elements',
+        'lastudio_elements_admin_menu_fix_cb'
+    );
+});
+
+if(!function_exists('lastudio_elements_admin_menu_fix_cb')){
+    function lastudio_elements_admin_menu_fix_cb(){
+?>
+        <div class="wrap">
+            <br/>
+            <h1><?php esc_html_e('Fix LaStudio Elements', 'la-studio') ?></h1>
+            <br/>
+            <?php
+            if(isset($_POST['lasf_fix_elem'])){
+                $nonce = isset($_POST['_wpnonce']) ? $_POST['_wpnonce'] : '';
+                if(wp_verify_nonce($nonce, 'lastudio_elements_fix')){
+                    $result = lastudio_elements_fix_elementor_override_core_file();
+                    if($result){
+                        do_action('lastudio_elementor_recreate_editor_file');
+                        echo sprintf('<p>%s</p>', __('All done!, please re-active `LaStudio Elements For Elementor` plugin', 'lastudio-elements'));
+                    }
+                    else{
+                        $msg = __('An error has occurred please contact support %s', 'lastudio-elements');
+                        echo '<p>'. sprintf($msg, '<a href="https://support.la-studioweb.com/" target="_blank">https://support.la-studioweb.com/</a>') .'</p>';
+                    }
+                }
+                else{
+                    echo sprintf('<p>%s</p>', __('Invalid Nonce', 'lastudio-elements'));
+                }
+            }
+            else{
+                ?>
+                <form method="post">
+                    <button name="lasf_fix_elem" value="yes" id="lasf_fix_elem" class="button button-primary" type="submit"><?php esc_html_e('Fix now!', 'lastudio-elements') ?></button>
+                    <?php wp_nonce_field('lastudio_elements_fix'); ?>
+                </form>
+                <?php
+            }
+            ?>
+        </div>
+        <?php
+    }
+}

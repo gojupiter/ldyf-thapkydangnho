@@ -185,7 +185,7 @@ class Module extends Module_Base {
             'lastudio_parallax_layout_list',
             array(
                 'type'    => Controls_Manager::REPEATER,
-                'fields'  => array_values( $repeater->get_controls() ),
+                'fields'  => $repeater->get_controls(),
                 'default' => array(
                     array(
                         'lastudio_parallax_layout_image' => array(
@@ -339,6 +339,24 @@ class Module extends Module_Base {
         $obj->end_controls_section();
     }
 
+    public function get_default_parallax_settings(){
+        return [
+            'lastudio_parallax_layout_speed' => [
+                'size' => 50,
+                'unit' => '%',
+            ],
+            'lastudio_parallax_layout_type' => 'scroll',
+            'lastudio_parallax_layout_bg_x' => 50,
+            'lastudio_parallax_layout_bg_y' => 50,
+            'lastudio_parallax_layout_bg_size' => 'auto',
+            'lastudio_parallax_layout_animation_prop' => 'transform',
+            'lastudio_parallax_layout_on' => [
+                'desktop',
+                'tablet'
+            ]
+        ];
+    }
+
     /**
      * Elementor before section render callback
      *
@@ -356,7 +374,7 @@ class Module extends Module_Base {
                 $new_settings = array();
                 foreach ($settings['lastudio_parallax_layout_list'] as $k => $setting){
                     if(!empty($setting['lastudio_parallax_layout_image']) && !empty($setting['lastudio_parallax_layout_image']['url'])){
-                        $new_settings[$k] = $setting;
+                        $new_settings[$k] = array_merge($this->get_default_parallax_settings(), $setting);
                     }
                 }
                 if(!empty($new_settings)){

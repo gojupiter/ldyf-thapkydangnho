@@ -2099,6 +2099,10 @@ class Posts extends Lastudio_Widget {
         );
     }
 
+    public function __open_wrap() {
+        printf( '<div class="elementor-%s lastudio-elements" id="lapost_%s">', $this->get_name(), $this->get_id() );
+    }
+
     protected function render() {
 
         $this->__context = 'render';
@@ -2134,6 +2138,8 @@ class Posts extends Lastudio_Widget {
         foreach ( $cutom_fields_atts as $attr ) {
             $attributes[ $attr ] = isset( $settings[ $attr ] ) ? $settings[ $attr ] : false;
         }
+
+        $attributes['_id'] = $this->get_id();
 
         echo $this->maybe_apply_carousel_wrappers( $shortcode_obj->do_shortcode( $attributes ), $settings );
 
@@ -2230,7 +2236,7 @@ class Posts extends Lastudio_Widget {
             $position_slug . '_meta',
             array(
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
                         'meta_label' => esc_html__( 'Label', 'lastudio-elements' ),
