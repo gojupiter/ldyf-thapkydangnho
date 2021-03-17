@@ -59,7 +59,6 @@ function scan() {
 }
 
 function checkin(res){
-  console.log("inf");
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -70,7 +69,7 @@ function checkin(res){
       }
     }
   };
-  xhttp.open("POST", "http://ldyf-thapkydangnho.online/wp-admin/admin-ajax.php?_fs_blog_admin=true", true);
+  xhttp.open("POST", "https://ldyf-thapkydangnho.online/wp-admin/admin-ajax.php?_fs_blog_admin=true", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("action=check_in_barcode&api_key=230&barcode="+res);
 }
